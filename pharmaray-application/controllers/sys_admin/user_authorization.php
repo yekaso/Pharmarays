@@ -209,8 +209,10 @@ class user_authorization extends CI_Controller {
     }
 
     function articleslist($data = '') {
+    function articleslist() {
         $default_id = 0;
         $limit = 15;
+        $data['memberid'] = $this->session->userdata('memberid');
        // $data = '';
 //  $data['news'] = $this->membermodel->retrieve_newsbeyond_id($default_id, $limit);
         $data['newsletter'] = $this->membermodel->retrieve_newsletterbeyond_id($default_id, $limit);
@@ -355,6 +357,7 @@ class user_authorization extends CI_Controller {
                     $this->redirect_to_managearticles($data);
                 } else {
                     $this->articleslist($data);
+                    $this->articleslist();
                 }
             } else {
                 $this->session->set_flashdata('message', 'Invalid login details');
