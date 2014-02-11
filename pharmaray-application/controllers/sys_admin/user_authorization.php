@@ -208,7 +208,6 @@ class user_authorization extends CI_Controller {
         //     $this->createpharmacysearchresult($pharmacyid, $userid);
     }
 
-    function articleslist($data = '') {
     function articleslist() {
         $default_id = 0;
         $limit = 15;
@@ -356,7 +355,6 @@ class user_authorization extends CI_Controller {
                 if ($data['is_adminuser']) {
                     $this->redirect_to_managearticles($data);
                 } else {
-                    $this->articleslist($data);
                     $this->articleslist();
                 }
             } else {
