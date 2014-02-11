@@ -948,7 +948,7 @@ class membermodel extends CI_Model {
     }
 
     function retrieve_forums() {
-        log_message('info', 'inside retrieving pharmacy beyond id ');
+        log_message('info', 'inside retrieving forum beyond id ');
         $where_sql = "ff.forumid_forum  is null ";
 
 
