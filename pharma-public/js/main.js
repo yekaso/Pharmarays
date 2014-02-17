@@ -34,7 +34,7 @@ $(function() {
     //resets the hidden drug id to 1 which is default
     $("#drugid").attr("value", "1");
     //Reloads the drugs information when the drugs in related items are clicked
-    $("#related_drugs ul li a").live("click", function() {
+    $("#related_drugs ul li a,#toptendrugs ul li a").live("click", function() {
         $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
         var selectedid = $(this).attr('id');
         retrievedrug(selectedid, 0, 10);
@@ -46,7 +46,7 @@ $(function() {
         $('#related_drugs').scrollTop(0);
         //  alert("check box clicked");
         $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
-        var class_id = 0, category_id = 0, brand_id = 0;
+        var class_id = 0, category_id = 0, brand_id = 0, indication_id = 0;
         $('input[class=related_items]:checked').each(function() {
             if ($(this).attr("name") == 'class') {
                 class_id = $("#relateditems #class").val();
@@ -54,17 +54,21 @@ $(function() {
             }
             if ($(this).attr("name") == 'generic') {
                 category_id = $("#relateditems #generic").val();
-                //      alert("generic");
+          //            alert("generic>>>>>>>>>>>>>>"+category_id);
             }
             if ($(this).attr("name") == 'brandname') {
                 brand_id = $("#relateditems #brandname").val();
                 //        alert("brandname");
             }
+            if ($(this).attr("name") == 'indication') {
+                indication_id = $("#relateditems #indication").val();
+          //          alert("indication>>>>>>>>>"+indication_id);
+            }
         });
         var drugid = $("#drugid").val();
         //     alert("class id " + class_id + " category id " + category_id + " brand id " + brand_id);
 
-        if (class_id == 0 && category_id == 0 && brand_id == 0) {
+        if (class_id == 0 && category_id == 0 && brand_id == 0 && indication_id == 0) {
             $("#related_drugs ul").html('<li><a id="0" href="#" onclick="return false;">No criteria selected yet</a></li>');
         } else {
             $.ajax({
@@ -73,10 +77,10 @@ $(function() {
                 // We do not want IE to cache the result
                 cache: false,
                 // data: dataString
-                data: {"class_id": class_id, "category_id": category_id, "brand_id": brand_id, "drug_id": drugid}
+                data: {"class_id": class_id, "category_id": category_id, "brand_id": brand_id, "indication_id": indication_id, "drug_id": drugid}
             }).success(function(data, text) {
                 // parse the response (typeof data == String)
-                //      alert("success" + data);
+              ///        alert("success" + data);
                 related_drugs = $.parseJSON(data);
                 /*     $.each(data,function(i,item){
                  alert('i ......'+i);
@@ -109,13 +113,13 @@ $(function() {
     $('#pharmacy').perfectScrollbar({
         wheelSpeed: 20,
         wheelPropagation: false
-     }); 
+    });
     $('#related_drugs').perfectScrollbar({
         wheelSpeed: 20,
         wheelPropagation: false,
         minScrollbarLength: 20
     });
-    
+
     //Auto retrieves drug information when searched from the search text bar
     $("#inputBox").autoSuggest({
         ajaxFilePath: serverurl + "sys_admin/user_authorization/autosuggest",

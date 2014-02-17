@@ -3839,11 +3839,11 @@ a:hover {
 #notifications ul li{
     list-style: none;
 }
-#notifications a:hover {
+#notifications a:hover, #searchresult a:hover {
     text-decoration: underline;
 }
-#notifications a{
-    color: #143270;
+#notifications a, #searchresult a{
+    color: #00ACF7;
     background-color: transparent;
     padding-right: 10px;
     font-size: 12px;  

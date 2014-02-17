@@ -9,7 +9,7 @@
     <div class="alert alert-info alert-login heading">
         Navigation Pane<br/>
     </div>
-    <div id="forum_list" class="treeview-red">
+    <div id="admin_list" class="treeview-red">
 
         <ul> 
             <li class="hasChildren"><span>Manage Articles</span>
@@ -23,10 +23,10 @@
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Create Brands</a></li>
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Edit Brands</a></li>
                 </ul>
-            </li><li class="hasChildren"><span>Manage Drug Category</span>
+            </li><li class="hasChildren"><span>Manage Drug Generics</span>
                 <ul>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Create Drug Category</a></li>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Edit Drug Category</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Create Drug Generics</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Edit Drug Generics</a></li>
                 </ul>
             </li><li class="hasChildren"><span>Manage Drug Class</span>
                 <ul>

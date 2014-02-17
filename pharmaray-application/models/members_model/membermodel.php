@@ -76,32 +76,63 @@ class membermodel extends CI_Model {
         return $result;
     }
 
-    function retrieve_drugby_related_items($class_id, $category_id, $brand_id, $drug_id) {
-        $wherequery = ' where d.id_drug <> ' . $drug_id;
-        $pre_query = 'select d.id_drug,d.drug_name as name from drug d';
+    function formatJoinQuery($firstQuery, $secondQuery, $id) {
+        $final_query = 'select distinct d.id_drug,d.drug_name as name from (' .
+                $firstQuery . ') a' . $id . ' join (' . $secondQuery . ') b' . $id . ' on ' .
+                'a' . $id . '.id_drug = b' . $id . '.id_drug join drug d on d.id_drug = b' . $id . '.id_drug';
+        return $final_query;
+    }
+
+    function retrieve_drugby_related_items($class_id, $category_id, $brand_id, $indication_id, $drug_id) {
+        $class_pre_query = '';
+        $generic_pre_query = '';
+        $indication_pre_query = '';
+        $brand_pre_query = '';
+        $pre_query = '';
         if ($class_id == '-1') {
-            $pre_query = 'select d.id_drug,d.drug_name as name from' .
+            $class_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
                     ' (select drugclassid_drugclass as class_id from drugclass_drug where drugid_drug =' . $drug_id . ') a join' .
                     ' (select drugclassid_drugclass as class_id, drugid_drug from drugclass_drug) b on' .
                     ' a.class_id = b.class_id and b.drugid_drug <> ' . $drug_id . ' join drug d on d.id_drug = b.drugid_drug';
+            $pre_query .= $class_pre_query;
         }
-        if ($category_id == '0') {
-            //     $wherequery += '';
-        } else {
-
-            $wherequery .= ' and d.drugcategoryid_drugcategory = ' . $category_id;
+        if ($category_id == '-1') {
+            $generic_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
+                    ' (select drugcategory_id as generic_id from drugcategory_drug where drug_id =' . $drug_id . ') a join' .
+                    ' (select drugcategory_id as generic_id, drug_id from drugcategory_drug) b on' .
+                    ' a.generic_id = b.generic_id and b.drug_id <> ' . $drug_id . ' join drug d on d.id_drug = b.drug_id';
+            if ($pre_query == '') {
+                $pre_query .= $generic_pre_query;
+            } else {
+                $pre_query = $this->formatJoinQuery($pre_query, $generic_pre_query, '1');
+                //.= ' intersect ' . $generic_pre_query;
+            }
+        }
+        if ($indication_id == '-1') {
+            $indication_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
+                    ' (select drugindication_id as indication_id from drugindication_drug where drug_id =' . $drug_id . ') a join' .
+                    ' (select drugindication_id as indication_id, drug_id from drugindication_drug) b on' .
+                    ' a.indication_id = b.indication_id and b.drug_id <> ' . $drug_id . ' join drug d on d.id_drug = b.drug_id';
+            if ($pre_query == '') {
+                $pre_query .= $indication_pre_query;
+            } else {
+                $pre_query = $this->formatJoinQuery($pre_query, $indication_pre_query, '2');
+                //        $pre_query .= ' intersect ' . $indication_pre_query;
+            }
         }if ($brand_id == '0') {
             //      $wherequery = '';
         } else {
-            $wherequery .= ' and d.brandnameid_brandname = ' . $brand_id;
+            $brand_pre_query = 'select distinct d.id_drug,d.drug_name as name from drug d where d.id_drug <> ' . $drug_id . ' and d.brandnameid_brandname = ' . $brand_id;
+
+            if ($pre_query == '') {
+                $pre_query .= $brand_pre_query;
+            } else {
+                $pre_query = $this->formatJoinQuery($pre_query, $brand_pre_query, '3');
+                //    $pre_query .= ' intersect ' . $brand_pre_query;
+            }
         }
-        /*  $this->db->select('d.id_drug,d.drug_name as name')
-          ->from('drug d')
-          ->where($wherequery)
-          ->order_by('d.drug_name'); */
 
-
-        $final_query = $pre_query . $wherequery;
+        $final_query = $pre_query;
 //$final_query = 'select d.id_drug,d.drug_name as name from drug ';
 
         $query = $this->db->query($final_query);
@@ -112,6 +143,7 @@ class membermodel extends CI_Model {
         //  $result = $query->result_array();
         $query->free_result();
         return $result;
+        // return $final_query;
     }
 
     function retrieve_drug($drug_id) {
@@ -264,6 +296,81 @@ class membermodel extends CI_Model {
         $query = $this->db->get();
         log_message('info', 'Related drugs ::::::::::===>' . $this->db->last_query());
         $result = $query->first_row('array');
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_topten_drugs($limit) {
+        log_message('info', 'inside retrieve most searched drugs');
+
+        $this->db->select('d.id_drug as id,d.drug_name as name, count(ds.id_drugsearch) as search_count')
+                ->from('drug_search ds')
+                ->join('drug d', 'd.id_drug = ds.drug_id')
+                ->group_by('d.id_drug')
+                ->order_by('search_count', 'desc');
+
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_topten_pharmacy($limit) {
+        log_message('info', 'inside retrieve most searched pharmacy');
+
+        $this->db->select('p.id_pharmacy as id,p.name, count(ps.id_pharmacysearch) as search_count')
+                ->from('pharmacist_search ps')
+                ->join('pharmacy p', 'p.id_pharmacy = ps.pharmacy_id')
+                ->group_by('p.id_pharmacy')
+                ->order_by('search_count', 'desc');
+
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_topten_article($limit) {
+        log_message('info', 'inside retrieve most searched article');
+
+        $this->db->select('n.id_news,a.id_article as id,a.title as news_title,a.description as news_description, count(ats.article_id) as search_count')
+                ->from('article_search ats')
+                ->join('article a', 'a.id_article = ats.article_id')
+                ->join('news n', 'a.newsid_news = n.id_news')
+                ->group_by('a.id_article')
+                ->order_by('search_count', 'desc');
+
+
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_internships($internshipid, $limit) {
+        log_message('info', 'last intern id is ' . $internshipid);
+        if ($internshipid == 0) {
+            $where_sql = "i.id_internshipopening  <> 0";
+        } else {
+            $where_sql = "i.id_internshipopening  < " . $internshipid;
+        }
+
+        $this->db->select("i.id_internshipopening as id", false)
+                ->from('internship_opening i')
+                ->join('location l', 'l.id_location = i.location_id')
+                ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
+                ->where($where_sql)
+                ->order_by('i.id_internshipopening', 'desc');
+        $this->db->limit($limit);
+        $query = $this->db->get();
+
+        $result = $query->result_array();
         $query->free_result();
         return $result;
     }

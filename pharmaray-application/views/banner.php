@@ -10,7 +10,8 @@ echo form_open('sys_admin/user_authorization/logout')
             <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/reloadwelcomepage"> Online Pharmacy </a></li>
             <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/discussionforum"> Forum </a></li>
             <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/communitypharmacy"> Community Pharmacy</a></li>
-            <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
+            <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_internship"> Internship Placement </a></li>
+           <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
             </li></ul>
 
     </div>

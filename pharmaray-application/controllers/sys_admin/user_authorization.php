@@ -212,13 +212,22 @@ class user_authorization extends CI_Controller {
         $default_id = 0;
         $limit = 15;
         $data['memberid'] = $this->session->userdata('memberid');
-       // $data = '';
+        // $data = '';
 //  $data['news'] = $this->membermodel->retrieve_newsbeyond_id($default_id, $limit);
         $data['newsletter'] = $this->membermodel->retrieve_newsletterbeyond_id($default_id, $limit);
 
         log_message('info', 'after newsleters list has been clicked.................');
         $this->load->view('articles', $data);
     }
+     function redirect_to_internship($data = '') {
+         $default_id = 0;
+         $limit = 20;
+        $data['memberid'] = $this->session->userdata('memberid');
+        log_message('info', 'after internships list has been clicked.................');
+        $data['drugcategory'] = $this->membermodel->retrieve_internships($default_id,$limit);
+        $this->load->view('internships', $data);
+    }
+
 
     function redirect_to_managearticles($data = '') {
         $data['memberid'] = $this->session->userdata('memberid');
@@ -606,8 +615,9 @@ class user_authorization extends CI_Controller {
 
     function repopulate_drug_relations() {
         extract($_POST);
-        $result_set = $this->membermodel->retrieve_drugby_related_items($class_id, $category_id, $brand_id, $drug_id);
+        $result_set = $this->membermodel->retrieve_drugby_related_items($class_id, $category_id, $brand_id, $indication_id, $drug_id);
         echo json_encode($result_set);
+        //      echo $result_set;
     }
 
     function createpharmacy() {
@@ -1013,13 +1023,16 @@ class user_authorization extends CI_Controller {
         $comment_counts = $this->membermodel->retrieve_comment_counts($drug_id);
         $result_drug = $this->membermodel->retrieve_drug($drug_id);
         $news_result = $this->membermodel->retrieve_news($drug_id);
-        $newsletters_result = $this->membermodel->retrieve_newsletters($drug_id);
+        // $newsletters_result = $this->membermodel->retrieve_newsletters($drug_id);
         $all_comment_count = $this->membermodel->comment_count($drug_id);
         $related_pharmacy = $this->membermodel->retrieve_pharmacy($drug_id, $desiredPosts);
         $drugclass_id = 0;
         $pregnancycategory_id = 0;
         $manufacturer_id = 0;
         $related_drug_result_set = $this->membermodel->retrieve_drugby_class_pregnancycategory_manufacturer($drugclass_id, $pregnancycategory_id, $manufacturer_id);
+        $toptendrugs_data = $this->membermodel->retrieve_topten_drugs($desiredPosts);
+        $toptenpharmacy_data = $this->membermodel->retrieve_topten_pharmacy($desiredPosts);
+        $toptenreadarticle = $this->membermodel->retrieve_topten_article($desiredPosts);
 
         $data['related_drugs'] = '';
         $data['comments'] = $result_set;
@@ -1029,9 +1042,11 @@ class user_authorization extends CI_Controller {
         $data['comment_counts'] = $comment_counts;
         $data['related_pharmacy'] = $related_pharmacy;
         $data['news'] = $news_result;
-        $data['newsletters'] = $newsletters_result;
+      //  $data['newsletters'] = $newsletters_result;
         $data['desiredPosts'] = $desiredPosts;
-
+        $data['toptendrugs_data'] = $toptendrugs_data;
+        $data['toptenpharmacy_data'] = $toptenpharmacy_data;
+        $data['toptenreadarticle'] = $toptenreadarticle;
 
         if ($data['is_adminuser']) {
             $this->redirect_to_managearticles($data);

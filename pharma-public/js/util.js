@@ -4,7 +4,7 @@
  */
 
 $(function() {
-    $("#forum_list").treeview({
+    $("#admin_list").treeview({
         animated: "fast",
         collapsed: true,
         toggle: function() {

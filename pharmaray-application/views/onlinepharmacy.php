@@ -63,70 +63,7 @@
                     <input type="hidden" id="lastcommentid" name="lastcommentid" value="<?php echo $lastcommentid ?>"/>
 
                     <div id="contentwrapper">
-                        <div id="notifications">
-                            <div class="alert alert-info alert-login heading">
-                                Sold here...<br/>
-                            </div>
-                            <div id="pharmacy">
-                                <ul>  <?php
-                                    $errors = array_filter($related_pharmacy);
-
-                                    if (!empty($errors)) {
-                                        foreach ($related_pharmacy as $columnName => $columnData) {
-                                            $name = $columnData['name'];
-                                            $id = $columnData['id_pharmacy'];
-                                            ?>
-                                            <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_displaypharm?pharmacyid=<?php echo $id; ?>"><?php echo word_trim($name, 30, true) ?></a></li>
-                                            <?php
-                                        }
-                                    } else {
-                                        ?><li><a  target="_top" href="#">Not available in any pharmacy</a></li>
-                                            <?php
-                                        }
-                                        ?>
-                                </ul>
-                            </div>
-                            <br/>
-                            <div class="alert alert-info alert-login heading">
-                                Notifications...<br/>
-                            </div>
-
-                            <div id="vacancies">
-                                <ul> <?php
-                                    $errors = array_filter($vacancy_data);
-
-                                    if (!empty($errors)) {
-                                        foreach ($vacancy_data as $columnName => $columnData) {
-                                            log_message('info', ' column name inside view is ' . $columnName . ' column Data is ' . $columnData['vacancygroup_name']);
-                                            $vacancy_type = $columnData['vacancygroup_name'];
-                                            $vacancy_count = $columnData['vacancy_count'];
-                                            ?>
-                                            <li><a  target="_top" href="#"><?php echo $vacancy_type ?> (<?php echo $vacancy_count ?>)</a></li>
-                                            <?php
-                                        }
-                                    } else {
-                                        ?><li><a  target="_top" href="#">No vacancy yet</a></li>
-                                            <?php
-                                        }
-                                        ?></ul>
-                            </div>
-                            <div class="alert alert-info alert-login heading">
-                                List of related drugs by...<br/>
-                            </div>
-                            <div id="relateditems">
-                                <input type="checkbox" id="brandname" value="<?php echo $drug_data['brandname_id'] ?>" name="brandname" class="related_items"/>Brand name / Company<br/>
-                                <input type="checkbox" id="class" name="class" value="-1" class="related_items"/>Class<br/>
-                                <input type="checkbox" id="generic" name="generic" value="<?php echo $drug_data['category_id'] ?>" class="related_items"/>Generic<br/>
-                                <input type="checkbox" id="indication" name="indication" class="related_items"/>Indication<br/>
-                            </div>
-                            <div id="related_drugs">
-
-                                <ul>
-                                    <li><a  target="_top" href="#">No criteria selected yet</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
+                       <?php include 'userpagenav.php' ?>
                         <div class="main_content">
                             <div class="row-fluid main_content_swatch">
 
@@ -144,7 +81,7 @@
 
                                         </div>
                                         <h3 class="heading"><?php echo $drug_data['drug_name']; ?></h3>
-                                        <h6>  By <?php echo $drug_data['drug_brandname']; ?></h6> 
+                                        <h6>  By <a  target="_top" href="#"><?php echo $drug_data['drug_brandname']; ?></a></h6> 
                                         <div class="formSep" id="formSep">
                                             <div class="row-fluid">
                                                 <div class="span12">
@@ -228,45 +165,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="drugcategories" id="articlesandjournal">
-                                        <div class="alert alert-info alert-login heading">
-                                            Related articles and journals...<br/>
-                                        </div>
-                                        <?php
-                                        echo form_open('sys_admin/user_authorization/newslist')
-                                        ?>
-                                        <?php
-                                        $errors = array_filter($news);
-
-                                        if (!empty($errors)) {
-                                            foreach ($news as $columnName => $columnData) {
-
-                                                $newsletters_title = $columnData['news_title'];
-                                                $newsletters_description = $columnData['news_description'];
-                                                $newsletters_id = $columnData['id'];
-                                                ?>
-                                                <div class='eventslist'>
-                                                    <ul>
-
-                                                        <li><a class="news_title article_title" id="<?php echo $newsletters_id ?>" target="_top" href="#"><?php echo word_trim($newsletters_title, 42, true) ?></a>
-                                                            <div class="comment-description">
-                                                                <?php echo word_trim($newsletters_description, 147, true) ?>
-                                                            </div></li>
-
-                                                    </ul></div>
-                                                <?php
-                                            }
-                                        } else {
-                                            ?><div class='eventslist'>
-                                                <ul>
-                                                    <li><a class="news_title" target="_top" href="#">No related news</a></li>
-
-                                                </ul></div>
-                                            <?php
-                                        }
-                                        ?>
-                                        <?php echo form_close() ?>
-                                    </div>
+                                   <?php include 'userpagenavright.php' ?>
                                 </div>
                             </div>
 

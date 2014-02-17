@@ -65,9 +65,9 @@ function retrievedrug(drugid, start, desiredPosts) {
             data = $.parseJSON(data);
             $('#drugid').val(drugid);
             $('#searchresult h3.heading').html(data.drug_name);
-            $('#searchresult h6').html(' By ' + data.drug_brandname);
+            $('#searchresult h6').html(' By <a href="#">' + data.drug_brandname+'</a>');
             $('#formSep div.comment-description').html(data.drug_description);
-            $("#relateditems #generic").val(data.category_id);
+        //    $("#relateditems #generic").val(data.category_id);
             $("#relateditems #brandname").val(data.brandname_id);
             var count = data.comment_count;
             //    alert(count);

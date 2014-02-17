@@ -69,7 +69,7 @@
                                     <div class="row-fluid">
                                         <div class="span4">
                                             <div class="editor-label">
-                                                <label for="Name">Name of Drug  <span class="compulsory_field">*</span></label>
+                                                <label for="Name">Brand name of Drug  <span class="compulsory_field">*</span></label>
                                             </div>
                                             <div class="editor-field">
                                                 <input id="drug_title" class="span12" type="text" value="" name="drug_title" data-val-required="The Name field is required." data-val="true"/>
@@ -93,7 +93,7 @@
                                     <div class="row-fluid">
                                         <div class="span4">
                                             <div class="editor-label">
-                                                <label for="ChurchEmail">Drug Category  <span class="compulsory_field">*</span></label>
+                                                <label for="ChurchEmail">Drug Generics  <span class="compulsory_field">*</span></label>
                                             </div>
                                             <div class="editor-field">
                                                 <select id="drugcategoryid" class="span12" name="drugcategoryid" data-val-required="The drug category field is required." data-val="true">
