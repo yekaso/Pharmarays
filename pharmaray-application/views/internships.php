@@ -23,28 +23,56 @@
         return $string;
     }
 
-    function display_community_pharmacy($community_pharmacy) {
-        $vertical_pos = 0;
-        $horizontal_pos = 0;
+    function display_internships($internships) {
 
-        foreach ($community_pharmacy as $columnName => $columnData) {
+        foreach ($internships as $columnName => $columnData) {
             ?>
-            <a class="pharm-swatch" style="position:absolute; <?php echo 'top: ' . $vertical_pos . 'px; left: ' . $horizontal_pos . 'px; ' ?>" target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_displaypharm?pharmacyid=<?php echo $columnData['id'] ?> " id="<?php echo $columnData['id'] ?>">
-                <div>
-                    <div class="pharm_name"><?php echo word_trim($columnData['name'], 30, true) ?></div>
-                    <br/>
-                    <div class="contact_details"><img src="<?php echo base_url() ?>images/telephone.png"/><?php echo ' ' . word_trim($columnData['telephone'], 40, true) ?></div>
-                    <div class="contact_details"><img src="<?php echo base_url() ?>images/icon_home.gif"/><?php echo ' ' . word_trim($columnData['address'], 40, true) ?></div>
-                    <div class="contact_details"><img src="<?php echo base_url() ?>images/icon_mail.gif"/>&nbsp;info@pharmarays.com</div>
+            <div class="row-fluid" id="">
+                <div class="span12">
+                    <div class="internship-row">
+                        <div>Fidson</div>
+                        <div>Lagos</div>
+                        <div> 5 Slots available (2 booked) </div>
+                        <div> 5 months </div>
+                        <div> Pharmacognosy </div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
+
+                    </div>
+                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
+                    <div class="internship-row">
+                        <div>Orange Drugs</div>
+                        <div>Lagos</div>
+                        <div> 5 Slots available (2 booked) </div>
+                        <div> 5 months </div>
+                        <div> Clinical Pharmacy </div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
+
+                    </div>
+                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
+                    <div class="internship-row">
+                        <div>Emzor</div>
+                        <div>Lagos</div>
+                        <div> 5 Slots available (2 booked) </div>
+                        <div> 5 months </div>
+                        <div> Toxicology </div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
+
+                    </div>
+                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
+                    <div class="internship-row">
+                        <div>LUTH</div>
+                        <div>Lagos</div>
+                        <div> 5 Slots available (2 booked) </div>
+                        <div> 5 months </div>
+                        <div> Pharmacology </div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
+
+                    </div>
+                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
                 </div>
-            </a>
+            </div>
+
             <?php
-            if ($horizontal_pos >= 900) {
-                $vertical_pos += 130;
-                $horizontal_pos = 0;
-            } else {
-                $horizontal_pos += 300;
-            }
         }
     }
 
@@ -84,9 +112,11 @@
                 <div class="alert alert-info alert-login heading">
                     Search By...<br/>
                 </div>
-               
+
                 <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
-                    
+                    <?php
+                    display_internships($internships);
+                    ?>
                 </div>
 
 

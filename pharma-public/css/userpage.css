@@ -4105,3 +4105,16 @@ label{
     float: right;
 }
 
+.internship-row div{
+    float:left;
+    font-size: 15px;
+    min-width: 100px;
+    width:16%;
+     border-left: 1px solid #2186BC;
+     text-align: center;
+}
+.internship-row{
+    clear:both;
+    width:100%;
+    padding-top: 20px;
+}
