@@ -30,41 +30,11 @@
             <div class="row-fluid" id="">
                 <div class="span12">
                     <div class="internship-row">
-                        <div>Fidson</div>
-                        <div>Lagos</div>
-                        <div> 5 Slots available (2 booked) </div>
-                        <div> 5 months </div>
-                        <div> Pharmacognosy </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
-
-                    </div>
-                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
-                    <div class="internship-row">
-                        <div>Orange Drugs</div>
-                        <div>Lagos</div>
-                        <div> 5 Slots available (2 booked) </div>
-                        <div> 5 months </div>
-                        <div> Clinical Pharmacy </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
-
-                    </div>
-                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
-                    <div class="internship-row">
-                        <div>Emzor</div>
-                        <div>Lagos</div>
-                        <div> 5 Slots available (2 booked) </div>
-                        <div> 5 months </div>
-                        <div> Toxicology </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
-
-                    </div>
-                    <div style="border-top: 1px solid #2F96B4; clear:both"></div>
-                    <div class="internship-row">
-                        <div>LUTH</div>
-                        <div>Lagos</div>
-                        <div> 5 Slots available (2 booked) </div>
-                        <div> 5 months </div>
-                        <div> Pharmacology </div>
+                        <div><?php echo $columnData['firm'] ?></div>
+                        <div><?php echo $columnData['location'] ?></div>
+                        <div><?php echo $columnData['slots'] . ' Slots available (2 booked)' ?> </div>
+                        <div><?php echo $columnData['duration'] ?> Months</div>
+                        <div><?php echo $columnData['specialization'] ?> </div>
                         <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
 
                     </div>
@@ -109,11 +79,52 @@
         ?><?php include 'banner.php' ?>
         <div id="maincontainer" style="position: relative;">
             <div class="newscategories" id="newsandevents">
-                <div class="alert alert-info alert-login heading">
-                    Search By...<br/>
+                <div class="alert alert-info alert-login heading" style='z-index: 999;position:fixed;width: auto'>
+                    <select id="location_select">
+                        <option class="select_by_location" value="0">-Choose a firm-</option>
+                        <?php
+                        foreach ($locations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <select id="location_select">
+                        <option class="select_by_location" value="0">-Choose a location-</option>
+                        <?php
+                        foreach ($locations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <select id="location_select">
+                        <option class="select_by_location" value="0">-Choose a duration-</option>
+                        <?php
+                        foreach ($locations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <select id="location_select">
+                        <option class="select_by_location" value="0">-Choose a specialization-</option>
+                        <?php
+                        foreach ($locations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" value=" Search " class="snazzy_button" style='margin-left: 20px' id="loginUser" name="loginUser" />
+                    <br/>
                 </div>
 
-                <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
+                <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;margin-top:60px;">
                     <?php
                     display_internships($internships);
                     ?>

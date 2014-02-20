@@ -224,6 +224,7 @@ class user_authorization extends CI_Controller {
          $limit = 20;
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after internships list has been clicked.................');
+        $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
         $data['internships'] = $this->membermodel->retrieve_internships($default_id,$limit);
         $this->load->view('internships', $data);
     }

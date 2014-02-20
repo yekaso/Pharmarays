@@ -361,7 +361,7 @@ class membermodel extends CI_Model {
             $where_sql = "i.id_internshipopening  < " . $internshipid;
         }
 
-        $this->db->select("i.id_internshipopening as id", false)
+        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,i.specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
                 ->from('internship_opening i')
                 ->join('location l', 'l.id_location = i.location_id')
                 ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
