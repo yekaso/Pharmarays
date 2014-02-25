@@ -122,7 +122,7 @@ class membermodel extends CI_Model {
         }if ($brand_id == '0') {
             //      $wherequery = '';
         } else {
-            $brand_pre_query = 'select distinct d.id_drug,d.drug_name as name from drug d where d.id_drug <> ' . $drug_id . ' and d.brandnameid_brandname = ' . $brand_id;
+            $brand_pre_query = 'select distinct d.id_drug,d.drug_name as name from drug d join drugcategory_drug dcg on dcg.drug_id = d.id_drug join drugcategory dc on dc.id_drugcategory = dcg.drugcategory_id where d.id_drug <> ' . $drug_id . ' and d.brandname_id = ' . $brand_id;
 
             if ($pre_query == '') {
                 $pre_query .= $brand_pre_query;
@@ -149,8 +149,9 @@ class membermodel extends CI_Model {
     function retrieve_drug($drug_id) {
         $this->db->select('d.id_drug,d.drug_name,d.drug_description, bn.id_brandname as brandname_id,bn.name as drug_brandname,dcc.id_drugcategory as category_id')
                 ->from('drug d')
-                ->join('brandname bn', 'bn.id_brandname = d.brandnameid_brandname')
-                ->join('drugcategory dcc', 'dcc.id_drugcategory = d.drugcategoryid_drugcategory')
+                ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
+                ->join('drugcategory dcc', 'dcc.id_drugcategory = dcg.drugcategory_id')
+                ->join('brandname bn', 'bn.id_brandname = dcc.brandname_id')
                 ->where(array('d.id_drug' => "$drug_id"))
                 ->order_by('d.drug_name');
 
@@ -253,8 +254,9 @@ class membermodel extends CI_Model {
                 ->from('newsletter n')
                 ->join('newsletterdrugmerger ndm', 'ndm.newsletterid_newsletter = n.id_newsletter')
                 ->join('drugcategory dc', 'dc.id_drugcategory = ndm.drugcategoryid_drugcategory')
+               ->join('drugcategory_drug dcg','dcg.drugcategory_id = dc.id_drugcategory')
                 ->join('article a', 'a.newsletterid_newsletter = n.id_newsletter')
-                ->join('drug d', 'd.drugcategoryid_drugcategory = dc.id_drugcategory')
+                ->join('drug d', 'd.id_drug = dcg.drug_id')
                 ->where(array('d.id_drug' => "$drug_id"))
                 ->order_by('a.time_created');
 
@@ -270,10 +272,11 @@ class membermodel extends CI_Model {
                 ->from('news n')
                 ->join('newsdrugmerger ndm', 'ndm.newsid_news = n.id_news')
                 ->join('drugcategory dc', 'dc.id_drugcategory = ndm.drugcategoryid_drugcategory')
-                ->join('drug d', 'd.drugcategoryid_drugcategory = dc.id_drugcategory')
+                ->join('drugcategory_drug dcg', 'dcg.drugcategory_id = dc.id_drugcategory')
+                ->join('drug d', 'dcg.drug_id = d.id_drug')
                 ->join('article a', 'a.newsid_news = n.id_news')
-                ->where(array('d.id_drug' => "$drug_id"))
-                ->order_by('a.time_created');
+                ->order_by('a.time_created')
+                ->where(array('d.id_drug' => "$drug_id"));
 
 
         $query = $this->db->get();
@@ -285,14 +288,16 @@ class membermodel extends CI_Model {
 
     function retrieve_drugby_class_pregnancycategory_manufacturer($drugclass_id, $pregnancycategory_id, $manufacturer_id) {
 
-        $this->db->select('d.drug_name')
+        $this->db->select('d.drug_name', false)
                 ->from('drug d')
                 ->join('preglactation p', 'p.drugid_drug = d.id_drug')
                 ->join('pregnancycategory pc', 'p.pregnancycategoryid_pregnancycategory = pc.id_pregnancycategory')
-                ->where(array(
-                    'd.brandnameid_brandname' => "$manufacturer_id", 'd.drugclassid_drugclass ' => "$drugclass_id",
-                        )
-        );
+                ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
+                ->join('drugcategory dcc', 'dcg.drugcategory_id = dcc.id_drugcategory')
+                ->join('drugclass_drug dcd', 'dcd.drugid_drug = d.id_drug')
+                ->join('drugclass dc', 'dcd.drugclassid_drugclass = dc.id_drugclass')
+                ->where(array('dcc.brandname_id' => "$manufacturer_id", 'dc.id_drugclass' => "$drugclass_id"));
+
         $query = $this->db->get();
         log_message('info', 'Related drugs ::::::::::===>' . $this->db->last_query());
         $result = $query->first_row('array');
@@ -468,7 +473,9 @@ class membermodel extends CI_Model {
         $wherequery = "d.drug_name like '%" . $data . "%' and d.id_drug <> " . $drug_id;
         $this->db->select('d.id_drug,d.drug_name, bn.name as drug_brandname')
                 ->from('drug d')
-                ->join('brandname bn', 'bn.id_brandname = d.brandnameid_brandname')
+                ->join('drugcategory_drug dcg','dcg.drug_id = d.id_drug')
+                ->join('drugcategory dc','dc.id_drugcategory = dcg.drugcategory_id')
+                ->join('brandname bn', 'bn.id_brandname = dc.brandname_id')
                 ->where($wherequery)
                 ->order_by('d.drug_name');
 
