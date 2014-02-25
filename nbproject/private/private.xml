@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/js/jquery.autoSuggest.js</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/js/main.js</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/views/communitypharmacy.php</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/views/homepage.php</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/models/members_model/membermodel.php</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/js/util.js</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/js/rays.js</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/js/communitypharmacy.js</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/controllers/sys_admin/user_authorization.php</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharma-public/css/rays.css</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/views/hybridbanner.php</file>
-            <file>file:/C:/xampp/htdocs/Pharmarays/pharmaray-application/logs/log-2013-11-15.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
