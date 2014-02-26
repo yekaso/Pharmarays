@@ -254,7 +254,7 @@ class membermodel extends CI_Model {
                 ->from('newsletter n')
                 ->join('newsletterdrugmerger ndm', 'ndm.newsletterid_newsletter = n.id_newsletter')
                 ->join('drugcategory dc', 'dc.id_drugcategory = ndm.drugcategoryid_drugcategory')
-               ->join('drugcategory_drug dcg','dcg.drugcategory_id = dc.id_drugcategory')
+                ->join('drugcategory_drug dcg', 'dcg.drugcategory_id = dc.id_drugcategory')
                 ->join('article a', 'a.newsletterid_newsletter = n.id_newsletter')
                 ->join('drug d', 'd.id_drug = dcg.drug_id')
                 ->where(array('d.id_drug' => "$drug_id"))
@@ -473,12 +473,13 @@ class membermodel extends CI_Model {
         $wherequery = "d.drug_name like '%" . $data . "%' and d.id_drug <> " . $drug_id;
         $this->db->select('d.id_drug,d.drug_name, bn.name as drug_brandname')
                 ->from('drug d')
-                ->join('drugcategory_drug dcg','dcg.drug_id = d.id_drug')
-                ->join('drugcategory dc','dc.id_drugcategory = dcg.drugcategory_id')
+                ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
+                ->join('drugcategory dc', 'dc.id_drugcategory = dcg.drugcategory_id')
                 ->join('brandname bn', 'bn.id_brandname = dc.brandname_id')
                 ->where($wherequery)
-                ->order_by('d.drug_name');
+                ->order_by('d.drug_nme');
 
+        $this->db->group_by("id_drug");
         $this->db->limit($limit);
         $this->db->group_by('id_drug');
         $query = $this->db->get();
