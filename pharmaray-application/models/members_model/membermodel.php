@@ -480,6 +480,7 @@ class membermodel extends CI_Model {
                 ->order_by('d.drug_name');
 
         $this->db->limit($limit);
+        $this->db->group_by('id_drug');
         $query = $this->db->get();
         log_message('info', 'Ajax retrieval ::::::::::===>' . $this->db->last_query());
         $result = $query->result_array();
