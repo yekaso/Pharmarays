@@ -147,7 +147,7 @@ class membermodel extends CI_Model {
     }
 
     function retrieve_drug($drug_id) {
-        $this->db->select('d.id_drug,d.drug_name,d.drug_description, bn.id_brandname as brandname_id,bn.name as drug_brandname,dcc.id_drugcategory as category_id')
+        $this->db->select("d.id_drug,d.drug_name,d.drug_description, group_concat(bn.name, ':', bn.id_brandname) as drug_brandname,dcc.id_drugcategory as category_id", false)
                 ->from('drug d')
                 ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
                 ->join('drugcategory dcc', 'dcc.id_drugcategory = dcg.drugcategory_id')
@@ -155,7 +155,7 @@ class membermodel extends CI_Model {
                 ->where(array('d.id_drug' => "$drug_id"))
                 ->order_by('d.drug_name');
 
-
+        $this->db->group_by("id_drug");
         $query = $this->db->get();
         log_message('info', 'Drugs ::::::::::===>' . $this->db->last_query());
         $result = $query->first_row('array');
@@ -471,7 +471,7 @@ class membermodel extends CI_Model {
 
     function autosuggest($data, $limit, $drug_id) {
         $wherequery = "d.drug_name like '%" . $data . "%' and d.id_drug <> " . $drug_id;
-        $this->db->select("d.id_drug,d.drug_name, group_concat(bn.name, ':' ,bn.id_brandname) as drug_brandname",false)
+        $this->db->select("d.id_drug,d.drug_name, group_concat(bn.name, ':' ,bn.id_brandname) as drug_brandname", false)
                 ->from('drug d')
                 ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
                 ->join('drugcategory dc', 'dc.id_drugcategory = dcg.drugcategory_id')

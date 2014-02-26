@@ -63,7 +63,7 @@
                     <input type="hidden" id="lastcommentid" name="lastcommentid" value="<?php echo $lastcommentid ?>"/>
 
                     <div id="contentwrapper">
-                       <?php include 'userpagenav.php' ?>
+                        <?php include 'userpagenav.php' ?>
                         <div class="main_content">
                             <div class="row-fluid main_content_swatch">
 
@@ -81,7 +81,12 @@
 
                                         </div>
                                         <h3 class="heading"><?php echo $drug_data['drug_name']; ?></h3>
-                                        <h6>  By <a  target="_top" href="#"><?php echo $drug_data['drug_brandname']; ?></a></h6> 
+                                        <h6>  By&nbsp;&nbsp;&nbsp;
+                                            <?php
+                                            $split_brandname = explode(",", $drug_data['drug_brandname']);
+                                            foreach ($split_brandname as $brand_name) {
+                                                $split_brandobject = explode(":", $brand_name);
+                                                ?><a  target="_top" href="#" id="<?php echo $split_brandobject[1]; ?>"><?php echo $split_brandobject[0]; ?></a><?php } ?></h6> 
                                         <div class="formSep" id="formSep">
                                             <div class="row-fluid">
                                                 <div class="span12">
@@ -165,7 +170,7 @@
 
                                         </div>
                                     </div>
-                                   <?php include 'userpagenavright.php' ?>
+                                    <?php include 'userpagenavright.php' ?>
                                 </div>
                             </div>
 

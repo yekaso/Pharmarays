@@ -27,7 +27,7 @@
                                 List of related drugs by...<br/>
                             </div>
                             <div id="relateditems">
-                                <input type="checkbox" id="brandname" value="<?php echo $drug_data['brandname_id'] ?>" name="brandname" class="related_items"/>Branding name / Company<br/>
+                                <input type="checkbox" id="brandname" value="-1" name="brandname" class="related_items"/>Branding name / Company<br/>
                                 <input type="checkbox" id="class" name="class" value="-1" class="related_items"/>Class<br/>
                                 <input type="checkbox" id="generic" name="generic" value="-1" class="related_items"/>Generic<br/>
                                 <input type="checkbox" id="indication" name="indication" value="-1" class="related_items"/>Indication<br/>

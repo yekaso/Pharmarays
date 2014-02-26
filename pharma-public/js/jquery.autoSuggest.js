@@ -63,6 +63,7 @@ function retrievedrug(drugid, start, desiredPosts) {
         //alert(data);
         if (data.length > 0) {
             data = $.parseJSON(data);
+            for(brandnames in )
             $('#drugid').val(drugid);
             $('#searchresult h3.heading').html(data.drug_name);
             $('#searchresult h6').html(' By <a href="#">' + data.drug_brandname+'</a>');
