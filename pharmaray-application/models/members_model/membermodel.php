@@ -471,13 +471,13 @@ class membermodel extends CI_Model {
 
     function autosuggest($data, $limit, $drug_id) {
         $wherequery = "d.drug_name like '%" . $data . "%' and d.id_drug <> " . $drug_id;
-        $this->db->select('d.id_drug,d.drug_name, bn.name as drug_brandname')
+        $this->db->select("d.id_drug,d.drug_name, group_concat(bn.name, ':' ,bn.id_brandname) as drug_brandname",false)
                 ->from('drug d')
                 ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
                 ->join('drugcategory dc', 'dc.id_drugcategory = dcg.drugcategory_id')
                 ->join('brandname bn', 'bn.id_brandname = dc.brandname_id')
                 ->where($wherequery)
-                ->order_by('d.drug_nme');
+                ->order_by('d.drug_name');
 
         $this->db->group_by("id_drug");
         $this->db->limit($limit);
