@@ -46,18 +46,18 @@ $(function() {
         $('#related_drugs').scrollTop(0);
         //  alert("check box clicked");
         $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
-        var class_id = 0, category_id = 0, brand_id = 0, indication_id = 0;
+        var class_id = 0, brandname_id = 0, company_id = 0, indication_id = 0;
         $('input[class=related_items]:checked').each(function() {
             if ($(this).attr("name") == 'class') {
                 class_id = $("#relateditems #class").val();
                 //         alert("class");
             }
-            if ($(this).attr("name") == 'generic') {
-                category_id = $("#relateditems #generic").val();
+            if ($(this).attr("name") == 'brandname') {
+                brandname_id = $("#relateditems #brandname").val();
           //            alert("generic>>>>>>>>>>>>>>"+category_id);
             }
-            if ($(this).attr("name") == 'brandname') {
-                brand_id = $("#relateditems #brandname").val();
+            if ($(this).attr("name") == 'company') {
+                company_id = $("#relateditems #company").val();
                 //        alert("brandname");
             }
             if ($(this).attr("name") == 'indication') {
@@ -68,7 +68,7 @@ $(function() {
         var drugid = $("#drugid").val();
         //     alert("class id " + class_id + " category id " + category_id + " brand id " + brand_id);
 
-        if (class_id == 0 && category_id == 0 && brand_id == 0 && indication_id == 0) {
+        if (class_id == 0 && brandname_id == 0 && company_id == 0 && indication_id == 0) {
             $("#related_drugs ul").html('<li><a id="0" href="#" onclick="return false;">No criteria selected yet</a></li>');
         } else {
             $.ajax({
@@ -77,7 +77,7 @@ $(function() {
                 // We do not want IE to cache the result
                 cache: false,
                 // data: dataString
-                data: {"class_id": class_id, "category_id": category_id, "brand_id": brand_id, "indication_id": indication_id, "drug_id": drugid}
+                data: {"class_id": class_id, "brandname_id": brandname_id, "company_id": company_id, "indication_id": indication_id, "drug_id": drugid}
             }).success(function(data, text) {
                 // parse the response (typeof data == String)
               ///        alert("success" + data);

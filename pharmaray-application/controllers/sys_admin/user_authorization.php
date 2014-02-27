@@ -616,7 +616,7 @@ class user_authorization extends CI_Controller {
 
     function repopulate_drug_relations() {
         extract($_POST);
-        $result_set = $this->membermodel->retrieve_drugby_related_items($class_id, $category_id, $brand_id, $indication_id, $drug_id);
+        $result_set = $this->membermodel->retrieve_drugby_related_items($class_id, $brandname_id, $company_id, $indication_id, $drug_id);
         echo json_encode($result_set);
         //      echo $result_set;
     }

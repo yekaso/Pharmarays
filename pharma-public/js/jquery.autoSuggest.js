@@ -63,12 +63,20 @@ function retrievedrug(drugid, start, desiredPosts) {
         //alert(data);
         if (data.length > 0) {
             data = $.parseJSON(data);
-            for(brandnames in )
+            var brandname_list = '', brandname_data = '', brandnames = '';
+            // alert(data.drug_company+" BRAND NAMES");
+            var raw_brandnames = data.drug_company.split(",");
+            for (brandnames in raw_brandnames) {
+                brandname_data = raw_brandnames[brandnames].split(':');
+                //    alert(brandname_data);
+                brandname_list += "<a target='_top' href='#' id='" + brandname_data[1] + "'>" + brandname_data[0] + "</a>";
+            }
             $('#drugid').val(drugid);
             $('#searchresult h3.heading').html(data.drug_name);
-            $('#searchresult h6').html(' By <a href="#">' + data.drug_brandname+'</a>');
+            $('#searchresult h6#company').html(' By &nbsp;&nbsp;&nbsp;' + brandname_list);
+            $('#searchresult div#brands').html(data.drug_brandnames);
             $('#formSep div.comment-description').html(data.drug_description);
-        //    $("#relateditems #generic").val(data.category_id);
+            //    $("#relateditems #generic").val(data.category_id);
             $("#relateditems #brandname").val(data.brandname_id);
             var count = data.comment_count;
             //    alert(count);
@@ -160,7 +168,7 @@ function retrievedrug(drugid, start, desiredPosts) {
     });
 }
 function createSearchResult(drugid, user_id, serverurl) {
-  //  alert(drugid + " drug id and user id " + user_id);
+    //  alert(drugid + " drug id and user id " + user_id);
     $.ajax({
         type: "POST",
         url: serverurl + "sys_admin/user_authorization/createdrugsearchresult",
@@ -169,7 +177,7 @@ function createSearchResult(drugid, user_id, serverurl) {
         // data: dataString
         data: {"drug_id": drugid, "user_id": user_id}
     }).success(function(data, text) {
-    //         alert(data+ "Done!!!");
+        //         alert(data+ "Done!!!");
     }).error(function(request, status, error) {
         //didn't complete the task
         //     alert(request + "------error writing search=======" + error);

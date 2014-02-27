@@ -83,11 +83,11 @@ class membermodel extends CI_Model {
         return $final_query;
     }
 
-    function retrieve_drugby_related_items($class_id, $category_id, $brand_id, $indication_id, $drug_id) {
+    function retrieve_drugby_related_items($class_id, $brandname_id, $company_id, $indication_id, $drug_id) {
         $class_pre_query = '';
-        $generic_pre_query = '';
+        $brandname_pre_query = '';
         $indication_pre_query = '';
-        $brand_pre_query = '';
+        $company_pre_query = '';
         $pre_query = '';
         if ($class_id == '-1') {
             $class_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
@@ -96,15 +96,15 @@ class membermodel extends CI_Model {
                     ' a.class_id = b.class_id and b.drugid_drug <> ' . $drug_id . ' join drug d on d.id_drug = b.drugid_drug';
             $pre_query .= $class_pre_query;
         }
-        if ($category_id == '-1') {
-            $generic_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
-                    ' (select drugcategory_id as generic_id from drugcategory_drug where drug_id =' . $drug_id . ') a join' .
-                    ' (select drugcategory_id as generic_id, drug_id from drugcategory_drug) b on' .
-                    ' a.generic_id = b.generic_id and b.drug_id <> ' . $drug_id . ' join drug d on d.id_drug = b.drug_id';
+        if ($brandname_id == '-1') {
+            $brandname_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
+                    ' (select drugcategory_id as brandname_id from drugcategory_drug where drug_id =' . $drug_id . ') a join' .
+                    ' (select drugcategory_id as brandname_id, drug_id from drugcategory_drug) b on' .
+                    ' a.brandname_id = b.brandname_id and b.drug_id <> ' . $drug_id . ' join drug d on d.id_drug = b.drug_id';
             if ($pre_query == '') {
-                $pre_query .= $generic_pre_query;
+                $pre_query .= $brandname_pre_query;
             } else {
-                $pre_query = $this->formatJoinQuery($pre_query, $generic_pre_query, '1');
+                $pre_query = $this->formatJoinQuery($pre_query, $brandname_pre_query, '1');
                 //.= ' intersect ' . $generic_pre_query;
             }
         }
@@ -119,15 +119,15 @@ class membermodel extends CI_Model {
                 $pre_query = $this->formatJoinQuery($pre_query, $indication_pre_query, '2');
                 //        $pre_query .= ' intersect ' . $indication_pre_query;
             }
-        }if ($brand_id == '0') {
-            //      $wherequery = '';
-        } else {
-            $brand_pre_query = 'select distinct d.id_drug,d.drug_name as name from drug d join drugcategory_drug dcg on dcg.drug_id = d.id_drug join drugcategory dc on dc.id_drugcategory = dcg.drugcategory_id where d.id_drug <> ' . $drug_id . ' and d.brandname_id = ' . $brand_id;
-
+        }if ($company_id == '-1') {
+            $company_pre_query = 'select distinct d.id_drug,d.drug_name as name from' .
+                    ' (select dc.brandname_id as company_id from drugcategory_drug dcg join drugcategory dc on dc.id_drugcategory = dcg.drugcategory_id where dcg.drug_id =' . $drug_id . ') a join' .
+                    ' (select dc.brandname_id as company_id, dcg.drug_id from drugcategory_drug dcg join drugcategory dc on dc.id_drugcategory = dcg.drugcategory_id) b on' .
+                    ' a.company_id = b.company_id and b.drug_id <> ' . $drug_id . ' join drug d on d.id_drug = b.drug_id';
             if ($pre_query == '') {
-                $pre_query .= $brand_pre_query;
+                $pre_query .= $company_pre_query;
             } else {
-                $pre_query = $this->formatJoinQuery($pre_query, $brand_pre_query, '3');
+                $pre_query = $this->formatJoinQuery($pre_query, $company_pre_query, '3');
                 //    $pre_query .= ' intersect ' . $brand_pre_query;
             }
         }
@@ -147,7 +147,7 @@ class membermodel extends CI_Model {
     }
 
     function retrieve_drug($drug_id) {
-        $this->db->select("d.id_drug,d.drug_name,d.drug_description, group_concat(bn.name, ':', bn.id_brandname) as drug_brandname,dcc.id_drugcategory as category_id", false)
+        $this->db->select("d.id_drug,d.drug_name,d.drug_description, group_concat(bn.name, ':', bn.id_brandname) as drug_company,group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id", false)
                 ->from('drug d')
                 ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
                 ->join('drugcategory dcc', 'dcc.id_drugcategory = dcg.drugcategory_id')

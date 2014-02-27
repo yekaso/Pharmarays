@@ -27,10 +27,10 @@
                                 List of related drugs by...<br/>
                             </div>
                             <div id="relateditems">
-                                <input type="checkbox" id="brandname" value="-1" name="brandname" class="related_items"/>Branding name / Company<br/>
-                                <input type="checkbox" id="class" name="class" value="-1" class="related_items"/>Class<br/>
-                                <input type="checkbox" id="generic" name="generic" value="-1" class="related_items"/>Generic<br/>
-                                <input type="checkbox" id="indication" name="indication" value="-1" class="related_items"/>Indication<br/>
+                                <input type="checkbox" id="company" value="-1" name="company" class="related_items"/>Same Manufacturer<br/>
+                                <input type="checkbox" id="class" name="class" value="-1" class="related_items"/>Same Class<br/>
+                                <input type="checkbox" id="brandname" name="brandname" value="-1" class="related_items"/>Combined in a Brand<br/>
+                                <input type="checkbox" id="indication" name="indication" value="-1" class="related_items"/>Same Indication<br/>
                             </div>
                             <div id="related_drugs">
 

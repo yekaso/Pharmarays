@@ -81,12 +81,16 @@
 
                                         </div>
                                         <h3 class="heading"><?php echo $drug_data['drug_name']; ?></h3>
-                                        <h6>  By&nbsp;&nbsp;&nbsp;
+                                        <h5 id="company">  By&nbsp;&nbsp;&nbsp;
                                             <?php
-                                            $split_brandname = explode(",", $drug_data['drug_brandname']);
+                                            $split_brandname = explode(",", $drug_data['drug_company']);
                                             foreach ($split_brandname as $brand_name) {
-                                                $split_brandobject = explode(":", $brand_name);
-                                                ?><a  target="_top" href="#" id="<?php echo $split_brandobject[1]; ?>"><?php echo $split_brandobject[0]; ?></a><?php } ?></h6> 
+                                                list($split_brandobject_name, $split_brandobject_id) = explode(":", $brand_name);
+                                                ?><a  target="_top" href="#" id="<?php echo $split_brandobject_id; ?>"><?php echo $split_brandobject_name; ?></a><?php } ?></h5> 
+                                        <h5>Contained in Brands: &nbsp;&nbsp;</h5>
+                                        <div id="brands"><?php echo $drug_data['drug_brandnames']; ?>
+                                        </div>
+                                        <br/>
                                         <div class="formSep" id="formSep">
                                             <div class="row-fluid">
                                                 <div class="span12">
