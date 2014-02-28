@@ -1049,8 +1049,7 @@ class membermodel extends CI_Model {
 
     function retrieve_pharmacylocations() {
         log_message('info', 'inside retrieving locations ');
-        $where_sql = "ff.forumid_forum  is null ";
-
+      
 
         $this->db->select('l.id_location as id,l.name as name')
                 ->from('location l')
