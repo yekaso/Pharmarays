@@ -19,7 +19,7 @@ function word_trim(str, maxlen, ellipsis) {
     return str;
 }
 function createSearchResult(pharmacyid, user_id, serverurl) {
-   // alert(serverurl+" server url>>>>" + pharmacyid+" pharmacy id and user id " + user_id);
+    // alert(serverurl+" server url>>>>" + pharmacyid+" pharmacy id and user id " + user_id);
     $.ajax({
         type: "POST",
         url: serverurl + "sys_admin/user_authorization/createpharmacysearchresult",
@@ -28,10 +28,10 @@ function createSearchResult(pharmacyid, user_id, serverurl) {
         // data: dataString
         data: {"pharmacyid": pharmacyid, "user_id": user_id}
     }).success(function(data, text) {
-   //     alert(data);
+        //     alert(data);
     }).error(function(request, status, error) {
         //didn't complete the task
-    //    alert(request + "------error writing search=======" + error);
+        //    alert(request + "------error writing search=======" + error);
     });
 }
 function do_modal(serverurl, pharmacy_id) {
@@ -162,108 +162,110 @@ function display_map(serverurl) {
     });
 }
 
-$(function() {
-    $("#ias_trigger").hide();
-    $(window).scroll(function() { /* window on scroll run the function using jquery and ajax */
-        var WindowHeight = $(window).height(); /* get the window height */
-        if ($(window).scrollTop() + 1 >= $(document).height() - WindowHeight) {
-            var empty_data = $("#empty_data").val();
-            if (empty_data == 'false') {
-                $("#ias_trigger").show();
+$("#ias_trigger").hide();
+$(window).scroll(function() { /* window on scroll run the function using jquery and ajax */
+    var WindowHeight = $(window).height(); /* get the window height */
+    if ($(window).scrollTop() + 1 >= $(document).height() - WindowHeight) {
+        var empty_data = $("#empty_data").val();
+        if (empty_data == 'false') {
+            $("#ias_trigger").show();
+        }
+    }
+});
+$("#select_by_location").live("click", function() {
+    alert("hello");
+    var serverurl = $("#serverurl").val();
+    var location_id = $(this).attr("value");
+    $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
+    $("#horizontal_pos").val('0');
+    $("#vertical_pos").val('0');
+    var limit = 20;
+    $.ajax({/* post the values using AJAX */
+        type: "POST",
+        url: serverurl + "sys_admin/user_authorization/retrievepharmacy_bylocation",
+        data: {"locationid": location_id, "limit": limit},
+        async: false,
+        cache: false,
+        success: function(data) {
+            if (data.length > 0) {
+                data = $.parseJSON(data);
+                if (typeof data[0] !== 'undefined' && data.length > 0) {
+
+                    var posts = data;
+                    //      alert(posts);
+                    //     posts = $.parseJSON(posts);
+                    $(".commpharm").html('');
+                    //makes loading button appear
+                    $("#empty_data").val('false');
+                    display_pharmacy(posts, serverurl);
+                    //             alert(posts)
+                } else {
+                    $(".commpharm").html('<div><img src="' + serverurl + 'images/nosearch1.jpg"/></div>');
+                }
+
             }
         }
     });
-    $(".select_by_location").live("click", function() {
-        var serverurl = $("#serverurl").val();
-        var location_id = $(this).attr("value");
-        $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
-        $("#horizontal_pos").val('0');
-        $("#vertical_pos").val('0');
-        var limit = 20;
-        $.ajax({/* post the values using AJAX */
-            type: "POST",
-            url: serverurl + "sys_admin/user_authorization/retrievepharmacy_bylocation",
-            data: {"locationid": location_id, "limit": limit},
-            async: false,
-            cache: false,
-            success: function(data) {
-                if (data.length > 0) {
-                    data = $.parseJSON(data);
-                    if (typeof data[0] !== 'undefined' && data.length > 0) {
-
-                        var posts = data;
-                        //      alert(posts);
-                        //     posts = $.parseJSON(posts);
-                        $(".commpharm").html('');
-                        //makes loading button appear
-                        $("#empty_data").val('false');
-                        display_pharmacy(posts, serverurl);
-                        //             alert(posts)
-                    } else {
-                        $(".commpharm").html('<div><img src="' + serverurl + 'images/nosearch1.jpg"/></div>');
-                    }
-
-                }
-            }
-        });
-        setTimeout($.unblockUI, 0);
-    });
-    /*  $(".pharm-swatch").live("click", function(e) {
-     var serverurl = $("#serverurl").val();
-     var pharmacy_id = $(this).attr("id");
-     do_modal(serverurl, pharmacy_id);
-     display_map(serverurl);
-     $("#dialog-modal div.loadingmap").html('');
-     });*/
-    $(".ias_trigger").live("click", function() {
-        var serverurl = $("#serverurl").val();
-        var loading_icon = $("#loader img");
-        var loading_button = $("#ias_trigger");
-        loading_button.hide();
-        loading_icon.show();
-        var swatch_size = $('.pharm-swatch').size();
-        var remainder = swatch_size % 4;
-        var horizontal_pos = remainder * 300;
-        var location_id = $("#location_select").val();
-        $("#horizontal_pos").val(horizontal_pos);
-        var vertical_pos = ((swatch_size - remainder) / 4) * 130;
-        $("#vertical_pos").val(vertical_pos);
-        var pharmacyid = $(".pharm-swatch:last").attr("id");
-        var limit = 20;
-        $.ajax({/* post the values using AJAX */
-            type: "POST",
-            url: serverurl + "sys_admin/user_authorization/retrievepharmacy",
-            data: {"pharmacyid": pharmacyid, "limit": limit, "locationid": location_id},
-            async: false,
-            cache: false,
-            success: function(data) {
-                if (data.length > 0) {
-                    if (typeof data[0] !== 'undefined' && data.length > 2) {
-                        var posts = data;
-                        posts = $.parseJSON(posts);
-                        display_pharmacy(posts, serverurl);
-                        //     alert(posts)
-                    } else {
-                        $("#empty_data").val('true');
-                    }
-
-                }
-            }
-        });
-        loading_icon.hide();
-    });
+    setTimeout($.unblockUI, 0);
+});
+$("#country_select").live("onchange",function(){
+    alert("Country clicked");
+});
+/*  $(".pharm-swatch").live("click", function(e) {
+ var serverurl = $("#serverurl").val();
+ var pharmacy_id = $(this).attr("id");
+ do_modal(serverurl, pharmacy_id);
+ display_map(serverurl);
+ $("#dialog-modal div.loadingmap").html('');
+ });*/
+$(".ias_trigger").live("click", function() {
     var serverurl = $("#serverurl").val();
-    $('#inputBox').val('');
-    $("#inputBox").autoSuggest({
-        ajaxFilePath: serverurl + "sys_admin/user_authorization/autosuggest_pharmacy",
-        ajaxParams: "dummydata=dummyData",
-        autoFill: "false",
-        iwidth: "auto",
-        opacity: "0.9",
-        ilimit: "10",
-        idHolder: "id-holder",
-        match: "contains"
+    var loading_icon = $("#loader img");
+    var loading_button = $("#ias_trigger");
+    loading_button.hide();
+    loading_icon.show();
+    var swatch_size = $('.pharm-swatch').size();
+    var remainder = swatch_size % 4;
+    var horizontal_pos = remainder * 300;
+    var location_id = $("#location_select").val();
+    $("#horizontal_pos").val(horizontal_pos);
+    var vertical_pos = ((swatch_size - remainder) / 4) * 130;
+    $("#vertical_pos").val(vertical_pos);
+    var pharmacyid = $(".pharm-swatch:last").attr("id");
+    var limit = 20;
+    $.ajax({/* post the values using AJAX */
+        type: "POST",
+        url: serverurl + "sys_admin/user_authorization/retrievepharmacy",
+        data: {"pharmacyid": pharmacyid, "limit": limit, "locationid": location_id},
+        async: false,
+        cache: false,
+        success: function(data) {
+            if (data.length > 0) {
+                if (typeof data[0] !== 'undefined' && data.length > 2) {
+                    var posts = data;
+                    posts = $.parseJSON(posts);
+                    display_pharmacy(posts, serverurl);
+                    //     alert(posts)
+                } else {
+                    $("#empty_data").val('true');
+                }
+
+            }
+        }
     });
+    loading_icon.hide();
+});
+var serverurl = $("#serverurl").val();
+$('#inputBox').val('');
+$("#inputBox").autoSuggest({
+    ajaxFilePath: serverurl + "sys_admin/user_authorization/autosuggest_pharmacy",
+    ajaxParams: "dummydata=dummyData",
+    autoFill: "false",
+    iwidth: "auto",
+    opacity: "0.9",
+    ilimit: "10",
+    idHolder: "id-holder",
+    match: "contains"
 });
 (function($) {
     $.fn.extend({

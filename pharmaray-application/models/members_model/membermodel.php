@@ -153,7 +153,7 @@ class membermodel extends CI_Model {
                 ->join('drugcategory dcc', 'dcc.id_drugcategory = dcg.drugcategory_id')
                 ->join('brandname bn', 'bn.id_brandname = dcc.brandname_id')
                 ->where(array('d.id_drug' => "$drug_id"))
-                ->order_by('d.drug_name');
+                ->order_by('d.drug_name,bn.id_brandname');
 
         $this->db->group_by("id_drug");
         $query = $this->db->get();
@@ -1054,8 +1054,29 @@ class membermodel extends CI_Model {
 
         $this->db->select('l.id_location as id,l.name as name')
                 ->from('location l')
+                ->join('location_ref lr','lr.super_locationid = l.id_location and lr.location_id <> lr.super_locationid')
                 ->order_by('l.name'
         );
+        
+        $this->db->distinct();
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+    function retrieve_pharmacylocations_bylocationid($locationid) {
+        log_message('info', 'inside retrieving locations ');
+        $where_sql = "ff.forumid_forum  is null ";
+
+
+        $this->db->select('l.id_location as id,l.name as name')
+                ->from('location l')
+                ->join('location_ref lr','lr.location_id = l.id_location and lr.super_locationid = '.$locationid)
+                ->order_by('l.name'
+        );
+        
+        $this->db->group_by('id');
         $query = $this->db->get();
         log_message('info', $this->db->last_query());
         $result = $query->result_array();

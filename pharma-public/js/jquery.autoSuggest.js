@@ -60,104 +60,115 @@ function retrievedrug(drugid, start, desiredPosts) {
         // data: dataString
         data: {"start": start, "desiredPosts": desiredPosts, "drug_id": drugid, "limit": 15, "user_id": user_id}
     }).success(function(data, text) {
-        //alert(data);
+        // alert(data);
         if (data.length > 0) {
             data = $.parseJSON(data);
+            // alert(data);
             var brandname_list = '', brandname_data = '', brandnames = '';
-            // alert(data.drug_company+" BRAND NAMES");
-            var raw_brandnames = data.drug_company.split(",");
-            for (brandnames in raw_brandnames) {
-                brandname_data = raw_brandnames[brandnames].split(':');
-                //    alert(brandname_data);
-                brandname_list += "<a target='_top' href='#' id='" + brandname_data[1] + "'>" + brandname_data[0] + "</a>";
-            }
-            $('#drugid').val(drugid);
-            $('#searchresult h3.heading').html(data.drug_name);
-            $('#searchresult h6#company').html(' By &nbsp;&nbsp;&nbsp;' + brandname_list);
-            $('#searchresult div#brands').html(data.drug_brandnames);
-            $('#formSep div.comment-description').html(data.drug_description);
-            //    $("#relateditems #generic").val(data.category_id);
-            $("#relateditems #brandname").val(data.brandname_id);
-            var count = data.comment_count;
-            //    alert(count);
-            $('div#widget').html('');
-            if (count > 10) {
-                $('div#widget').html(morebuttontemplate);
-            }
-            //  alert('wait here');
-            var posts = data.comments;
-            var serverurl = $("#serverurl").val();
-            posts = $.parseJSON(posts);
-            $("div.comment_section").html('');
-            for (post in posts) {
-                var $post = $(newtemplate).clone();
-                //  alert(posts);
-                $post.attr('id', 'post-' + posts[post].id);
-                $post.find('.commentimg').attr('src', serverurl + 'images/' + posts[post].membertypeimage + '.png');
-                $post.find('#comment_username').html('Pharmacist ' + posts[post].membername);
-                $post.find('#user_comment').html(posts[post].comment);
-                $post.find('.timestamp').html(posts[post].time_created);
-                //  alert(posts);
-                $("div.comment_section").prepend($post);
-            }
-            var posts_grp = data.comment_counts;
-            //          alert(posts_grp);
-            posts_grp = $.parseJSON(posts_grp);
-            $("div#comments_summary").html('');
-            //    alert('empty count');
-            for (post in posts_grp) {
-                var $post = $(commentsummarytemplate).clone();
-                //  alert(posts);
-                $post.attr('id', posts_grp[post].member_type_id);
-                $post.html(posts_grp[post].comment_count + ' ' + posts_grp[post].membertype_name + 's\'');
-                //  alert(posts);
-                $("div#comments_summary").append($post);
-            }
-            var news = data.related_news;
-            //   alert(news+ ' before parsing');
-            news = $.parseJSON(news);
-            // /     alert(news+ ' after parsing');
-            $("#articlesandjournal").html(newsheading);
-            if (typeof news[0] !== 'undefined' && news.length > 0) {
-                for (new_news in news) {
-                    var $post = $(newstemplate).clone();
-                    //  alert(posts);
-                    $post.attr('id', 'post-' + news[new_news].id);
-                    $post.find('.comment-description').html(word_trim(news[new_news].news_description, 147, true));
-                    $post.find('.article_title').attr('id', news[new_news].id);
-                    $post.find('.news_title').html(word_trim(news[new_news].news_title, 42, true));
-                    //  alert(posts);
-                    $("#articlesandjournal").append($post);
+            //  alert(data.drug_company+" BRAND NAMES");
+            if (typeof data.drug_company !== 'undefined') {
+
+                var raw_brandnames = data.drug_company.split(",");
+                var unique = raw_brandnames.filter(function(itm, i, raw_brandnames) {
+                    return i == raw_brandnames.indexOf(itm);
+                });
+                //unique makes the brandnames display just one per compapny name irrespective of the fact that the different brand names listed might have been made by one company.
+                for (brandnames in unique) {
+                    brandname_data = unique[brandnames].split(':');
+                    //    alert(brandname_data);
+                    brandname_list += "<a target='_top' href='#' id='" + brandname_data[1] + "'>" + brandname_data[0] + "</a>";
                 }
-            } else {
-                $("#articlesandjournal").append('<div class="eventslist"><ul> <li><a class="news_title" target="_top" href="#">No related news</a></li></ul></div>');
-            }
 
-
-
-            var pharmacy = data.related_pharmacy;
-            //    alert(newsletter+' before parsing');
-            pharmacy = $.parseJSON(pharmacy);
-            //   alert(newsletter+' newsletter after parsing');
-            $("#pharmacy ul").html('');
-            // alert(pharmacy.length);
-            if (typeof pharmacy[0] !== 'undefined' && pharmacy.length > 0) {
-                for (new_pharmacy in pharmacy) {
-                    var $post = $(pharmacytemplate).clone();
-                    //  alert(posts);
-                    $post.find('a').attr('id', pharmacy[new_pharmacy].id_pharmacy);
-                    $post.find('a').attr('href', serverurl + 'sys_admin/user_authorization/redirect_to_displaypharm?pharmacyid=' + pharmacy[new_pharmacy].id_pharmacy);
-                    $post.find('a').html(word_trim(pharmacy[new_pharmacy].name, 30, true));
-                    //  alert(posts);
-                    $("#pharmacy ul").append($post);
+                $('#drugid').val(drugid);
+                $('#searchresult h3.heading').html(data.drug_name);
+                $('#searchresult h5#company').html(' By &nbsp;&nbsp;&nbsp;' + brandname_list);
+                $('#searchresult div#brands').html(data.drug_brandnames);
+                $('#formSep div.comment-description').html(data.drug_description);
+                //    $("#relateditems #generic").val(data.category_id);
+                // $("#relateditems #brandname").val(data.brandname_id);
+                var count = data.comment_count;
+                //    alert(count);
+                $('div#widget').html('');
+                if (count > 10) {
+                    $('div#widget').html(morebuttontemplate);
                 }
+                //  alert('wait here');
+                var posts = data.comments;
+                var serverurl = $("#serverurl").val();
+                posts = $.parseJSON(posts);
+                $("div.comment_section").html('');
+                for (post in posts) {
+                    var $post = $(newtemplate).clone();
+                    //  alert(posts);
+                    $post.attr('id', 'post-' + posts[post].id);
+                    $post.find('.commentimg').attr('src', serverurl + 'images/' + posts[post].membertypeimage + '.png');
+                    $post.find('#comment_username').html('Pharmacist ' + posts[post].membername);
+                    $post.find('#user_comment').html(posts[post].comment);
+                    $post.find('.timestamp').html(posts[post].time_created);
+                    //  alert(posts);
+                    $("div.comment_section").prepend($post);
+                }
+                var posts_grp = data.comment_counts;
+                //          alert(posts_grp);
+                posts_grp = $.parseJSON(posts_grp);
+                $("div#comments_summary").html('');
+                //    alert('empty count');
+                for (post in posts_grp) {
+                    var $post = $(commentsummarytemplate).clone();
+                    //  alert(posts);
+                    $post.attr('id', posts_grp[post].member_type_id);
+                    $post.html(posts_grp[post].comment_count + ' ' + posts_grp[post].membertype_name + 's\'');
+                    //  alert(posts);
+                    $("div#comments_summary").append($post);
+                }
+                var news = data.related_news;
+                //   alert(news+ ' before parsing');
+                news = $.parseJSON(news);
+                // /     alert(news+ ' after parsing');
+                $("#articlesandjournal").html(newsheading);
+                if (typeof news[0] !== 'undefined' && news.length > 0) {
+                    for (new_news in news) {
+                        var $post = $(newstemplate).clone();
+                        //  alert(posts);
+                        $post.attr('id', 'post-' + news[new_news].id);
+                        $post.find('.comment-description').html(word_trim(news[new_news].news_description, 147, true));
+                        $post.find('.article_title').attr('id', news[new_news].id);
+                        $post.find('.news_title').html(word_trim(news[new_news].news_title, 42, true));
+                        //  alert(posts);
+                        $("#articlesandjournal").append($post);
+                    }
+                } else {
+                    $("#articlesandjournal").append('<div class="eventslist"><ul> <li><a class="news_title" target="_top" href="#">No related news</a></li></ul></div>');
+                }
+
+
+
+                var pharmacy = data.related_pharmacy;
+                //    alert(newsletter+' before parsing');
+                pharmacy = $.parseJSON(pharmacy);
+                //   alert(newsletter+' newsletter after parsing');
+                $("#pharmacy ul").html('');
+                // alert(pharmacy.length);
+                if (typeof pharmacy[0] !== 'undefined' && pharmacy.length > 0) {
+                    for (new_pharmacy in pharmacy) {
+                        var $post = $(pharmacytemplate).clone();
+                        //  alert(posts);
+                        $post.find('a').attr('id', pharmacy[new_pharmacy].id_pharmacy);
+                        $post.find('a').attr('href', serverurl + 'sys_admin/user_authorization/redirect_to_displaypharm?pharmacyid=' + pharmacy[new_pharmacy].id_pharmacy);
+                        $post.find('a').html(word_trim(pharmacy[new_pharmacy].name, 30, true));
+                        //  alert(posts);
+                        $("#pharmacy ul").append($post);
+                    }
+                } else {
+                    $("#pharmacy ul").append('<li><a  target="_top" href="#">Not available in any pharmacy</a></li>');
+                }
+                $('input[class=related_items]').each(function() {
+                    $(this).attr("checked", false);
+                });
+                $("#related_drugs ul").html('<li><a  target="_top" href="#">No criteria selected yet</a></li>');
             } else {
-                $("#pharmacy ul").append('<li><a  target="_top" href="#">Not available in any pharmacy</a></li>');
+                alert("This drug contains incomplete details. Notify us about this drug");
             }
-            $('input[class=related_items]').each(function() {
-                $(this).attr("checked", false);
-            });
-            $("#related_drugs ul").html('<li><a  target="_top" href="#">No criteria selected yet</a></li>');
         }
         else {
         }

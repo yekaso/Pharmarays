@@ -84,6 +84,7 @@
                                         <h5 id="company">  By&nbsp;&nbsp;&nbsp;
                                             <?php
                                             $split_brandname = explode(",", $drug_data['drug_company']);
+                                            $split_brandname = array_unique($split_brandname);
                                             foreach ($split_brandname as $brand_name) {
                                                 list($split_brandobject_name, $split_brandobject_id) = explode(":", $brand_name);
                                                 ?><a  target="_top" href="#" id="<?php echo $split_brandobject_id; ?>"><?php echo $split_brandobject_name; ?></a><?php } ?></h5> 

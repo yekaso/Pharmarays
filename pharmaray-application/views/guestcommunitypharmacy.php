@@ -89,17 +89,22 @@
                     <input type="hidden" id="empty_data" name="servempty_dataerurl" value="false"/>
 
                     <input class="searchbox" id="inputBox" placeholder="Search for a pharmacy closest to you by their name" type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a location-</option>
+                    
+                </div>
+                <div id="location_div"><select id="country_select">
+                        <option id="select_by_location" value="0">-Choose a Country-</option>
                         <?php
                         foreach ($locations as $columnName => $columnData) {
                             ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <option id="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
                             <?php
                         }
                         ?>
-                    </select>
-                </div>
+                    </select><select id="state_select">
+                        <option class="select_by_location" value="0">-Choose a State-</option>
+                           </select><select id="location_select">
+                        <option class="select_by_location" value="0">-Choose a location-</option>
+                        </select></div>
                 <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
                     <?php
                     display_community_pharmacy($community_pharmacy);
