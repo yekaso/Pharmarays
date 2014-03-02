@@ -26,11 +26,7 @@
         <?php include 'hybridbanner.php' ?>
         <div id="maincontainer" style="position: relative;">
             <div class="newscategories" id="newsandevents">
-                <div class="alert alert-info alert-login heading">
-                    Community Pharmacy...<br/>
-                </div>
-
-                <div class="pharmacy_details">
+                   <div class="pharmacy_details">
                     <div>
                         <div class="pharm_name"><?php echo $pharmacyData['name'] ?></div>
                         <br/>

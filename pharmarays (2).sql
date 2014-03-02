@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2014 at 04:14 PM
+-- Generation Time: Mar 02, 2014 at 10:26 PM
 -- Server version: 5.6.12
 -- PHP Version: 5.5.3
 
@@ -122,20 +122,6 @@ INSERT INTO `article` (`id_article`, `title`, `description`, `time_created`, `gu
 (14, 'Jobs In Nigeria In A Pharmaceutical Company, Wednesday 4, September 2013', 'An indigenous Pharmaceutical Company with foreign partners and brands in the ethical and OTC markets, seek candidates for immediate employment I the following areas:\r\n\r\nAREA MANAGERS (South-East and South West) – M01\r\nRegistered Pharmacist\r\n2 – 3 years post qualification experience as a medical sales representative\r\nMust be computer literate\r\n\r\nMEDICAL SALES REPRESENTATIVES (Ogun, Plateau, Jigawa, Kastina, Borno, Akwaibom, Bayelsa, Cross River, Abia, Gombe, Anambra, Kwara, Kogi, Bauchi, Enugu, Oyo, Ekiti, Osun and Yobe) – M01\r\nGraduate of a reputable university with degree in Pharmacy, Pharmacology, Physiology, Anatomy and Veterinary Medicine\r\n\r\nDRIVERS (Lagos) – M03\r\nValid driver’s license\r\nMinimum of 3 years driving experience\r\nMust be conversant with the Lagos State Routes and lives in Surulere or within environs\r\nAll applicants must possess a driving license with at least I year driving experience\r\n\r\nTO APPLY:\r\nInterested persons should apply immediately to: “markpharmjob@yahoo.com” giving full names, position applied for with the code and the state', '2013-10-12 03:35:41', 0, 8, 13, NULL, NULL, NULL),
 (15, 'Prospect for Nigeria’s pharmaceutical industry ', 'The health needs of a nation reflect on certain essential medicines consumed by the populace. With the determining factor in the pharmaceutical business dependent on increasing disease pattern, over-the-counter (OTC) medicines such as analgesics, antimalarials and multivitamins make up a large share of the Nigerian market. Painkillers, also known as analgesics or antipyretics, have the largest market share of therapeutic classes of medicines locally produced due to their affordability, availability and widespread use for a wide range of symptoms.\r\n\r\nThis revelation, contained in a recent document review of the nation’s pharmaceutical sector tagged “Global United Nations Industrial Development Organisation (UNIDO) Project”, shows that analgesics constitute 25 percent of drugs produced in the country. Others include antibiotics (15 percent), multivitamins + haematinics (15 percent), antimalarial medicines (14 percent), antihypertensives (8 percent), cough and cold preparations (5 percent), antiretroviral medicines (6 percent), external/topical preparations (5 percent), antiTB medicines (4 percent), and others (3 percent).\r\n\r\nThe report shows that the existing large market size, strong demand and the need for management of infectious diseases, especially HIV/AIDS, malaria, TB, and neglected childhood diseases constitute enormous opportunity for pharmaceutical firms to produce therapeutic drugs to meet the health needs of Nigerians.\r\n\r\nCurrently, Nigeria is responsible for about 60 percent of medicines consumed in the ECOWAS by volume, underlining the huge sub-regional market of an estimated 600 million people, according to Pharmaceutical Manufacturing Group, Manufacturers’ Association of Nigeria (PMG-MAN). Trade incentives introduced by ECOWAS for pharmaceuticals within West Africa are helping to promote movement of pharmaceuticals within the sub-region, experts believe. Furthermore, the West African Pharmaceutical Manufacturers Association (WAPMA) is working to enhance confidence in the quality of medicines produced locally and promote business in the sub-region.\r\n\r\nEstimates of the size of the nation’s pharmaceutical market vary. Business Monitor International (BMI) in 2009 estimated Nigeria’s pharmaceutical market at $600 million. Out of this figure, BMI attributes the largest share of $418 million to generic medicines, $121 million to OTC products, and $61 million to patented products.\r\n\r\nEqually, Frost & Sullivan, a growing partnership company, estimated a pharmaceutical market value of $740 million in 2009. Out of this figure, $266.4 million was attributed to generic medicines, $177.6 million to branded products, and $296 million to OTC products.\r\n\r\nDrug manufacturers in the country are faced with several constraints, including low capacity utilisation, under-capitalisation, a weak financial base, high production costs, as well as difficulty in meeting WHO prequalification criteria.\r\n\r\nHowever, with some pharmaceutical firms such as Evans, SWIPHA, CHI Pharmaceuticals, May and Baker, and Fidson Healthcare plc in the process of upgrading and/or building new facilities in preparation to meet these prequalification requirements, we believe this development will promote local production, given the increased opportunity to participate in international tenders, such as WHO, United Nations Children Fund (UNICEF), United Nations Population Fund (UNFPA), UNITAID and the Global Fund to Fight AIDS, TB and Malaria. No doubt, WHO prequalification will help the nation to become self-sufficient in the manufacture of essential medicines, which will invariably have multiplier effects on the economy with creation of thousands of jobs and more foreign exchange earnings for the country.\r\n\r\nNigeria can learn from the India experience. The emergence of India’s pharmaceutical industry on the global landscape as a strong generics player allowed only process patents in pharmaceutical products. This development kept the cost of medicines at affordable levels by enabling domestic pharmaceutical firms to build technical expertise in reverse engineering of existing medicines by modifying the manufacturing process, thereby becoming efficient producers of generic drugs.', '2013-09-26 07:22:57', 1, 9, NULL, NULL, NULL, NULL),
 (16, 'Pharmaceutical industry needs intervention fund, says PCN ', 'A CALL has been made to state governments to inject some intervention funds to pharmaceutical industries across the nation. While commending the Kano State government for some talks towards that direction, with the pharmacists association in the state, the Acting Registrar of Pharmaceutical Council of Nigeria, Mrs. Gloria O. Amuveri, maintained that if such intervention funds became operational, monitoring and ensuring the quality of drugs would be enhanced.\r\n\r\n  She made the call recently in Kano, in an interview with the newsmen. “It gives effective checks and balances while monitoring the compliance to manufacturing practices,” she added.\r\n\r\n  According to her more people would be gainfully employed and the sources of drugs would also be known without any hitch, she lamented. With such funds, she explained, the Council could institutionalize the drugs distribution channels in the country.\r\n\r\n  “Another advantage we can derive from such funds is, we will now have more indigenous companies manufacturing what we consume. If indigenous companies are the ones manufacturing then we can do what is called marketing surveillance. We can also have what is called ‘Recall Processes and Procedures,’” the registrar emphasized.\r\n\r\n  Amuveri assured that that would also mean very good development to the entire healthcare system in the country.\r\n\r\n  On interns, she highlighted that the council was doing everything possible to encourage the state health facilities to ensure that they employed interns, being a continuous training process by the professionals. “We wrote to all the states in the federation that it was imperative that interns were employed by the state governments. And we are commending Kano State for responding positively. Apart from that just look at the number of students sent by governor Kwankwaso to study pharmacy abroad,” she commended.', '2013-10-12 03:35:57', 0, 10, 15, NULL, NULL, NULL),
-(17, 'The advent of a new age', 'In the history of programming and other related topics, it has been observed that the use of chemicals inhibits a lot of things and activities.', '2014-01-10 22:10:02', 0, 6, 16, NULL, '', ''),
-(18, 'central midfield', 'This has been overtaken a long time ago', '2014-01-10 22:10:27', 0, 6, 17, NULL, '', ''),
-(19, 'Legacy', 'The legacy of a nation depends on', '2014-01-24 15:29:30', 0, 6, 18, NULL, 'Onyekachi Onwuzu', 'C:\\fakepath\\emzor.png'),
-(20, 'Anti-gay laws', 'the story is now everwhere', '2014-01-24 15:31:19', 0, 6, 19, NULL, 'GoodNews', 'C:\\fakepath\\pharmacy_logo.png'),
-(21, 'Mega Prostitution is now out of hand', 'The rate at which our friend Mega', '2014-01-26 07:59:39', 1, 6, 20, NULL, 'Onwuzu Onyekachi', ''),
-(22, 'News', 'The news for test ing the first codes', '2014-01-28 16:00:09', 0, 6, 21, NULL, 'onyekachi', 'C:\\fakepath\\20131221_183956.jpg'),
-(23, 'asdfadfas', 'adfasdfa', '2014-01-28 16:34:06', 0, 6, 22, NULL, 'adsfasdf', 'C:\\fakepath\\20131012_203422.jpg'),
-(24, 'The last boss', 'testing its not the last jooo', '2014-01-28 16:38:48', 0, 6, 23, NULL, 'hellos', 'C:\\fakepath\\20131012_203422.jpg'),
-(25, 'articles that suck', 'yes', '2014-01-28 16:46:16', 0, 6, 24, NULL, 'me and u', 'C:\\fakepath\\20131012_203422.jpg'),
-(26, 'articl', 'lkajkdflkaj', '2014-01-28 16:48:17', 0, 6, 25, NULL, 'sfadf', 'C:\\fakepath\\20131012_203422.jpg'),
-(27, 'asdfasdfa', 'afdasdf', '2014-01-28 16:49:00', 0, 6, 26, NULL, 'asfasdfasf', 'C:\\fakepath\\20131012_203229.jpg'),
-(28, 'asdfasdfasf', 'asfdasdfad', '2014-01-28 17:02:06', 0, 6, 27, NULL, 'adfasdf', 'C:\\fakepath\\20131012_225627.jpg'),
-(29, 'klkjkhkh', 'ewdfsd', '2014-01-28 17:07:50', 0, 6, 28, NULL, 'qweqwerwer', 'C:\\fakepath\\20131012_203537.jpg'),
-(30, 'sdasdfasdf', 'asdfasfas', '2014-01-28 20:43:03', 0, 6, 29, NULL, 'asdfasfasdfas', 'C:\\fakepath\\20131012_203300.jpg'),
 (31, 'adfadfasd', 'asdfasdfasdf', '2014-01-28 21:00:51', 0, 6, 30, NULL, 'asdfasfasdf', 'C:\\fakepath\\1151018_10201129338229254_1462394867_n.jpg');
 
 -- --------------------------------------------------------
@@ -154,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `article_search` (
   `latitude` float NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_articlesearch`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `article_search`
@@ -194,7 +180,9 @@ INSERT INTO `article_search` (`id_articlesearch`, `article_id`, `timecreated`, `
 (31, 2, '2014-02-16 20:26:24', '::1', 'Lagos', 3.39583, 6.45306, 0),
 (32, 17, '2014-02-16 20:27:11', '::1', 'Lagos', 3.39583, 6.45306, 0),
 (33, 5, '2014-02-16 20:34:06', '::1', 'Lagos', 3.39583, 6.45306, 0),
-(34, 3, '2014-02-16 20:34:12', '::1', 'Lagos', 3.39583, 6.45306, 0);
+(34, 3, '2014-02-16 20:34:12', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(35, 1, '2014-03-01 06:19:58', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(36, 11, '2014-03-01 07:31:18', '::1', 'Lagos', 3.39583, 6.45306, 18);
 
 -- --------------------------------------------------------
 
@@ -557,7 +545,7 @@ CREATE TABLE IF NOT EXISTS `drugcategory` (
   `description` mediumtext,
   `brandname_id` int(11) NOT NULL,
   PRIMARY KEY (`id_drugcategory`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `drugcategory`
@@ -570,7 +558,9 @@ INSERT INTO `drugcategory` (`id_drugcategory`, `name`, `description`, `brandname
 (4, 'Halfan', 'ENDOCRINOLOGY', 3),
 (5, 'Maladox', 'GASTROENTEROLOGY', 1),
 (6, 'Benylin', 'HEMATOLOGY', 5),
-(7, 'Septrin', 'Yea its empty', 4);
+(7, 'Septrin', 'Yea its empty', 4),
+(9, 'Aerosol', NULL, 1),
+(10, 'Erythromycin', NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -583,7 +573,7 @@ CREATE TABLE IF NOT EXISTS `drugcategory_drug` (
   `id_drugcategorydrug` int(11) NOT NULL AUTO_INCREMENT,
   `drug_id` int(11) NOT NULL,
   PRIMARY KEY (`id_drugcategorydrug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `drugcategory_drug`
@@ -606,7 +596,6 @@ INSERT INTO `drugcategory_drug` (`drugcategory_id`, `id_drugcategorydrug`, `drug
 (2, 14, 1),
 (2, 15, 497),
 (2, 16, 520),
-(2, 17, 515),
 (2, 18, 516),
 (2, 19, 509),
 (5, 21, 497),
@@ -618,7 +607,15 @@ INSERT INTO `drugcategory_drug` (`drugcategory_id`, `id_drugcategorydrug`, `drug
 (7, 27, 517),
 (7, 28, 518),
 (7, 29, 519),
-(6, 30, 491);
+(6, 30, 491),
+(9, 31, 520),
+(10, 32, 518),
+(9, 33, 518),
+(10, 34, 517),
+(9, 36, 489),
+(4, 37, 489),
+(10, 38, 1),
+(4, 39, 1);
 
 -- --------------------------------------------------------
 
@@ -686,6 +683,8 @@ INSERT INTO `drugclass_drug` (`drugclassid_drugclass`, `drugid_drug`) VALUES
 (3, 649),
 (3, 651),
 (4, 489),
+(4, 491),
+(4, 515),
 (5, 487),
 (5, 642),
 (5, 645),
@@ -723,7 +722,7 @@ CREATE TABLE IF NOT EXISTS `drugcomment` (
   PRIMARY KEY (`id_drugcomment`),
   KEY `FKdrugcommen713059` (`memberid_member`),
   KEY `FKdrugcommen111423` (`drugid_drug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `drugcomment`
@@ -734,7 +733,8 @@ INSERT INTO `drugcomment` (`id_drugcomment`, `comment`, `memberid_member`, `drug
 (2, 'This is not going to be funny', 6, 1, '2014-01-09 14:11:31'),
 (3, 'this is so ridiculous', 18, 643, '2014-01-22 22:12:11'),
 (4, 'lmaoooo....like seriously????', 18, 643, '2014-01-22 22:12:19'),
-(5, 'They were probably joking', 18, 643, '2014-01-22 22:12:29');
+(5, 'They were probably joking', 18, 643, '2014-01-22 22:12:29'),
+(6, 'this is getting more interesting', 18, 1, '2014-03-01 07:32:11');
 
 -- --------------------------------------------------------
 
@@ -839,7 +839,7 @@ CREATE TABLE IF NOT EXISTS `drug_search` (
   `latitude` float NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_drugsearch`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=174 ;
 
 --
 -- Dumping data for table `drug_search`
@@ -923,7 +923,102 @@ INSERT INTO `drug_search` (`id_drugsearch`, `drug_id`, `timecreated`, `ipaddress
 (75, 488, '2014-02-17 19:52:33', '::1', 'Lagos', 3.39583, 6.45306, 0),
 (76, 618, '2014-02-17 19:53:12', '::1', 'Lagos', 3.39583, 6.45306, 0),
 (77, 509, '2014-02-20 19:50:47', '::1', 'Lagos', 3.39583, 6.45306, 18),
-(78, 651, '2014-02-20 20:44:44', '::1', 'Lagos', 3.39583, 6.45306, 0);
+(78, 651, '2014-02-20 20:44:44', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(79, 491, '2014-02-26 05:35:48', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(80, 1, '2014-02-26 05:35:57', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(81, 491, '2014-02-26 05:36:04', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(82, 491, '2014-02-26 05:44:53', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(83, 491, '2014-02-26 08:53:24', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(84, 491, '2014-02-26 08:53:50', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(85, 1, '2014-02-26 08:54:03', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(86, 491, '2014-02-26 16:27:43', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(87, 491, '2014-02-26 16:28:34', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(88, 491, '2014-02-26 16:29:44', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(89, 491, '2014-02-26 16:32:19', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(90, 491, '2014-02-26 16:32:57', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(91, 517, '2014-02-26 16:39:04', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(92, 1, '2014-02-26 16:39:40', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(93, 491, '2014-02-26 16:39:53', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(94, 517, '2014-02-26 16:39:58', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(95, 491, '2014-02-26 17:59:21', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(96, 491, '2014-02-26 18:01:33', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(97, 1, '2014-02-26 18:01:58', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(98, 497, '2014-02-26 18:02:07', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(99, 1, '2014-02-26 18:02:13', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(100, 518, '2014-02-26 18:02:20', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(101, 491, '2014-02-26 22:55:40', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(102, 509, '2014-02-26 22:55:55', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(103, 491, '2014-02-26 23:08:20', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(104, 1, '2014-02-26 23:08:40', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(105, 515, '2014-02-26 23:09:27', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(106, 491, '2014-02-26 23:10:44', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(107, 520, '2014-02-26 23:11:02', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(108, 491, '2014-02-27 07:29:48', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(109, 509, '2014-02-27 07:30:05', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(110, 1, '2014-02-27 07:30:17', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(111, 517, '2014-02-27 07:30:36', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(112, 515, '2014-02-27 07:31:52', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(113, 516, '2014-02-27 07:32:14', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(114, 491, '2014-02-27 07:35:40', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(115, 509, '2014-02-27 07:35:47', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(116, 503, '2014-02-27 07:37:17', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(117, 491, '2014-02-27 18:58:33', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(118, 515, '2014-02-27 19:01:57', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(119, 515, '2014-02-27 19:05:19', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(120, 491, '2014-02-27 19:17:39', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(121, 515, '2014-02-27 19:17:48', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(122, 509, '2014-02-27 19:17:55', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(123, 491, '2014-02-27 19:19:22', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(124, 491, '2014-02-27 19:19:29', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(125, 515, '2014-02-27 19:19:35', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(126, 491, '2014-02-27 19:28:52', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(127, 491, '2014-02-27 19:43:36', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(128, 491, '2014-02-27 20:31:12', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(129, 515, '2014-02-27 21:10:48', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(130, 515, '2014-02-27 21:12:12', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(131, 515, '2014-02-27 21:12:53', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(132, 1, '2014-02-27 21:38:11', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(133, 491, '2014-02-27 21:46:02', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(134, 491, '2014-02-27 21:47:55', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(135, 491, '2014-02-27 21:49:51', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(136, 515, '2014-02-27 21:50:03', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(137, 491, '2014-02-27 21:50:27', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(138, 515, '2014-02-27 21:56:42', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(139, 491, '2014-02-27 22:05:59', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(140, 489, '2014-02-27 22:06:05', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(141, 491, '2014-02-27 22:10:45', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(142, 489, '2014-02-27 22:10:55', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(143, 491, '2014-02-27 22:11:33', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(144, 489, '2014-02-27 22:12:00', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(145, 491, '2014-02-27 22:15:01', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(146, 491, '2014-02-27 22:15:39', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(147, 515, '2014-02-27 22:15:52', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(148, 489, '2014-02-27 22:17:41', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(149, 1, '2014-02-27 22:18:58', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(150, 1, '2014-02-27 22:19:18', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(151, 491, '2014-02-28 09:19:14', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(152, 1, '2014-02-28 09:19:18', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(153, 491, '2014-03-01 06:14:49', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(154, 1, '2014-03-01 06:15:13', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(155, 509, '2014-03-01 06:15:33', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(156, 515, '2014-03-01 06:15:53', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(157, 491, '2014-03-01 06:20:20', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(158, 491, '2014-03-01 06:21:02', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(159, 491, '2014-03-01 06:22:47', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(160, 491, '2014-03-01 06:27:58', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(161, 1, '2014-03-01 06:28:09', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(162, 520, '2014-03-01 06:28:25', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(163, 516, '2014-03-01 06:28:36', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(164, 515, '2014-03-01 06:28:43', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(165, 509, '2014-03-01 06:30:37', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(166, 517, '2014-03-01 06:30:49', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(167, 516, '2014-03-01 06:30:57', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(168, 515, '2014-03-01 06:31:03', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(169, 491, '2014-03-01 07:21:41', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(170, 491, '2014-03-01 07:31:40', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(171, 1, '2014-03-01 07:32:00', '::1', 'Lagos', 3.39583, 6.45306, 18),
+(172, 491, '2014-03-01 08:52:46', '::1', 'Lagos', 3.39583, 6.45306, 0),
+(173, 516, '2014-03-01 08:52:52', '::1', 'Lagos', 3.39583, 6.45306, 0);
 
 -- --------------------------------------------------------
 
@@ -1123,7 +1218,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   PRIMARY KEY (`id_location`),
   UNIQUE KEY `id_location` (`id_location`),
   UNIQUE KEY `location_id_location` (`id_location`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `location`
@@ -1135,7 +1230,57 @@ INSERT INTO `location` (`id_location`, `name`, `description`) VALUES
 (3, 'Abia', 'Abia State'),
 (4, 'Abuja', 'Abuja FCT'),
 (5, 'Ekiti', 'Ekiti State'),
-(6, 'Enugu', 'Enugu State');
+(6, 'Enugu', 'Enugu State'),
+(7, 'Surulere', NULL),
+(8, 'Ikoyi', NULL),
+(9, 'Aja', NULL),
+(10, 'Ikeja', NULL),
+(11, 'Ikorodu', NULL),
+(12, 'Abakpa', NULL),
+(13, 'Ugbene', NULL),
+(14, 'New Haven', NULL),
+(15, 'Achara Layout', NULL),
+(16, 'Coal Camp', NULL),
+(17, 'Nigeria', NULL),
+(18, 'Ghana', NULL),
+(19, 'Cameroun', NULL),
+(20, 'Gabon', NULL),
+(21, 'Uganda', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location_ref`
+--
+
+CREATE TABLE IF NOT EXISTS `location_ref` (
+  `id_locationref` int(11) NOT NULL AUTO_INCREMENT,
+  `location_id` int(11) NOT NULL,
+  `super_locationid` int(11) NOT NULL,
+  PRIMARY KEY (`id_locationref`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `location_ref`
+--
+
+INSERT INTO `location_ref` (`id_locationref`, `location_id`, `super_locationid`) VALUES
+(1, 7, 1),
+(2, 8, 1),
+(3, 9, 1),
+(4, 10, 1),
+(5, 11, 1),
+(6, 12, 6),
+(7, 13, 6),
+(8, 14, 6),
+(9, 15, 6),
+(10, 16, 6),
+(11, 1, 17),
+(12, 2, 17),
+(13, 3, 17),
+(14, 4, 17),
+(15, 5, 17),
+(16, 6, 17);
 
 -- --------------------------------------------------------
 
@@ -1453,7 +1598,7 @@ CREATE TABLE IF NOT EXISTS `pharmacist_search` (
   `longitude` float NOT NULL,
   `latitude` float NOT NULL,
   PRIMARY KEY (`id_pharmacysearch`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `pharmacist_search`
@@ -1473,7 +1618,11 @@ INSERT INTO `pharmacist_search` (`id_pharmacysearch`, `pharmacy_id`, `timecreate
 (11, 0, '2014-02-16 15:27:36', '::1', 'Lagos', NULL, 3.39583, 6.45306),
 (12, 0, '2014-02-16 16:36:09', '::1', 'Lagos', NULL, 3.39583, 6.45306),
 (13, 0, '2014-02-16 16:37:22', '::1', 'Lagos', NULL, 3.39583, 6.45306),
-(14, 2, '2014-02-16 16:38:10', '::1', 'Lagos', NULL, 3.39583, 6.45306);
+(14, 2, '2014-02-16 16:38:10', '::1', 'Lagos', NULL, 3.39583, 6.45306),
+(15, 3, '2014-02-27 23:36:45', '::1', 'Lagos', NULL, 3.39583, 6.45306),
+(16, 1, '2014-03-01 05:44:22', '::1', 'Lagos', NULL, 3.39583, 6.45306),
+(17, 43, '2014-03-02 20:48:53', '::1', 'Lagos', NULL, 3.39583, 6.45306),
+(18, 5, '2014-03-02 21:21:05', '::1', 'Lagos', NULL, 3.39583, 6.45306);
 
 -- --------------------------------------------------------
 
@@ -1520,54 +1669,56 @@ CREATE TABLE IF NOT EXISTS `pharmacy` (
   UNIQUE KEY `id_pharmacy` (`id_pharmacy`),
   UNIQUE KEY `pharmacy_id_pharmacy` (`id_pharmacy`),
   KEY `FKpharmacy970718` (`locationid_location`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `pharmacy`
 --
 
 INSERT INTO `pharmacy` (`id_pharmacy`, `name`, `address`, `telephone`, `locationid_location`) VALUES
-(1, '4Tees Pharmacy', 'Suite 47, Dolphin Plaza, Dolphin Estate, Ikoyi Lagos.', '+234 1 7920163', 1),
-(2, 'A-Z Pharmacy & Stores', '68 Oke-Ejigbo Street, Abeokuta, Ogun State.', '+234 39 240353, 240045\r\n', 2),
-(3, 'Aabon Pharmacy', '99 Aba/Owerri Road, Aba, Abia State.', '+234 82 223256\r\n', 3),
-(4, 'Abifad Pharmacy Limited', 'Plot 8B, Kigoma Street, Zone 7, Wuse, Abuja.', '+234 9 5235240\r\n', 4),
-(5, 'ABJ Pharmacy', '13 Brown Road, Aguda, Surulere, Lagos.', '+234 1 4814480 , 0803-3029420, 0803-3362182,\r\n', 1),
-(6, 'Akpene Pharmacy Nigeria Limited', '302 Wharf Road, Apapa, Lagos.', '+234 1 5451035, 5453180', 1),
+(1, '4Tees Pharmacy', 'Suite 47, Dolphin Plaza, Dolphin Estate, Ikoyi Lagos.', '+234 1 7920163', 7),
+(2, 'A-Z Pharmacy & Stores', '68 Oke-Ejigbo Street, Abeokuta, Ogun State.', '+234 39 240353, 240045\r\n', 10),
+(3, 'Aabon Pharmacy', '99 Aba/Owerri Road, Aba, Abia State.', '+234 82 223256\r\n', 15),
+(4, 'Abifad Pharmacy Limited', 'Plot 8B, Kigoma Street, Zone 7, Wuse, Abuja.', '+234 9 5235240\r\n', 14),
+(5, 'ABJ Pharmacy', '13 Brown Road, Aguda, Surulere, Lagos.', '+234 1 4814480 , 0803-3029420, 0803-3362182,\r\n', 7),
+(6, 'Akpene Pharmacy Nigeria Limited', '302 Wharf Road, Apapa, Lagos.', '+234 1 5451035, 5453180', 7),
 (7, 'Albedou Pharmacy', '4 Bolorunduro Street, Ikole, Ekiti State.', '+234 30 440028', 5),
-(8, 'Albertson Pharmacy', 'No 37 Kingsway Road, Ikoyi, Lagos.', '+234 1 2680937', 1),
-(9, 'All King Pharmacy', '39 Adebowale Street, Ojodu, Lagos.', '+234 1 4925109, 4711520, 256338', 1),
-(10, 'Alpha Pharmacy & Stores Limited', '2B Alabi Street, Off Toyin Street, Ikeja, Lagos.', '+234 1 4961607, 4972902, 8119747; Fax: +234 1 4961607, 4972902', 1),
-(11, 'Alrange Pharmacy', '20 Kadiri Street, Ojuelegba, Surulere, Lagos.', '+234 1 5451721', 1),
-(12, 'Amazon Pharmacy Limited', '49 Randle Street, Surulere, Lagos.', '+234 (0) 803-3303872', 1),
-(13, 'Arowolo Pharmacy', '7 Isheri Road, Idimu, Lagos.', '+234 1 4706732', 1),
-(14, 'ATSI Pharmacy Nigeria Limited', 'Unit 6, 52 James Robertson Street, Masha, Surulere, Lagos', '+234 1 830853, 5851937; Fax: +234 1 4935849', 1),
-(15, 'Aventis Pasteur Nigeria', '7th Floor, Eleganza Biro Plaza, Plot 634, Adeyemo Alakija Street, Victoria Island, Lagos.', '+234 1 2647150, 2647151', 1),
-(16, 'Barnado Pharmacy', 'Western Avenue, Ojuelegba, Lagos.', '+234 1 4528705, 7743342, 0803-3018022', 1),
-(17, 'Batil Pharmacy & Stores Limited', '133 Idimu Road, Egbeda, Lagos.', '+234 1 4701292', 1),
-(18, 'Becan Pharmacy & Stores', 'Suite A12, Sheriff Shopping Complex, Aminu Kano Crescent, Wuse 2, Abuja.', '+234 (0) 803-31191', 4),
-(19, 'Belam Pharmacy', '56 Omoba Road, Aba, Abia State.', '+234 82 224062', 3),
-(20, 'Beneze Pharmacy Limited', '4 Demurin Street, Ketu, Lagos.', '+234 1 4965505; Fax: +234 1 4965505\r\n', 1),
-(21, 'Bernadds Pharmacy & Supermarket', '58 Western Avenue, Surulere, Lagos.', '+234 1 5848008, 2644521', 1),
-(22, 'Bernados Pharmacy', '66, Ishaga Idi Araba Road, Surulere, Lagos.', '+234 1 7743342, 4528705, 0803-3018022,', 1),
-(23, 'Beta Pharmacy & Chemist', 'Shop 2, Shopping Centre, Area 2, Garki, Abuja.', '+234 9 23440365', 4),
-(24, 'Big John Pharmacy', 'Park & Shop Complex, Victoria Island, Lagos.', '+234 1 2616971', 1),
-(25, 'Binklor Pharmacy & Store Limited', '8 Pelewura Crescent, Apapa, Lagos.', '+234 1 5879912', 1),
-(26, 'Biyi Pharmacy', 'Plot 2, Cornershop, Zone 6, Wuse, Abuja.', '234 9 5234411', 4),
-(27, 'Boj Pharmacy & Stores Limited', 'Shop 23 & 24, Post Office Complex, Area 10, Garki, Abuja.', '+234 9 2346450', 4),
-(28, 'Bolar Pharmaceuticals Ltd', '9, Kodesoh Street, Ikeja, Lagos.', '+234 1 4930100', 1),
-(29, 'Bolax Pharma Products Ltd', ' 6, Kolawole Odunsi Street, Off Unity Road, P.O. Box 9924, Ikeja, Lagos.', '+234 1 4962708, 4967408; Fax: +234 1 4936875', 1),
-(30, 'Boluke Pharmacy Limited', '16 Iju Road, Agege, Lagos.', '+234 1 4923117', 1),
-(31, 'Brigs Pharmacy Limited', '1 Irewole Avenue, Opebi, Lagos.', '+234 1 4978024', 1),
-(32, 'Brite Pharmacy & Store Limited', '129 Abeokuta Expressway, Adealu Bus Stop, Iyana Ipaja, Lagos.', '+234 1 4924970', 1),
-(33, 'Cantol Pharmacy & Stores', '56 Opebi Road, By Salvation BusStop, Ikeja, Lagos.', '+234 1 4932556', 1),
-(34, 'Capricon Pharmacy & Stores', '17A Nicholas Street, Aba, Abia State.', '+234 1 82 227076\r\n', 3),
-(35, 'Capstone Pharmacy and Stores', '163, Akilo Road (Marketing B/Stop), Ikeja Lagos.', '+234 (0) 802 3435779', 1),
-(36, 'Carelink Pharmacy', 'Ground Floor, Centage Plaza, 14 Allen Avenue, Ikeja, Lagos.', '+234 1 4938152', 1),
-(37, 'ChezPharma Nigeria Ltd', '70, Sir Mobolaji Bank Anthony Way, Ikeja, Lagos.', '+234 1 2630997, 4967523\r\n', 1),
-(38, 'CHI Pharmaceuticals Ltd', 'Plot 20, Chief Benson Anorue Street, Ajao Estate, Apakun Oshodi, Lagos.', '+234 1 4520626-32, 4520592, 4520877, 4520965, 7740383; Fax: +234 1 4520980, 4975280.', 1),
-(39, 'Chrisnolly Pharmacy & Kiddies Corner', 'Shop G3, Nicon Noga Hilton Hotel, Maitama, Abuja.', '+234 9 4131811, 4134857', 4),
-(40, 'Chyzob Pharmacy', '168 Awolowo Road, Ikoyi Lagos.', '+234 1 2694545', 1),
-(41, 'Koon', 'Abakpa, Ugbene Enugu State', '08063305711', 6);
+(8, 'Albertson Pharmacy', 'No 37 Kingsway Road, Ikoyi, Lagos.', '+234 1 2680937', 7),
+(9, 'All King Pharmacy', '39 Adebowale Street, Ojodu, Lagos.', '+234 1 4925109, 4711520, 256338', 7),
+(10, 'Alpha Pharmacy & Stores Limited', '2B Alabi Street, Off Toyin Street, Ikeja, Lagos.', '+234 1 4961607, 4972902, 8119747; Fax: +234 1 4961607, 4972902', 7),
+(11, 'Alrange Pharmacy', '20 Kadiri Street, Ojuelegba, Surulere, Lagos.', '+234 1 5451721', 7),
+(12, 'Amazon Pharmacy Limited', '49 Randle Street, Surulere, Lagos.', '+234 (0) 803-3303872', 7),
+(13, 'Arowolo Pharmacy', '7 Isheri Road, Idimu, Lagos.', '+234 1 4706732', 7),
+(14, 'ATSI Pharmacy Nigeria Limited', 'Unit 6, 52 James Robertson Street, Masha, Surulere, Lagos', '+234 1 830853, 5851937; Fax: +234 1 4935849', 7),
+(15, 'Aventis Pasteur Nigeria', '7th Floor, Eleganza Biro Plaza, Plot 634, Adeyemo Alakija Street, Victoria Island, Lagos.', '+234 1 2647150, 2647151', 7),
+(16, 'Barnado Pharmacy', 'Western Avenue, Ojuelegba, Lagos.', '+234 1 4528705, 7743342, 0803-3018022', 7),
+(17, 'Batil Pharmacy & Stores Limited', '133 Idimu Road, Egbeda, Lagos.', '+234 1 4701292', 7),
+(18, 'Becan Pharmacy & Stores', 'Suite A12, Sheriff Shopping Complex, Aminu Kano Crescent, Wuse 2, Abuja.', '+234 (0) 803-31191', 14),
+(19, 'Belam Pharmacy', '56 Omoba Road, Aba, Abia State.', '+234 82 224062', 15),
+(20, 'Beneze Pharmacy Limited', '4 Demurin Street, Ketu, Lagos.', '+234 1 4965505; Fax: +234 1 4965505\r\n', 7),
+(21, 'Bernadds Pharmacy & Supermarket', '58 Western Avenue, Surulere, Lagos.', '+234 1 5848008, 2644521', 7),
+(22, 'Bernados Pharmacy', '66, Ishaga Idi Araba Road, Surulere, Lagos.', '+234 1 7743342, 4528705, 0803-3018022,', 7),
+(23, 'Beta Pharmacy & Chemist', 'Shop 2, Shopping Centre, Area 2, Garki, Abuja.', '+234 9 23440365', 14),
+(24, 'Big John Pharmacy', 'Park & Shop Complex, Victoria Island, Lagos.', '+234 1 2616971', 7),
+(25, 'Binklor Pharmacy & Store Limited', '8 Pelewura Crescent, Apapa, Lagos.', '+234 1 5879912', 7),
+(26, 'Biyi Pharmacy', 'Plot 2, Cornershop, Zone 6, Wuse, Abuja.', '234 9 5234411', 14),
+(27, 'Boj Pharmacy & Stores Limited', 'Shop 23 & 24, Post Office Complex, Area 10, Garki, Abuja.', '+234 9 2346450', 14),
+(28, 'Bolar Pharmaceuticals Ltd', '9, Kodesoh Street, Ikeja, Lagos.', '+234 1 4930100', 7),
+(29, 'Bolax Pharma Products Ltd', ' 6, Kolawole Odunsi Street, Off Unity Road, P.O. Box 9924, Ikeja, Lagos.', '+234 1 4962708, 4967408; Fax: +234 1 4936875', 7),
+(30, 'Boluke Pharmacy Limited', '16 Iju Road, Agege, Lagos.', '+234 1 4923117', 7),
+(31, 'Brigs Pharmacy Limited', '1 Irewole Avenue, Opebi, Lagos.', '+234 1 4978024', 7),
+(32, 'Brite Pharmacy & Store Limited', '129 Abeokuta Expressway, Adealu Bus Stop, Iyana Ipaja, Lagos.', '+234 1 4924970', 7),
+(33, 'Cantol Pharmacy & Stores', '56 Opebi Road, By Salvation BusStop, Ikeja, Lagos.', '+234 1 4932556', 7),
+(34, 'Capricon Pharmacy & Stores', '17A Nicholas Street, Aba, Abia State.', '+234 1 82 227076\r\n', 15),
+(35, 'Capstone Pharmacy and Stores', '163, Akilo Road (Marketing B/Stop), Ikeja Lagos.', '+234 (0) 802 3435779', 7),
+(36, 'Carelink Pharmacy', 'Ground Floor, Centage Plaza, 14 Allen Avenue, Ikeja, Lagos.', '+234 1 4938152', 7),
+(37, 'ChezPharma Nigeria Ltd', '70, Sir Mobolaji Bank Anthony Way, Ikeja, Lagos.', '+234 1 2630997, 4967523\r\n', 7),
+(38, 'CHI Pharmaceuticals Ltd', 'Plot 20, Chief Benson Anorue Street, Ajao Estate, Apakun Oshodi, Lagos.', '+234 1 4520626-32, 4520592, 4520877, 4520965, 7740383; Fax: +234 1 4520980, 4975280.', 7),
+(39, 'Chrisnolly Pharmacy & Kiddies Corner', 'Shop G3, Nicon Noga Hilton Hotel, Maitama, Abuja.', '+234 9 4131811, 4134857', 14),
+(40, 'Chyzob Pharmacy', '168 Awolowo Road, Ikoyi Lagos.', '+234 1 2694545', 7),
+(41, 'Koon', 'Abakpa, Ugbene Enugu State', '08063305711', 6),
+(42, 'Igondu pharmacy', 'Ebelebe', '0807987972934', 11),
+(43, 'Kov Pharmacy', 'Abakpa', '', 12);
 
 -- --------------------------------------------------------
 
