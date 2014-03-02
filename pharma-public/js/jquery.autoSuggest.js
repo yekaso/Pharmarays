@@ -47,8 +47,8 @@ function retrievedrug(drugid, start, desiredPosts) {
             + '<ul><li><a class="article_title news_title" target="_top" href="#"></a>'
             + '<div class="comment-description"></div></li></ul></div>';
     var pharmacytemplate = '<li><a id="" href="#" ><?php echo $name ?></a></li>';
-    var newsletterheading = ' <div class="alert alert-info alert-login heading">Related articles and journals...<br/></div>';
-    var newsheading = ' <div class="alert alert-info alert-login heading">Related news and events...<br/></div>';
+  //  var newsletterheading = ' <div class="alert alert-info alert-login heading">Related articles and journals...<br/></div>';
+    var newsheading = ' <div class="alert alert-info alert-login heading">Related articles and journals...<br/></div>';
     var commentsummarytemplate = '<a class="comment" href="#" target="_top"></a>';
     var user_id = $("#memberid").val();
     $(document).ajaxStop();

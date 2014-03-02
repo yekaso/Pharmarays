@@ -219,16 +219,16 @@ class user_authorization extends CI_Controller {
         log_message('info', 'after newsleters list has been clicked.................');
         $this->load->view('articles', $data);
     }
-     function redirect_to_internship($data = '') {
-         $default_id = 0;
-         $limit = 20;
+
+    function redirect_to_internship($data = '') {
+        $default_id = 0;
+        $limit = 20;
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after internships list has been clicked.................');
         $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
-        $data['internships'] = $this->membermodel->retrieve_internships($default_id,$limit);
+        $data['internships'] = $this->membermodel->retrieve_internships($default_id, $limit);
         $this->load->view('internships', $data);
     }
-
 
     function redirect_to_managearticles($data = '') {
         $data['memberid'] = $this->session->userdata('memberid');
@@ -257,7 +257,7 @@ class user_authorization extends CI_Controller {
     function redirect_to_managepharmacy() {
         $data = '';
         log_message('info', 'after newsleters list has been clicked.................');
-        $data['locations'] = $this->membermodel->retrieve_locations();
+        $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
         $this->load->view('adminpagepharmacy', $data);
     }
 
@@ -871,6 +871,20 @@ class user_authorization extends CI_Controller {
         echo json_encode($mapdetail);
     }
 
+    function retrieve_location_ref() {
+        extract($_POST);
+        $result_locations = json_encode($this->membermodel->retrieve_pharmacylocations_bylocationid($locationid));
+        echo $result_locations;
+    }
+
+    function retrieve_internships() {
+        extract($_POST);
+        $result_internships['internships'] = json_encode($this->membermodel->retrieve_internships($lastinternship_id, $limit));
+//   $result_rays['news'] = json_encode($this->membermodel->retrieve_newsbeyond_id($lastnews_id, $limit));
+//  $result_rays['newsletter'] = json_encode($this->membermodel->retrieve_newsletterbeyond_id($lastnewsletter_id, $limit));
+        echo json_encode($result_internships);
+    }
+
     function retrieve_rays() {
         extract($_POST);
         $result_rays['news'] = json_encode($this->membermodel->retrieve_articles_bylimit($lastnewsletter_id, $limit));
@@ -1043,7 +1057,7 @@ class user_authorization extends CI_Controller {
         $data['comment_counts'] = $comment_counts;
         $data['related_pharmacy'] = $related_pharmacy;
         $data['news'] = $news_result;
-      //  $data['newsletters'] = $newsletters_result;
+        //  $data['newsletters'] = $newsletters_result;
         $data['desiredPosts'] = $desiredPosts;
         $data['toptendrugs_data'] = $toptendrugs_data;
         $data['toptenpharmacy_data'] = $toptenpharmacy_data;

@@ -68,6 +68,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery-ui.js"></script>       
     <script type="text/javascript" src="<?php echo base_url() ?>js/communitypharmacy.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/pharmacy.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.blockUI.js"></script>
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -80,27 +81,36 @@
         echo display_hidden_fields($data_pos);
         ?><?php include 'banner.php' ?>
         <div id="maincontainer" style="position: relative;">
-            <div class="newscategories" id="newsandevents">
-                <div class="alert alert-info alert-login heading">
-                    Community Pharmacy...<br/>
-                </div>
-                <div id="search_div">
-                    <input type="hidden" name="id-holder" id="id-holder"/> 
+             <div class="alert alert-info alert-login heading floating_banner">
+                   <div id="search_div">Community Pharmacy...&emsp;&ensp;<input type="hidden" name="id-holder" id="id-holder"/> 
                     <input type="hidden" id="empty_data" name="servempty_dataerurl" value="false"/>
 
                     <input class="searchbox" id="inputBox" placeholder="Search for a pharmacy closest to you by their name" type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a location-</option>
-                        <?php
-                        foreach ($locations as $columnName => $columnData) {
-                            ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                    <div id="location_div">
+                        <select id="country_select">
+                            <option value="0">-Choose a Country-</option>
                             <?php
-                        }
-                        ?>
-                    </select>
+                            foreach ($locations as $columnName => $columnData) {
+                                ?>
+                                <option value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <img src="<?php echo base_url() ?>images/loading2.gif" id="state_select_loading" class="flash"/>
+
+                        <select id="state_select">
+                            <option value="0">-Choose a State-</option>
+                        </select>
+                        <img src="<?php echo base_url() ?>images/loading2.gif" id="location_select_loading" class="flash"/>
+                        <select id="location_select">
+                            <option value="-1">-Choose a Location-</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
+                </div>
+            <div class="newscategories" id="newsandevents">
+               <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
                     <?php
                     display_community_pharmacy($community_pharmacy);
                     ?>

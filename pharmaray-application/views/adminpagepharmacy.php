@@ -97,22 +97,30 @@
                                                 <label for="ChurchEmail">Location of Pharmacy  <span class="compulsory_field">*</span></label>
                                             </div>
                                             <div class="editor-field">
-                                                <select id="pharmacy_location" class="span12" name="pharmacy_location" data-val-required="The location field is required." data-val="true">
-                                                    <option value="0">Choose...</option>
-                                                    <?php
-                                                    $errors = array_filter($locations);
+                                                <select id="country_select">
+                            <option value="0">-Choose a Country-</option>
+                            <?php
+                            $errors = array_filter($locations);
 
                                                     if (!empty($errors)) {
-                                                        foreach ($locations as $columnName => $columnData) {
-                                                            $name = $columnData['name'];
-                                                            $id = $columnData['id_location'];
-                                                            ?>
-                                                            <option value="<?php echo $id; ?>"><?php echo strtolower(word_trim($name, 30, true)) ?></option>
-                                                            <?php
-                                                        }
+                            foreach ($locations as $columnName => $columnData) {
+                                ?>
+                                <option value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                                <?php
+                            }
                                                     }
-                                                    ?>                                                        
-                                                </select>
+                            ?>
+                        </select>
+                        <img src="<?php echo base_url() ?>images/loading2.gif" id="state_select_loading" class="flash"/>
+
+                        <select id="state_select">
+                            <option value="0">-Choose a State-</option>
+                        </select>
+                        <img src="<?php echo base_url() ?>images/loading2.gif" id="location_select_loading" class="flash"/>
+                        <select id="location_select">
+                            <option value="-1">-Choose a Location-</option>
+                        </select>
+                                                
                                                 <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CountryID"></span>
                                             </div>
                                         </div>

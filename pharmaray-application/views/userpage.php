@@ -44,6 +44,13 @@
             </head> 
             <body><?php include 'banner.php' ?>
                 <div id="maincontainer">
+                    <div class="alert alert-info alert-login heading floating_banner">
+                        <div> Online Pharmacy ::  &emsp;&ensp;
+                            <input type="hidden" name="id-holder" id="id-holder"/> 
+                                            <input class="searchbox" id="inputBox" placeholder="Search drugs..." type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
+
+                                        </div>
+                                </div>
                     <input type="hidden" id="memberid" name="memberid" value="<?php echo $memberid; ?>"/>
                     <input type="hidden" id="start_comment" name="start_comment" value="10"/>
                     <input type="hidden" id="drugid" name="drugid" value="<?php echo $drugid; ?>"/>
@@ -63,32 +70,27 @@
                     <input type="hidden" id="lastcommentid" name="lastcommentid" value="<?php echo $lastcommentid ?>"/>
 
                     <div id="contentwrapper">
+                        
                         <?php include 'userpagenav.php' ?>
                         <div class="main_content">
                             <div class="row-fluid main_content_swatch">
 
-                                <div class="alert alert-info alert-login heading">
-                                    Welcome to Pharmarays :: <?php echo $logged_in_user ?>
-                                    <br>
-                                </div>
+                                
 
 
                                 <div class="wrapdivfull">
                                     <div id="searchresult">
-                                        <div>
-                                            <input type="hidden" name="id-holder" id="id-holder"/> 
-                                            <input class="searchbox" id="inputBox" placeholder="Search drugs..." type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
-
-                                        </div>
+                                            
                                         <h3 class="heading"><?php echo $drug_data['drug_name']; ?></h3>
                                         <h5 id="company">  By&nbsp;&nbsp;&nbsp;
                                             <?php
-                                            $split_brandname = explode(",", $drug_data['drug_brandname']);
+                                            $split_brandname = explode(",", $drug_data['drug_company']);
+                                            $split_brandname = array_unique($split_brandname);
                                             foreach ($split_brandname as $brand_name) {
                                                 list($split_brandobject_name, $split_brandobject_id) = explode(":", $brand_name);
                                                 ?><a  target="_top" href="#" id="<?php echo $split_brandobject_id; ?>"><?php echo $split_brandobject_name; ?></a><?php } ?></h5> 
                                         <h5>Contained in Brands: &nbsp;&nbsp;</h5>
-                                        <div id="brands"><?php echo $drug_data['drug_brandnames']; ?>
+                                     <div id="brands"><?php echo $drug_data['drug_brandnames']; ?>
                                         </div>
                                         <br/>
                                         <div class="formSep" id="formSep">

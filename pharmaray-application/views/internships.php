@@ -27,15 +27,15 @@
 
         foreach ($internships as $columnName => $columnData) {
             ?>
-            <div class="row-fluid" id="">
+            <div class="row-fluid internship_title" id="<?php echo $columnData['id'] ?>">
                 <div class="span12">
                     <div class="internship-row">
-                        <div><?php echo $columnData['firm'] ?></div>
-                        <div><?php echo $columnData['location'] ?></div>
-                        <div><?php echo $columnData['slots'] . ' Slots available (2 booked)' ?> </div>
-                        <div><?php echo $columnData['duration'] ?> Months</div>
-                        <div><?php echo $columnData['specialization'] ?> </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button" id="loginUser" name="loginUser" /></div>
+                        <div id="firm_name"><?php echo $columnData['firm'] ?></div>
+                        <div id="location_name"><?php echo $columnData['location'] ?></div>
+                        <div id="slots_available"><?php echo $columnData['slots'] . ' Slots available' ?> </div>
+                        <div id="duration"><?php echo $columnData['duration'] ?> Months</div>
+                        <div id="specialization"><?php echo $columnData['specialization'] ?> </div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button" id="apply_intern" name="apply_intern" /></div>
 
                     </div>
                     <div style="border-top: 1px solid #2F96B4; clear:both"></div>
@@ -65,21 +65,23 @@
     </link>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery-ui.js"></script>       
-    <script type="text/javascript" src="<?php echo base_url() ?>js/communitypharmacy.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/internship.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.blockUI.js"></script>
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
             <title>Pharmaray User</title>
     </head> 
-    <body><input type="hidden" id="serverurl" name="serverurl" value="<?php echo base_url() ?>"/>
+    <body>
+        <input type="hidden" id="serverurl" name="serverurl" value="<?php echo base_url() ?>"/>
+        <input type="hidden" id="empty_data" name="servempty_dataerurl" value="false"/>
         <?php
         $data_pos = array(
             '0' => 0, '1' => 0);
         echo display_hidden_fields($data_pos);
         ?><?php include 'banner.php' ?>
         <div id="maincontainer" style="position: relative;">
-            <div class="newscategories" id="newsandevents">
-                <div class="alert alert-info alert-login heading" style='z-index: 999;position:fixed;width: auto'>
+            <div class="alert alert-info alert-login heading floating_banner">
+                <div>Internships... &emsp;&ensp;
                     <select id="location_select">
                         <option class="select_by_location" value="0">-Choose a firm-</option>
                         <?php
@@ -121,10 +123,11 @@
                         ?>
                     </select>
                     <input type="submit" value=" Search " class="snazzy_button" style='margin-left: 20px' id="loginUser" name="loginUser" />
-                    <br/>
-                </div>
 
-                <div class="commpharm row-fluid" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;margin-top:60px;">
+                </div>
+            </div>
+            <div class="newscategories" id="newsandevents">
+                <div class="commpharm row-fluid internship_list" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
                     <?php
                     display_internships($internships);
                     ?>
@@ -134,27 +137,22 @@
             </div> 
 
         </div>
-        <div class="container footer">
-            <div class="footer-info pull-left">  
-                <div id="ias_trigger" class="ias_trigger" style="">
-                    <a href="#ias_trigger" onclick="return false;">
-                        Load more items
-                    </a>
-                </div>
+        <div class="container footer hidden-phone smoke-white">
+            <div class="footer-info pull-left">
+                <span>&copy; 2013 Pharmarays</span>
+                <a href="#" >About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#" >Terms & Conditions</a>
                 <div class="ias_loader">
-                    <div id="loader" style="margin-left:40%"><img src='<?php echo base_url() ?>images/loading_icon.gif' alt='loading' style="display:none"/>
+                    <div id="loader"><img src='<?php echo base_url() ?>images/loading_icon.gif' alt='loading' style="display:none"/>
                     </div>                
                 </div>
-
+                <!-- <div class="ias_trigger" style="">
+                     <a href="#">
+                         Load more items
+                     </a>
+                 </div>-->
             </div>
-        </div>
-
-        <div id="dialog-modal" title="Loading....">
-            <p></p><div class="flash" id="mapframe">
-
-            </div>
-
-            <div class='loadingmap'></div>
         </div>
     </body>
 </html>

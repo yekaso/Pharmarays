@@ -1049,32 +1049,30 @@ class membermodel extends CI_Model {
 
     function retrieve_pharmacylocations() {
         log_message('info', 'inside retrieving locations ');
-      
+        $sql_query = "select l.id_location as id, l.name as name from location l where l.id_location not in"
+                . "(select lr.location_id from location_ref lr)";
 
-        $this->db->select('l.id_location as id,l.name as name')
-                ->from('location l')
-                ->join('location_ref lr','lr.super_locationid = l.id_location and lr.location_id <> lr.super_locationid')
-                ->order_by('l.name'
-        );
-        
-        $this->db->distinct();
-        $query = $this->db->get();
-        log_message('info', $this->db->last_query());
+        /*  $this->db->select('l.id_location as id,l.name as name')
+          ->from('location l')
+          ->join('location_ref lr', 'lr.location_id = l.id_location', 'left outer')
+          ->order_by('l.name'
+          );
+         */log_message('info', $sql_query);
+        $query = $this->db->query($sql_query);
         $result = $query->result_array();
         $query->free_result();
         return $result;
     }
+
     function retrieve_pharmacylocations_bylocationid($locationid) {
         log_message('info', 'inside retrieving locations ');
-        $where_sql = "ff.forumid_forum  is null ";
-
 
         $this->db->select('l.id_location as id,l.name as name')
                 ->from('location l')
-                ->join('location_ref lr','lr.location_id = l.id_location and lr.super_locationid = '.$locationid)
+                ->join('location_ref lr', 'lr.location_id = l.id_location and lr.super_locationid = ' . $locationid)
                 ->order_by('l.name'
         );
-        
+
         $this->db->group_by('id');
         $query = $this->db->get();
         log_message('info', $this->db->last_query());

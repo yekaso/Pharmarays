@@ -89,17 +89,14 @@
             <input type="hidden" id="memberid" name="memberid" value="<?php echo $memberid; ?>"/>
             <?php include 'banner.php' ?>
             <div id="maincontainer">
-                <div class="newscategories" id="newsandevents">
-                    <div class="alert alert-info alert-login heading">
-                        News, Newsletters and events...<br/>
-                    </div>
-                    <div>
+                <div class="alert alert-info alert-login heading floating_banner">
+                    <div>News, Newsletters and events... &emsp;&ensp;
                         <input type="hidden" name="id-holder" id="id-holder"/> 
                         <input class="searchbox" id="inputBox" placeholder="Search news, newsletters, writeups, thesis, materials, events by a word, sentence or phrase that best describes it" type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
 
                     </div>
-
-
+                </div>
+                <div class="newscategories" id="newsandevents">
                     <?php
                     $data_pos = array(
                         '0' => 0);
