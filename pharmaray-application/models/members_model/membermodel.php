@@ -990,6 +990,28 @@ class membermodel extends CI_Model {
         }
     }
 
+    function create_new_location_ref($location_ref_data) {
+        log_message('info', 'before inserting into location ref.................');
+        $result = $this->db->insert('location_ref', $location_ref_data);
+        log_message('info', 'after inserting into location ref.................');
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
+    }
+
+    function create_new_location($location_data) {
+        log_message('info', 'before inserting into locatio.................');
+        $result = $this->db->insert('location', $location_data);
+        log_message('info', 'after inserting into location.................');
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
+    }
+
     function create_new_logindetails($logindetails_data) {
         log_message('info', 'before inserting into login details.................');
         $result = $this->db->insert('logindetails', $logindetails_data);
