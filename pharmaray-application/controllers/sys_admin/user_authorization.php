@@ -394,8 +394,10 @@ class user_authorization extends CI_Controller {
           } */
     }
 
-    function default_select($post_string) {
-        return $post_string == '0' ? FALSE : TRUE;
+    function default_select() {
+        extract($_POST);
+        $toptenpharmacy_data = $this->membermodel->retrieve_topten_pharmacy($desiredPosts);
+        echo json_encode($toptenpharmacy_data);
     }
 
     public function register_member() {
