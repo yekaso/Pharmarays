@@ -17,13 +17,13 @@ class membermodel extends CI_Model {
         $this->load->database();
     }
 
-    function verify_user_role($memberid) {
+    function verify_user_role($memberid,$rolename) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
                 ->join('logindetails_userrole ldur', 'ldur.logindetailsuserrole_userroleid = ur.id_userrole')
                 ->join('logindetails l', 'l.id_logindetails = ldur.logindetailsuserrole_logindetailsid')
                 ->where(array(
-                    'lower(ur.name)' => "admin",
+                    'lower(ur.name)' => "$rolename",
                     'l.memberid_member' => "$memberid",
                         )
         );
@@ -983,6 +983,28 @@ class membermodel extends CI_Model {
         log_message('info', 'after inserting into topic comment.................' . $this->db->insert_id());
 
         log_message('info', 'the status of the transaction is...........' . $this->db->trans_status() . ' the insert id is ......' . $this->db->insert_id());
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
+    }
+
+    function create_new_location_ref($location_ref_data) {
+        log_message('info', 'before inserting into location ref.................');
+        $result = $this->db->insert('location_ref', $location_ref_data);
+        log_message('info', 'after inserting into location ref.................');
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
+    }
+
+    function create_new_location($location_data) {
+        log_message('info', 'before inserting into locatio.................');
+        $result = $this->db->insert('location', $location_data);
+        log_message('info', 'after inserting into location.................');
         if ($this->db->trans_status() == FALSE) {
             return -1;
         } else {

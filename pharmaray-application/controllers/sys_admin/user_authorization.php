@@ -357,7 +357,8 @@ class user_authorization extends CI_Controller {
                     'logged_in_user' => $data['logged_in_user'],
                     'membertypeid' => $data['membertypeid']
                 );
-                $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid']);
+                $rolename = 'admin';
+                $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid'], $rolename);
                 $this->session->set_userdata($logindetails);
 
 //          $this->repopulate_page($data, $drug_id);
@@ -383,7 +384,8 @@ class user_authorization extends CI_Controller {
         $data['logged_in_user'] = $this->session->userdata('logged_in_user');
         $data['membertypeimage'] = $this->session->userdata('membertypeimage');
         $data['membertypeid'] = $this->session->userdata('membertypeid');
-        $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid']);
+        $rolename = 'admin';
+        $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid'], $rolename);
 
         $this->repopulate_page($data, $drug_id);
 //uncomment above to redirect to online pharmacy and uncomment all below
@@ -394,8 +396,11 @@ class user_authorization extends CI_Controller {
           } */
     }
 
-    function default_select($post_string) {
-        return $post_string == '0' ? FALSE : TRUE;
+    function default_select() {
+        extract($_POST);
+        $desiredPosts = '20';
+         $toptenpharmacy_data = $this->membermodel->retrieve_topten_pharmacy($desiredPosts);
+       
     }
 
     public function register_member() {
@@ -1029,6 +1034,35 @@ class user_authorization extends CI_Controller {
         log_message('info', $result_comments);
         echo $result_comments;
     }
+
+    /*  function createlocation() {
+      $data = "3]Aba North;Aba South;Arochukwu;Bende;Ikwuano;Isiala Ngwa North;Isiala Ngwa South;Isuikwuato;Obi Ngwa;Ohafia;Osisioma;Ugwunagbo;Ukwa East;Ukwa West;Umuahia North;Umuahia South;Umu Nneochi=9]Demsa;Fufure;Ganye;Grie;Gombi;Gayuk;Hong;Jada;Larmurde;Madagali;Maiha;Mayo Belwa;Michika;Mubi North;Mubi South;Numan;Shelleng;Song;Toungo;Yola North;Yola South=8]Abak;Eastern Obolo;Eket;Esit Eket;Essien Udim;Etim Ekpo;Etinan;Ibeno;Ibesikpo Asutan;Ibiono-Ibom;Ika;Ikono;Ikot Abasi;Ikot Ekpene;Ini;Itu;Mbo;Mkpat-Enin;Nsit-Atai;Nsit-Ibom;Nsit-Ubium;Obot Akara;Okobo;Onna;Oron;Oruk Anam;Udung-Uko;Ukanafun;Uruan;Urue-Offong/Oruko;Uyo=7]Aguata;Anambra East;Anambra West;Anaocha;Awka North;Awka South;Ayamelum;Dunukofia;Ekwusigo;Idemili North;Idemili South;Ihiala;Njikoka;Nnewi North;Nnewi South;Ogbaru;Onitsha North;Onitsha South;Orumba North;Orumba South;Oyi=10]Alkaleri;Bauchi;Bogoro;Damban;Darazo;Dass;Gamawa;Ganjuwa;Giade;Itas/Gadau;Jama'are;Jama'are;Kirfi;Misau;Ningi;Shira;Tafawa Balewa;Toro;Warji;Zaki;Katagum=11]Brass;Ekeremor;Kolokuma/Opokuma;Nembe;Ogbia;Sagbama;Southern Ijaw;Yenagoa=37]Ado;Agatu;Apa;Buruku;Gboko;Guma;Gwer East;Gwer West;Katsina-Ala;Konshisha;Kwande;Logo;Makurdi;Obi;Ohimini;Oju;Okpokwu;Oturkpo;Tarka;Ukum;Ushongo;Vandeikya;Ogbadibo=12]Abadam;Askira/Uba;Bama;Bayo;Biu;Chibok;Damboa;Dikwa;Gubio;Guzamala;Gwoza;Hawul;Jere;Kaga;Kala/Balge;Konduga;Kukawa;Kwaya Kusar;Mafa;Magumeri;Maiduguri;Marte;Mobbar;Monguno;Ngala;Nganzai;Shani=13]Abi;Akamkpa;Akpabuyo;Bakassi;Bekwarra;Biase;Boki;Calabar South;Calabar Municipal;Etung;Ikom;Obanliku;Obubra;Obudu;Odukpani;Ogoja;Yakuur;Yala=14]Aniocha North;Aniocha South;Bomadi;Burutu;Ethiope East;Ethiope West;Ika North East;Ika South;Isoko North;Isoko South;Ndokwa East;Ndokwa West;Okpe;Oshimili North;Oshimili South;Patani;Sapele;Udu;Ughelli North;Ughelli South;Ukwuani;Uvwie;Warri North;Warri South;Warri South West=15]Abakaliki;Afikpo North;Afikpo South;Ebonyi;Ezza North;Ezza South;Ikwo;Ishielu;Ivo;Izzi;Ohaozara;Ohaukwu;Onicha=16]Akoko-Edo;Egor;Esan Central;Esan North-East;Esan South-East;Esan West;Etsako Central;Etsako East;Etsako West;Igueben;Ikpoba Okha;Oredo;Orhionmwon;Ovia North-East;Ovia South-West;Owan East;Owan West;Uhunmwonde=5]Ado Ekiti;Gbonyin;Efon;Ekiti East;Ekiti South-West;Ekiti West;Emure;Ido Osi;Ijero;Ikere;Ikole;Ilejemeje;Irepodun/Ifelodun;Ise/Orun;Moba;Oye=6]Aninri;Awgu;Enugu East;Enugu North;Enugu South;Ezeagu;Igbo Etiti;Igbo Eze North;Igbo Eze South;Isi Uzo;Nkanu East;Nkanu West;Nsukka;Oji River;Udenu;Udi;Uzo Uwani=4]Abaji;Municipal Area Council;Bwari;Gwagwalada;Kuje;Kwali=17]Akko;Balanga;Billiri;Dukku;Funakaye;Gombe;Kaltungo;Kwami;Nafada;Shongom;Yamaltu/Deba=18]Aboh Mbaise;Ahiazu Mbaise;Ehime Mbano;Ezinihitte;Ideato North;Ideato South;Ihitte/Uboma;Ikeduru;Isiala Mbano;Isu;Mbaitoli;Ngor Okpala;Njaba;Nkwerre;Nwangele;Obowo;Oguta;Ohaji/Egbema;Okigwe;Orlu;Orsu;Oru East;Oru West;Owerri North;Owerri West;Owerri Municipal;Unuimo=19]Auyo;Babura;Biriniwa;Birnin Kudu;Buji;Dutse;Gagarawa;Garki;Gumel;Guri;Gwaram;Gwiwa;Hadejia;Jahun;Kafin Hausa;Kaugama;Kazaure;Kiri Kasama;Kiyawa;Maigatari;Malam Madori;Miga;Ringim;Roni;Sule Tankarkar;Taura;Yankwashi=20]Birnin Gwari;Chikun;Giwa;Igabi;Ikara;Jaba;Jema'a;Kachia;Kaduna North;Kaduna South;Kagarko;Kajuru;Kaura;Kauru;Kubau;Kudan;Lere;Makarfi;Sabon Gari;Sanga;Soba;Zangon Kataf;Zaria=21]Ajingi;Albasu;Bagwai;Bebeji;Bichi;Bunkure;Dala;Dambatta;Dawakin Kudu;Dawakin Tofa;Doguwa;Fagge;Gabasawa;Garko;Garun Mallam;Gaya;Gezawa;Gwale;Gwarzo;Kabo;Kano Municipal;Karaye;Kibiya;Kiru;Kumbotso;Kunchi;Kura;Madobi;Makoda;Minjibir;Nasarawa;Rano;Rimin Gado;Rogo;Shanono;Sumaila;Takai;Tarauni;Tofa;Tsanyawa;Tudun Wada;Ungogo;Warawa;Wudil=22]Bakori;Batagarawa;Batsari;Baure;Bindawa;Charanchi;Dan Musa;Dandume;Danja;Daura;Dutsi;Dutsin Ma;Faskari;Funtua;Ingawa;Jibia;Kafur;Kaita;Kankara;Kankia;Katsina;Kurfi;Kusada;Mai'Adua;Malumfashi;Mani;Mashi;Matazu;Musawa;Rimi;Sabuwa;Safana;Sandamu;Zango=23]Aleiro;Arewa Dandi;Argungu;Augie;Bagudo;Birnin Kebbi;Bunza;Dandi;Fakai;Gwandu;Jega;Kalgo;Koko/Besse;Maiyama;Ngaski;Sakaba;Shanga;Suru;Wasagu/Danko;Yauri;Zuru=24]Adavi;Ajaokuta;Ankpa;Bassa;Dekina;Ibaji;Idah;Igalamela Odolu;Ijumu;Kabba/Bunu;Kogi;Lokoja;Mopa Muro;Ofu;Ogori/Magongo;Okehi;Okene;Olamaboro;Omala;Yagba East;Yagba West=25]Asa;Baruten;Edu;Ekiti;Ifelodun;Ilorin East;Ilorin South;Ilorin West;Irepodun;Isin;Kaiama;Moro;Offa;Oke Ero;Oyun;Pategi=1]Agege;Ajeromi-Ifelodun;Alimosho;Amuwo-Odofin;Apapa;Badagry;Epe;Eti Osa;Ibeju-Lekki;Ifako-Ijaiye;Ikeja;Ikorodu;Kosofe;Lagos Island;Lagos Mainland;Mushin;Ojo;Oshodi-Isolo;Shomolu;Surulere, Lagos State=26]Akwanga;Awe;Doma;Karu;Keana;Keffi;Kokona;Lafia;Obi;Toto;Wamba;Nasarawa;Nasarawa Egon=27]Agaie;Agwara;Bida;Borgu;Bosso;Chanchaga;Edati;Gbako;Gurara;Katcha;Kontagora;Lapai;Lavun;Magama;Mariga;Mashegu;Mokwa;Moya;Paikoro;Rafi;Rijau;Shiroro;Suleja;Tafa;Wushishi=2]Abeokuta North;Abeokuta South;Ado-Odo/Ota;Egbado North;Egbado South;Ewekoro;Ifo;Ijebu East;Ijebu North;Ijebu North East;Ijebu Ode;Ikenne;Imeko Afon;Ipokia;Obafemi Owode;Odeda;Odogbolu;Ogun Waterside;Remo North;Shagamu;Akoko North-East=28]Akoko North-West;Akoko South-West;Akoko South-East;Akure North;Akure South;Ese Odo;Idanre;Ifedore;Ilaje;Ile Oluji/Okeigbo;Irele;Odigbo;Okitipupa;Ondo East;Ondo West;Ose;Owo=29]Aiyedaade;Aiyedire;Atakunmosa East;Atakunmosa West;Boluwaduro;Boripe;Ede North;Ede South;Egbedore;Ejigbo;Ife Central;Ife East;Ife North;Ife South;Ifedayo;Ifelodun;Ila;Ilesa East;Ilesa West;Irepodun;Irewole;Isokan;Iwo;Obokun;Odo Otin;Ola Oluwa;Olorunda;Oriade;Orolu;Osogbo=30]Afijio;Akinyele;Atiba;Atigbo;Egbeda;Ibadan North;Ibadan North-East;Ibadan North-West;Ibadan South-East;Ibadan South-West;Ibarapa Central;Ibarapa East;Ibarapa North;Ido;Irepo;Iseyin;Itesiwaju;Iwajowa;Kajola;Lagelu;Ogbomosho North;Ogbomosho South;Ogo Oluwa;Olorunsogo;Oluyole;Ona Ara;Orelope;Ori Ire;Oyo;Oyo East;Saki East;Saki West;Surulere, Oyo State=31]Barkin Ladi;Bassa;Bokkos;Jos East;Jos North;Jos South;Kanam;Kanke;Langtang North;Langtang South;Mangu;Mikang;Pankshin;Qua'an Pan;Riyom;Shendam;Wase=32]Abua/Odual;Ahoada East;Ahoada West;Akuku-Toru;Andoni;Asari-Toru;Bonny;Degema;Eleme;Emuoha;Etche;Gokana;Ikwerre;Khana;Obio/Akpor;Ogba/Egbema/Ndoni;Ogba/Egbema/Ndoni;Ogu/Bolo;Okrika;Omuma;Opobo/Nkoro;Oyigbo;Port Harcourt;Tai=33]Binji;Bodinga;Dange Shuni;Gada;Goronyo;Gudu;Gwadabawa;Illela;Isa;Kebbe;Kware;Rabah;Sabon Birni;Shagari;Silame;Sokoto North;Sokoto South;Tambuwal;Tangaza;Tureta;Wamako;Wurno;Yabo=34]Ardo Kola;Bali;Donga;Gashaka;Gassol;Ibi;Jalingo;Karim Lamido;Kumi;Lau;Sardauna;Takum;Ussa;Wukari;Yorro;Zing=35]Bade;Bursari;Damaturu;Fika;Fune;Geidam;Geidam;Gulani;Jakusko;Karasuwa;Machina;Nangere;Nguru;Potiskum;Tarmuwa;Yunusari;Yusufari;Gujba=36]Anka;Bakura;Birnin Magaji/Kiyaw;Bukkuyum;Bungudu;Gummi;Gusau;Kaura Namoda;Maradun;Maru;Shinkafi;Talata Mafara;Chafe;Zurmi";
+      $split_brandname = explode("=", $data);
+      $split_brandname = array_unique($split_brandname);
+      foreach ($split_brandname as $by_location) {
+      $split_location = explode("]", $by_location);
+      $split_location = array_unique($split_location);
+      $location_id = $split_location[0];
+      $final_location_split = explode(";", $split_location[1]);
+      $final_location_split = array_unique($final_location_split);
+      foreach ($final_location_split as $brand_name) {
+      $location_data = array(
+      'name' => $brand_name,
+      'description' => $brand_name,
+      );
+      $result_comments = $this->membermodel->create_new_location($location_data);
+      $location_ref_data = array(
+      'location_id' => $result_comments,
+      'super_locationid' => $location_id,
+      );
+
+
+      $this->membermodel->create_new_location_ref($location_ref_data);
+      }
+      }
+      echo "SUCCESS!!!";
+      }
+     */
 
     function repopulate_page($data, $drug_id) {
         $data['drugid'] = $drug_id;
