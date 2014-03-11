@@ -53,7 +53,7 @@
     <body> <?php include 'banner.php' ?>
         <div id="maincontainer">
             <div class="alert alert-info alert-login heading floating_banner">
-                Forums and Topics :: &emsp;&ensp; <?php echo $logged_in_user ?>
+                Forums and Topics :: &emsp;&ensp; 
                 <input type="hidden" name="id-holder" id="id-holder"/> 
                 <input class="searchbox" id="inputBox" placeholder="Search topics..." type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
 

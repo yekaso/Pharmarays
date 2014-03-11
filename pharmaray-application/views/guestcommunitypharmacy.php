@@ -87,7 +87,7 @@
 
                     <input class="searchbox" id="inputBox" placeholder="Search for a pharmacy closest to you by their name" type="text" value="" name="Name" data-val-required="The Search field is required." data-val="true"/>
                     <div id="location_div">
-                        <select id="country_select">
+                        <select id="country_select" class="fields">
                             <option value="0">-Choose a Country-</option>
                             <?php
                             foreach ($locations as $columnName => $columnData) {
@@ -99,11 +99,11 @@
                         </select>
                         <img src="<?php echo base_url() ?>images/loading2.gif" id="state_select_loading" class="flash"/>
 
-                        <select id="state_select">
+                        <select id="state_select" class="fields">
                             <option value="0">-Choose a State-</option>
                         </select>
                         <img src="<?php echo base_url() ?>images/loading2.gif" id="location_select_loading" class="flash"/>
-                        <select id="location_select">
+                        <select id="location_select" class="fields">
                             <option value="-1">-Choose a Location-</option>
                         </select>
                     </div>
