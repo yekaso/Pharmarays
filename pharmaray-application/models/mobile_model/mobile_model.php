@@ -32,10 +32,11 @@ class mobile_model extends CI_Model {
         return $result;
     }
     function retrieve_membertype_byname($member_type_name){
+        $member_type = strtolower($member_type_name);
         $this->db->select('mt.id_membertype, ')
                 ->from('membertype mt')
                   ->where(array(
-                    'lower(mt.name)' => "strtolower($member_type_name)",
+                    'lower(mt.name)' => "$member_type",
                         )
         );
         
