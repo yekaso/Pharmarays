@@ -17,13 +17,13 @@ class membermodel extends CI_Model {
         $this->load->database();
     }
 
-    function verify_user_role($memberid) {
+    function verify_user_role($memberid,$rolename) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
                 ->join('logindetails_userrole ldur', 'ldur.logindetailsuserrole_userroleid = ur.id_userrole')
                 ->join('logindetails l', 'l.id_logindetails = ldur.logindetailsuserrole_logindetailsid')
                 ->where(array(
-                    'lower(ur.name)' => "admin",
+                    'lower(ur.name)' => "$rolename",
                     'l.memberid_member' => "$memberid",
                         )
         );
