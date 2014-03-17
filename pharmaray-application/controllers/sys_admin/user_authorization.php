@@ -173,6 +173,7 @@ class user_authorization extends CI_Controller {
 
         $pharmacyData = $result_pharm = $this->membermodel->retrievepharmacy_byid($pharmacyid);
         $data['pharmacyData'] = $pharmacyData;
+        $address = trim($pharmacyData['address']);
         $data['memberid'] = $this->session->userdata('memberid');
 // $pharmacyDataEncoded = json_encode($pharmacyData);
         $this->load->library('googlemaps');
@@ -182,7 +183,7 @@ class user_authorization extends CI_Controller {
         $placesTypes = array('0' => 'dentist', '1' => 'department_store', '3' => 'grocery_or_supermarket', '4' => 'hospital', '5' => 'pharmacy', '6' => 'physiotherapist', '7' => 'shopping_mall', '8' => 'store',);
 
         $config = array(
-            'center' => $pharmacyData['address'],
+            'center' => $address,
             'draggable' => 'false',
             'map_types_available' => $map_types_available,
             'zoom' => 17,
@@ -191,7 +192,7 @@ class user_authorization extends CI_Controller {
         $this->googlemaps->initialize($config);
 
         $marker = array();
-        $marker['position'] = $pharmacyData['address'];
+        $marker['position'] = $address;
 // $marker['icon'] = base_url().'images/marker.jpg';
         $this->googlemaps->add_marker($marker);
 

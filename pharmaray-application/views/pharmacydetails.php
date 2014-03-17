@@ -29,10 +29,10 @@
             <div class="newscategories" id="newsandevents">
                   <div class="pharmacy_details">
                     <div>
-                        <div class="pharm_name"><?php echo $pharmacyData['name'] ?></div>
+                        <div class="pharm_name"><?php echo trim($pharmacyData['name']) ?></div>
                         <br/>
-                        <div class="pharm_details"><img src="<?php echo base_url() ?>images/telephone.png"/><?php echo ' ' . $pharmacyData['telephone'] ?></div>
-                        <div class="pharm_details"><img src="<?php echo base_url() ?>images/icon_home.gif"/><?php echo ' ' . $pharmacyData['address'] ?></div>
+                        <div class="pharm_details"><img src="<?php echo base_url() ?>images/telephone.png"/><?php echo ' ' . trim($pharmacyData['telephone']) ?></div>
+                        <div class="pharm_details"><img src="<?php echo base_url() ?>images/icon_home.gif"/><?php echo ' ' . trim($pharmacyData['address']) ?></div>
                         <div class="pharm_details"><img src="<?php echo base_url() ?>images/icon_mail.gif"/>&nbsp;info@pharmarays.com</div>
                     </div>
                 </div>

@@ -3731,7 +3731,7 @@ a:hover {
     float: left;
     width: 100%;
     background: url("images/texture_grain_200x200_v2.png") repeat scroll 0% 0% rgb(233, 233, 233);
-    padding-top:70px;
+   /* padding-top:70px;*/
 }
 #searchbox{
     min-height: 45px;
@@ -3943,7 +3943,7 @@ ol.timeline li{ display:none;position:relative;padding:.7em 0 .6em 0;}ol.timelin
     float:left;
     padding-left: 5%;
     padding-right:5%;
-    padding-top:111px;
+  /*  padding-top:111px;*/
     width: 90%;
 }
 .newscategories a:hover {
@@ -4117,7 +4117,7 @@ label{
 .internship-row{
     clear:both;
     width:100%;
-    padding-top: 20px;
+ /*   padding-top: 20px;*/
 }
 .news_section_right{
     float:right;
@@ -4125,7 +4125,7 @@ label{
     padding-left:5%;
 }.floating_banner{
     z-index: 999;
-    position:fixed;
+   /* position:fixed;*/
     width:100%;
     padding-top:20px;
 }
