@@ -17,7 +17,23 @@ class membermodel extends CI_Model {
         $this->load->database();
     }
 
-    function verify_user_role($memberid,$rolename) {
+    function retrieve_userrolebyname($userrole_name) {
+        $userrole_name = strtolower($userrole_name);
+        $this->db->select('ur.id_userrole, ')
+                ->from('userrole ur')
+                ->where(array(
+                    'lower(ur.name)' => "$userrole_name",
+                        )
+        );
+
+        $query = $this->db->get();
+        $result = $query->row();
+        log_message('info', 'verify user roles ::::::::::===>' . $this->db->last_query());
+        $query->free_result();
+        return $result->id_userrole;
+    }
+
+    function verify_user_role($memberid, $rolename) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
                 ->join('logindetails_userrole ldur', 'ldur.logindetailsuserrole_userroleid = ur.id_userrole')
@@ -736,6 +752,19 @@ class membermodel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function create_logindetailrole($logindetailrole_data) {
+        log_message('info', 'before inserting into login details role.................');
+        $result = $this->db->insert('logindetails_userrole', $logindetailrole_data);
+        log_message('info', 'after inserting into login details role.................');
+//   $result->free_result();
+        $this->db->trans_complete();
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
+    }
+
     function create_new_user($member_data) {
         $this->db->trans_start();
         log_message('info', 'before inserting into member.................');
@@ -1016,8 +1045,12 @@ class membermodel extends CI_Model {
         log_message('info', 'before inserting into login details.................');
         $result = $this->db->insert('logindetails', $logindetails_data);
         log_message('info', 'after inserting into login details.................');
+        if ($this->db->trans_status() == FALSE) {
+            return -1;
+        } else {
+            return $this->db->insert_id();
+        }
 //   $result->free_result();
-        $this->db->trans_complete();
     }
 
     function retrieve_forumtopic_by_mostcomment() {

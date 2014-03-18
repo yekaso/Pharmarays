@@ -17,6 +17,27 @@ class mobile_model extends CI_Model {
         $this->load->database();
     }
 
+    
+    function retrieve_loginuserroleid($memberid) {
+        $this->db->select('ldur.id_logindetails_userrole, ')
+                ->from('userrole ur')
+                ->join('logindetails_userrole ldur', 'ldur.logindetailsuserrole_userroleid = ur.id_userrole')
+                ->join('logindetails l', 'l.id_logindetails = ldur.logindetailsuserrole_logindetailsid')
+                ->where(array(
+                    'l.memberid_member' => "$memberid",
+                        )
+        );
+        $query = $this->db->get();
+        $result = $query->first_row('array');
+        log_message('info', 'verify user roles ::::::::::===>' . $this->db->last_query());
+        $query->free_result();
+        $final_result = 'null';
+        if(isset($result['id_logindetails_userrole'])){
+            $final_result = $result['id_logindetails_userrole'];
+        }
+        return $final_result;
+    }
+
     function verify_user_role($memberid) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
@@ -52,7 +73,7 @@ class mobile_model extends CI_Model {
     function retrieve_pharmacy($memberid) {
         $pharm_rolename = 'pharmacy owner';
 
-        $this->db->select("p.name, p.id_pharmacy as id", false)
+        $this->db->select("p.name, p.id_pharmacy as id,urp.status", false)
                 ->from('pharmacy p')
                 ->join('userrole_pharmacy urp', 'p.id_pharmacy = urp.pharmacy_id')
                 ->join('logindetails_userrole lur', 'lur.logindetailsuserrole_userroleid = urp.loginuserrole_id')
@@ -135,21 +156,6 @@ class mobile_model extends CI_Model {
         return $result;
 
 
-        /*  $this->db->select("d.id_drug,d.drug_name,d.drug_description, group_concat(bn.name, ':', bn.id_brandname) as drug_company,group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id", false)
-          ->from('drug d')
-          ->join('drugcategory_drug dcg', 'dcg.drug_id = d.id_drug')
-          ->join('drugcategory dcc', 'dcc.id_drugcategory = dcg.drugcategory_id')
-          ->join('brandname bn', 'bn.id_brandname = dcc.brandname_id')
-          ->order_by('d.drug_name,bn.id_brandname');
-
-          $this->db->group_by("id_drug");
-          $query = $this->db->get();
-          log_message('info', 'Drugs ::::::::::===>' . $this->db->last_query());
-          $result = $query->result_array();
-          $query->free_result();
-          return $result;
-         * 
-         */
     }
 
     function retrievedrugsbypharmacy($pharmacyid) {

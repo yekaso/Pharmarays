@@ -44,6 +44,8 @@ class mobile_controller extends CI_Controller {
                 'membertypeid' => $data['membertypeid']
             );
             $data['pharmacydata'] = $this->mobile_model->retrieve_pharmacy($member_id);
+            
+            $data['loginuserroleid'] = $this->mobile_model->retrieve_loginuserroleid($member_id);
 
             $data['is_adminuser'] = $this->mobile_model->verify_user_role($data['memberid']);
             $data['status'] = 'success';
@@ -90,7 +92,15 @@ class mobile_controller extends CI_Controller {
             log_message('info', 'the id of retrieved member is.................. ' . $member_id);
             if ($member_id > 0) {
                 $logindetails_data['memberid_member'] = $member_id;
-                $this->membermodel->create_new_logindetails($logindetails_data);
+                $logindetail_id = $this->membermodel->create_new_logindetails($logindetails_data);
+                $userrole_id = $this->membermodel->retrieve_userrolebyname($member_type);
+                $logindetailsrole_data = array(
+                    'logindetailsuserrole_logindetailsid' => $logindetail_id,
+                    'logindetailsuserrole_userroleid' => $userrole_id,
+                    'time_created' => date("Y-m-d H:i:s"),
+                    'last_updated' => date("Y-m-d H:i:s")
+                );
+                $data['logindetailrole'] = $this->membermodel->create_logindetailrole($logindetailsrole_data);
                 $data['status'] = 'success';
                 $data['message'] = 'Registration complete';
                 $data['memberid'] = $member_id;
@@ -211,7 +221,7 @@ class mobile_controller extends CI_Controller {
         extract($_POST);
         $last_pharmacyid = 0;
         $locationid = 0;
-        $data = $this->mobile_model->retrieve_pharmacy_bylimit($last_pharmacyid, $locationid,$limit);
+        $data = $this->mobile_model->retrieve_pharmacy_bylimit($last_pharmacyid, $locationid, $limit);
         echo json_encode($data);
     }
 

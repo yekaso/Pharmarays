@@ -400,8 +400,7 @@ class user_authorization extends CI_Controller {
     function default_select() {
         extract($_POST);
         $desiredPosts = '20';
-         $toptenpharmacy_data = $this->membermodel->retrieve_topten_pharmacy($desiredPosts);
-       
+        $toptenpharmacy_data = $this->membermodel->retrieve_topten_pharmacy($desiredPosts);
     }
 
     public function register_member() {
@@ -503,7 +502,16 @@ class user_authorization extends CI_Controller {
                 log_message('info', 'the id of retrieved member is.................. ' . $member_id);
                 if ($member_id > 0) {
                     $logindetails_data['memberid_member'] = $member_id;
-                    $this->membermodel->create_new_logindetails($logindetails_data);
+                    $logindetail_id = $this->membermodel->create_new_logindetails($logindetails_data);
+                    $member_type = 'User';
+                    $userrole_id = $this->membermodel->retrieve_userrolebyname($member_type);
+                    $logindetailsrole_data = array(
+                        'logindetailsuserrole_logindetailsid' => $logindetail_id,
+                        'logindetailsuserrole_userroleid' => $userrole_id,
+                        'time_created' => date("Y-m-d H:i:s"),
+                        'last_updated' => date("Y-m-d H:i:s")
+                    );
+                    $this->membermodel->create_logindetailrole($logindetailsrole_data);
                 } else {
                     log_message('info', 'the registration was incomplete : invalid registration information.................');
                     $data['registration_class'] = "error-validation registerbuttonerror";
