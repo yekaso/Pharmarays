@@ -44,7 +44,7 @@ class mobile_controller extends CI_Controller {
                 'membertypeid' => $data['membertypeid']
             );
             $data['pharmacydata'] = $this->mobile_model->retrieve_pharmacy($member_id);
-            
+
             $data['loginuserroleid'] = $this->mobile_model->retrieve_loginuserroleid($member_id);
 
             $data['is_adminuser'] = $this->mobile_model->verify_user_role($data['memberid']);
@@ -221,8 +221,41 @@ class mobile_controller extends CI_Controller {
         extract($_POST);
         $last_pharmacyid = 0;
         $locationid = 0;
-        $data = $this->mobile_model->retrieve_pharmacy_bylimit($last_pharmacyid, $locationid, $limit);
-        echo json_encode($data);
+        $data['pharmacy'] = $this->mobile_model->retrieve_pharmacy_bylimit($last_pharmacyid, $locationid, $limit);
+        $data['status'] = 'success';
+        $data['message'] = 'Pharmacy list retrieved';
+        echo json_encode(array($data));
+    }
+
+    function assignpharmacy() {
+        extract($_POST);
+        $status = "PENDING";
+        $createdata_array = explode(",", $createdata);
+        $errors1 = array_filter($createdata_array);
+        if (!empty($errors1)) {
+            $assignpharmacy_create_data = array();
+            foreach ($createdata_array as $pharmacyid) {
+                $split_data = array(
+                    'pharmacy_id' => $pharmacyid,
+                    'loginuserrole_id' => $loginuserroleid,
+                    'status' => $status,
+                );
+                $assignpharmacy_create_data[] = $split_data;
+            }
+            $errors = array_filter($assignpharmacy_create_data);
+            if (!empty($errors)) {
+                $this->mobile_model->create_assignpharmacy($assignpharmacy_create_data);
+            }
+        }
+        $deletedata_array = explode(",", $deletedata);
+        $delerrors = array_filter($deletedata_array);
+        if (!empty($delerrors)) {
+            $this->mobile_model->delete_assignpharmacy($loginuserroleid, $deletedata_array);
+        }
+        $data = array(
+            'status' => 'success',
+            'message' => 'Pharmacy ownership updated');
+        echo json_encode(array($data));
     }
 
 }

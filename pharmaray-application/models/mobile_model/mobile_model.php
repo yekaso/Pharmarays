@@ -17,7 +17,6 @@ class mobile_model extends CI_Model {
         $this->load->database();
     }
 
-    
     function retrieve_loginuserroleid($memberid) {
         $this->db->select('ldur.id_logindetails_userrole, ')
                 ->from('userrole ur')
@@ -32,7 +31,7 @@ class mobile_model extends CI_Model {
         log_message('info', 'verify user roles ::::::::::===>' . $this->db->last_query());
         $query->free_result();
         $final_result = 'null';
-        if(isset($result['id_logindetails_userrole'])){
+        if (isset($result['id_logindetails_userrole'])) {
             $final_result = $result['id_logindetails_userrole'];
         }
         return $final_result;
@@ -76,7 +75,7 @@ class mobile_model extends CI_Model {
         $this->db->select("p.name, p.id_pharmacy as id,urp.status", false)
                 ->from('pharmacy p')
                 ->join('userrole_pharmacy urp', 'p.id_pharmacy = urp.pharmacy_id')
-                ->join('logindetails_userrole lur', 'lur.logindetailsuserrole_userroleid = urp.loginuserrole_id')
+                ->join('logindetails_userrole lur', 'lur.id_logindetails_userrole = urp.loginuserrole_id')
                 ->join('userrole ur', 'ur.id_userrole = urp.loginuserrole_id')
                 ->join('logindetails ld', 'ld.id_logindetails = lur.logindetailsuserrole_logindetailsid')
                 ->where(array(
@@ -154,8 +153,6 @@ class mobile_model extends CI_Model {
         //   log_message('info', 'new result ======================='.$result);
         $query->free_result();
         return $result;
-
-
     }
 
     function retrievedrugsbypharmacy($pharmacyid) {
@@ -187,6 +184,26 @@ class mobile_model extends CI_Model {
 
         $this->db->where($wherequery, NULL, FALSE);
         $this->db->delete('drugavailability');
+
+        log_message('info', $this->db->last_query());
+        return;
+    }
+
+    function create_assignpharmacy($assignpharmacy_data) {
+        log_message('info', 'before inserting into userrole pharmacy.................');
+        $this->db->insert_batch('userrole_pharmacy', $assignpharmacy_data);
+        log_message('info', 'after inserting into userrole pharmacy.................');
+
+        log_message('info', $this->db->last_query());
+        return $this->db->insert_id();
+    }
+
+    function delete_assignpharmacy($loginuserroleid, $assignpharmacy_data) {
+        log_message('info', 'before deleting from userrole pharmacy.................');
+        $wherequery = 'pharmacy_id IN (' . implode(',', $assignpharmacy_data) . ') and loginuserrole_id = ' . $loginuserroleid;
+
+        $this->db->where($wherequery, NULL, FALSE);
+        $this->db->delete('userrole_pharmacy');
 
         log_message('info', $this->db->last_query());
         return;
