@@ -507,7 +507,7 @@ class membermodel extends CI_Model {
 
     function retrieve_member($member_id) {
 
-        $this->db->select('m.surname_member,m.firstname_member,mt.default_image_name as membertypeimage,mt.id_membertype as membertypeid')
+        $this->db->select('m.surname_member,m.firstname_member,mt.default_image_name as membertypeimage,mt.id_membertype as membertypeid,mt.name as membertypename')
                 ->from('member m')
                 ->join('membertype mt', 'm.membertypeid_membertype = mt.id_membertype')
                 ->where(array(

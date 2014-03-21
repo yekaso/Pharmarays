@@ -36,6 +36,7 @@ class mobile_controller extends CI_Controller {
 
             $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
             $data['membertypeimage'] = $auth_member['membertypeimage'];
+            $data['membertypename']= $auth_member['membertypename'];
             $data['membertypeid'] = $auth_member['membertypeid'];
             $logindetails = array(
                 'memberid' => $member_id,
