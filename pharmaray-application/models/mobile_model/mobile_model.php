@@ -76,7 +76,7 @@ class mobile_model extends CI_Model {
                 ->from('pharmacy p')
                 ->join('userrole_pharmacy urp', 'p.id_pharmacy = urp.pharmacy_id')
                 ->join('logindetails_userrole lur', 'lur.id_logindetails_userrole = urp.loginuserrole_id')
-                ->join('userrole ur', 'ur.id_userrole = urp.loginuserrole_id')
+                ->join('userrole ur', 'ur.id_userrole = lur.logindetailsuserrole_userroleid')
                 ->join('logindetails ld', 'ld.id_logindetails = lur.logindetailsuserrole_logindetailsid')
                 ->where(array(
                     'lower(ur.name)' => "$pharm_rolename",
