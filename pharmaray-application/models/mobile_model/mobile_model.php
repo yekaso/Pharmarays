@@ -87,7 +87,7 @@ class mobile_model extends CI_Model {
 
         $query = $this->db->get();
         $result = $query->row();
-        log_message('info', 'verify user roles ::::::::::===>' . $this->db->last_query());
+        log_message('info', 'RETRIEVE PHARMACY=========== ::::::::::===>' . $this->db->last_query());
         $query->free_result();
         return $result;
     }
