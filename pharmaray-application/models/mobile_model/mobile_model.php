@@ -42,11 +42,11 @@ class mobile_model extends CI_Model {
         $this->db->update('pharmacy', $pharmacy_data);
         log_message('info', $this->db->last_query());
 
-        $report = array();
-        $report['error'] = $this->db->_error_number();
-        $report['message'] = $this->db->_error_message();
+        $reportRetrieved = array();
+        $reportRetrieved['error'] = $this->db->_error_number();
+        $reportRetrieved['message'] = $this->db->_error_message();
 
-        return report;
+        return $reportRetrieved;
     }
 
     function verify_user_role($memberid) {

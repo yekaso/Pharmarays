@@ -119,18 +119,27 @@ class mobile_controller extends CI_Controller {
         echo json_encode(array($data));
     }
 
-    function update_pharmacy() {
+    function updatepharm() {
         extract($_POST);
-        $pharmacy_data = array(
+        if($locationselected === 'true'){
+            $pharmacy_data= array(
             'name' => $pharmName,
             'address' => $pharmAddress,
             'telephone' => $pharmPhone,
-            'email' => $pharmPhone,
+            'email' => $pharmEmail,
             'longitude' => $pharmLongitude,
             'latitude' => $pharmLatitude,
         );
-        $report = $this->mobile_model->update_pharmacy($pharmacyid, $pharmacy_data);
-        if (!$report['error']) {
+        }else{
+           $pharmacy_data = array(
+            'name' => $pharmName,
+            'address' => $pharmAddress,
+            'telephone' => $pharmPhone,
+            'email' => $pharmEmail,
+         );
+        }
+        $reportRetrieved = $this->mobile_model->update_pharmacy($pharmacyid, $pharmacy_data);
+        if (!$reportRetrieved['error']) {
             $data['status'] = 'success';
             $data['message'] = 'Pharmacy details updated.';
             // update successful
