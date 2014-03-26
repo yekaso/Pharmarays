@@ -37,6 +37,18 @@ class mobile_model extends CI_Model {
         return $final_result;
     }
 
+    function update_pharmacy($pharmacyid, $pharmacy_data) {
+        $this->db->where('id_pharmacy', $pharmacyid);
+        $this->db->update('pharmacy', $pharmacy_data);
+        log_message('info', $this->db->last_query());
+
+        $report = array();
+        $report['error'] = $this->db->_error_number();
+        $report['message'] = $this->db->_error_message();
+
+        return report;
+    }
+
     function verify_user_role($memberid) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
@@ -71,8 +83,7 @@ class mobile_model extends CI_Model {
 
     function retrieve_pharmacy($memberid) {
         $pharm_rolename = 'pharmacy owner';
-
-        $this->db->select("p.name, p.id_pharmacy as id,urp.status", false)
+        $this->db->select("p.name,p.address,p.email,p.telephone,p.longitude,p.latitude, p.id_pharmacy as id,urp.status", false)
                 ->from('pharmacy p')
                 ->join('userrole_pharmacy urp', 'p.id_pharmacy = urp.pharmacy_id')
                 ->join('logindetails_userrole lur', 'lur.id_logindetails_userrole = urp.loginuserrole_id')

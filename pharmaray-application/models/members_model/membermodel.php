@@ -756,12 +756,13 @@ class membermodel extends CI_Model {
         log_message('info', 'before inserting into login details role.................');
         $result = $this->db->insert('logindetails_userrole', $logindetailrole_data);
         log_message('info', 'after inserting into login details role.................');
+        $insert_id = $this->db->insert_id();
 //   $result->free_result();
         $this->db->trans_complete();
         if ($this->db->trans_status() == FALSE) {
             return -1;
         } else {
-            return $this->db->insert_id();
+            return $insert_id;
         }
     }
 

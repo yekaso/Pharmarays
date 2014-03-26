@@ -36,7 +36,7 @@ class mobile_controller extends CI_Controller {
 
             $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
             $data['membertypeimage'] = $auth_member['membertypeimage'];
-            $data['membertypename']= $auth_member['membertypename'];
+            $data['membertypename'] = $auth_member['membertypename'];
             $data['membertypeid'] = $auth_member['membertypeid'];
             $logindetails = array(
                 'memberid' => $member_id,
@@ -101,7 +101,7 @@ class mobile_controller extends CI_Controller {
                     'time_created' => date("Y-m-d H:i:s"),
                     'last_updated' => date("Y-m-d H:i:s")
                 );
-                $data['logindetailrole'] = $this->membermodel->create_logindetailrole($logindetailsrole_data);
+                $data['loginuserroleid'] = $this->membermodel->create_logindetailrole($logindetailsrole_data);
                 $data['status'] = 'success';
                 $data['message'] = 'Registration complete';
                 $data['memberid'] = $member_id;
@@ -116,6 +116,30 @@ class mobile_controller extends CI_Controller {
                 'status' => 'error',
                 'message' => 'A user exists already with this email address');
         }
+        echo json_encode(array($data));
+    }
+
+    function update_pharmacy() {
+        extract($_POST);
+        $pharmacy_data = array(
+            'name' => $pharmName,
+            'address' => $pharmAddress,
+            'telephone' => $pharmPhone,
+            'email' => $pharmPhone,
+            'longitude' => $pharmLongitude,
+            'latitude' => $pharmLatitude,
+        );
+        $report = $this->mobile_model->update_pharmacy($pharmacyid, $pharmacy_data);
+        if (!$report['error']) {
+            $data['status'] = 'success';
+            $data['message'] = 'Pharmacy details updated.';
+            // update successful
+        } else {
+            // update failed
+            $data['status'] = 'error';
+            $data['message'] = 'Pharmacy details update error.';
+        }
+
         echo json_encode(array($data));
     }
 
