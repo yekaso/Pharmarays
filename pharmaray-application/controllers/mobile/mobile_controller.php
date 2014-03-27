@@ -19,6 +19,7 @@ class mobile_controller extends CI_Controller {
         $this->load->model('mobile_model/mobile_model');
         $this->load->model('members_model/membermodel');
         $this->load->library('session');
+        $this->load->library('encrypt');
         log_message('info', 'after session initialization................');
     }
 
@@ -78,12 +79,15 @@ class mobile_controller extends CI_Controller {
 
         $data['membertypeimage'] = 'profilem';
         $data['membertypeid'] = $member_type_id;
+        $current_date = date("Y-m-d H:i:s");
+        $key = $email . $current_date;
+        $encryptedPassword = $this->encrypt->encode($password, $key);
         $logindetails_data = array(
             'username' => $email,
-            'password' => $password,
+            'password' => $encryptedPassword,
             'status' => 'TermsAndCondition',
-            'datecreated' => date("Y-m-d H:i:s"),
-            'datemodified' => date("Y-m-d H:i:s")
+            'datecreated' => $current_date,
+            'datemodified' => $current_date
         );
         $drug_id = '1';
         $existing_member = $this->membermodel->verify_email_address($email);
@@ -121,22 +125,22 @@ class mobile_controller extends CI_Controller {
 
     function updatepharm() {
         extract($_POST);
-        if($locationselected === 'true'){
-            $pharmacy_data= array(
-            'name' => $pharmName,
-            'address' => $pharmAddress,
-            'telephone' => $pharmPhone,
-            'email' => $pharmEmail,
-            'longitude' => $pharmLongitude,
-            'latitude' => $pharmLatitude,
-        );
-        }else{
-           $pharmacy_data = array(
-            'name' => $pharmName,
-            'address' => $pharmAddress,
-            'telephone' => $pharmPhone,
-            'email' => $pharmEmail,
-         );
+        if ($locationselected === 'true') {
+            $pharmacy_data = array(
+                'name' => $pharmName,
+                'address' => $pharmAddress,
+                'telephone' => $pharmPhone,
+                'email' => $pharmEmail,
+                'longitude' => $pharmLongitude,
+                'latitude' => $pharmLatitude,
+            );
+        } else {
+            $pharmacy_data = array(
+                'name' => $pharmName,
+                'address' => $pharmAddress,
+                'telephone' => $pharmPhone,
+                'email' => $pharmEmail,
+            );
         }
         $reportRetrieved = $this->mobile_model->update_pharmacy($pharmacyid, $pharmacy_data);
         if (!$reportRetrieved['error']) {

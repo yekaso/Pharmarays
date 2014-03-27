@@ -18,6 +18,7 @@ class user_authorization extends CI_Controller {
         parent::__construct();
         $this->load->model('members_model/membermodel');
         $this->load->library('session');
+        $this->load->library('encrypt');
         log_message('info', 'after session initialization................');
     }
 
@@ -340,38 +341,52 @@ class user_authorization extends CI_Controller {
             $drug_id = $this->input->post('drugid');
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $authenticate = $this->membermodel->verify_user_login($username, $password);
-            if ($authenticate) {
-                log_message('info', 'before getting the relation of member............' . $authenticate['memberid_member']);
-                $member_id = $authenticate['memberid_member'];
-                $data['memberid'] = $member_id;
 
-                $auth_member = $this->membermodel->retrieve_member($authenticate['memberid_member']);
-                log_message('info', 'registration complete and username set on userpage.................' . $auth_member['firstname_member']);
+            $logindetails_info = $this->membermodel->retrieve_logindetails($username);
+            $errors1 = array_filter($logindetails_info);
+            if (!empty($errors1)) {
+                $date_created = $logindetails_info['datecreated'];
+                $existingpassword = $logindetails_info['password'];
+                $key = $username . $date_created;
+                $decryptpassword = $this->encrypt->decode($existingpassword, $key);
+                //    $authenticate = $this->membermodel->verify_user_login($username, $encrypassword);
+                //   if ($authenticate) {
+                if ($password === $decryptpassword) {
+                    log_message('info', 'before getting the relation of member............' . $logindetails_info['memberid_member']);
+                    $member_id = $logindetails_info['memberid_member'];
+                    $data['memberid'] = $member_id;
 
-                $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
-                $data['membertypeimage'] = $auth_member['membertypeimage'];
-                $data['membertypeid'] = $auth_member['membertypeid'];
-                $logindetails = array(
-                    'memberid' => $member_id,
-                    'membertypeimage' => $data['membertypeimage'],
-                    'logged_in_user' => $data['logged_in_user'],
-                    'membertypeid' => $data['membertypeid']
-                );
-                $rolename = 'admin';
-                $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid'], $rolename);
-                $this->session->set_userdata($logindetails);
+                    $auth_member = $this->membermodel->retrieve_member($logindetails_info['memberid_member']);
+                    log_message('info', 'registration complete and username set on userpage.................' . $auth_member['firstname_member']);
+
+                    $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
+                    $data['membertypeimage'] = $auth_member['membertypeimage'];
+                    $data['membertypeid'] = $auth_member['membertypeid'];
+                    $logindetails = array(
+                        'memberid' => $member_id,
+                        'membertypeimage' => $data['membertypeimage'],
+                        'logged_in_user' => $data['logged_in_user'],
+                        'membertypeid' => $data['membertypeid']
+                    );
+                    $rolename = 'admin';
+                    $data['is_adminuser'] = $this->membermodel->verify_user_role($data['memberid'], $rolename);
+                    $this->session->set_userdata($logindetails);
 
 //          $this->repopulate_page($data, $drug_id);
 //uncomment above to redirect to online pharmacy and uncomment all below
-                if ($data['is_adminuser']) {
-                    $this->redirect_to_managearticles($data);
+                    if ($data['is_adminuser']) {
+                        $this->redirect_to_managearticles($data);
+                    } else {
+                        $this->articleslist();
+                    }
                 } else {
-                    $this->articleslist();
+                    $this->session->set_flashdata('message', 'Invalid login details');
+                    log_message('info', 'inside rays login auth.............' . $message);
+                    $this->index($message);
                 }
             } else {
                 $this->session->set_flashdata('message', 'Invalid login details');
-                log_message('info', 'inside rays login auth.............' . $message);
+                log_message('info', 'EMAIL DOES NOT EXIST======inside rays login auth.............' . $message);
                 $this->index($message);
             }
         }
@@ -487,12 +502,17 @@ class user_authorization extends CI_Controller {
             );
             $data['membertypeimage'] = 'profilem';
             $data['membertypeid'] = '1';
+
+            $current_date = date("Y-m-d H:i:s");
+            $key = $this->input->post('email') . $current_date;
+            $encryptedPassword = $this->encrypt->encode($this->input->post('password'), $key);
+
             $logindetails_data = array(
                 'username' => $this->input->post('email'),
-                'password' => $this->input->post('password'),
+                'password' => $encryptedPassword,
                 'status' => 'active',
-                'datecreated' => date("Y-m-d H:i:s"),
-                'datemodified' => date("Y-m-d H:i:s")
+                'datecreated' => $current_date,
+                'datemodified' => $current_date
             );
             $drug_id = $this->input->post('drugid');
             $existing_member = $this->membermodel->verify_email_address($this->input->post('email'));
@@ -503,7 +523,7 @@ class user_authorization extends CI_Controller {
                 if ($member_id > 0) {
                     $logindetails_data['memberid_member'] = $member_id;
                     $logindetail_id = $this->membermodel->create_new_logindetails($logindetails_data);
-                    $member_type = 'User';
+                    $member_type = 'Ordinary User';
                     $userrole_id = $this->membermodel->retrieve_userrolebyname($member_type);
                     $logindetailsrole_data = array(
                         'logindetailsuserrole_logindetailsid' => $logindetail_id,
@@ -535,7 +555,7 @@ class user_authorization extends CI_Controller {
                         'email_member' => $this->input->post('email'),
                         'reemail_member' => $this->input->post('reemail')
                     );
-                    log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
+                    //      log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
                     $this->session->set_flashdata($member_data);
                     $this->redirecttosignin();
 //   $this->index('');
@@ -546,7 +566,7 @@ class user_authorization extends CI_Controller {
                 $password = $this->input->post('password');
                 log_message('info', 'after setting password to password variable.................');
 
-                $authenticate = $this->membermodel->verify_user_login($username, $password);
+                $authenticate = $this->membermodel->verify_user_login($username, $encryptedPassword);
                 log_message('info', 'after verifying login details.................');
                 if ($authenticate) {
                     log_message('info', 'before getting the relation of member............' . $authenticate['memberid_member']);
@@ -559,6 +579,7 @@ class user_authorization extends CI_Controller {
                     $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
                     $data['membertypeimage'] = $auth_member['membertypeimage'];
                     $data['membertypeid'] = $auth_member['membertypeid'];
+                    $data['is_adminuser'] = null;
                     $logindetails = array(
                         'memberid' => $member_id,
                         'membertypeimage' => $data['membertypeimage'],
@@ -592,7 +613,7 @@ class user_authorization extends CI_Controller {
                         'email_member' => $this->input->post('email'),
                         'reemail_member' => $this->input->post('reemail')
                     );
-                    log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
+                    //                log_message('info', 'the form message controller==------' . $data['email']);
                     $this->session->set_flashdata($member_data);
 // $this->index('');
                     $this->redirecttosignin();
@@ -620,7 +641,7 @@ class user_authorization extends CI_Controller {
                     'email_member' => $this->input->post('email'),
                     'reemail_member' => $this->input->post('reemail')
                 );
-                log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
+                //       log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
                 $this->session->set_flashdata($member_data);
 //  $this->index('');
                 $this->redirecttosignin();

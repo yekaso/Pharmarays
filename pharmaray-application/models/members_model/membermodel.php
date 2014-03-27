@@ -33,6 +33,20 @@ class membermodel extends CI_Model {
         return $result->id_userrole;
     }
 
+    function retrieve_logindetails($email) {
+        $this->db->select('ld.*, ')
+                ->from('logindetails ld')
+                ->where(array(
+                    'lower(ld.username)' => "$email",
+                        )
+        );
+        $query = $this->db->get();
+        $result = $query->first_row('array');
+        log_message('info', 'login details ::::::::::===>' . $this->db->last_query());
+        $query->free_result();
+        return $result;
+    }
+
     function verify_user_role($memberid, $rolename) {
         $this->db->select('ur.*, ')
                 ->from('userrole ur')
