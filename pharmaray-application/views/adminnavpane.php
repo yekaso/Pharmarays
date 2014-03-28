@@ -18,10 +18,16 @@
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managearticles">Edit Articles</a></li>
                 </ul>
             </li>
+            <li class="hasChildren"><span>Manage Company</span>
+                <ul>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Create Company</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Edit Company</a></li>
+                </ul>
+            </li>
             <li class="hasChildren"><span>Manage Brands</span>
                 <ul>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Create Brands</a></li>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrandname">Edit Brands</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrands">Create Brands</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrands">Edit Brands</a></li>
                 </ul>
             </li><li class="hasChildren"><span>Manage Drug Generics</span>
                 <ul>

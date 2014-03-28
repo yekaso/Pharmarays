@@ -231,7 +231,13 @@ class user_authorization extends CI_Controller {
         $data['internships'] = $this->membermodel->retrieve_internships($default_id, $limit);
         $this->load->view('internships', $data);
     }
-
+function redirect_to_managebrands(){
+    $data = '';
+        log_message('info', 'after brands list has been clicked.................');
+        $data['drugbrand'] = $this->membermodel->retrieve_brandnames();
+        $this->load->view('adminpagebrands', $data);
+   
+}
     function redirect_to_managearticles($data = '') {
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after newsleters list has been clicked.................');
@@ -359,7 +365,7 @@ class user_authorization extends CI_Controller {
                     $auth_member = $this->membermodel->retrieve_member($logindetails_info['memberid_member']);
                     log_message('info', 'registration complete and username set on userpage.................' . $auth_member['firstname_member']);
 
-                    $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
+                    $data['logged_in_user'] = trim($auth_member['firstname_member']) . ' ' . trim($auth_member['surname_member']);
                     $data['membertypeimage'] = $auth_member['membertypeimage'];
                     $data['membertypeid'] = $auth_member['membertypeid'];
                     $logindetails = array(
@@ -478,13 +484,13 @@ class user_authorization extends CI_Controller {
             log_message('info', 'the form message controller==>' . $data['dob'] . '------' . form_error('days') . '--------' . form_error('months') . '---------' . form_error('years'));
             $this->session->set_flashdata($data);
             $member_data = array(
-                'fname_member' => $this->input->post('fname'),
-                'lname_member' => $this->input->post('lname'),
+                'fname_member' => trm($this->input->post('fname')),
+                'lname_member' => trim($this->input->post('lname')),
                 'sex_member' => $this->input->post('sex'),
                 'days' => $this->input->post('days'),
                 'months' => $this->input->post('months'),
                 'years' => $this->input->post('years'),
-                'email_member' => $this->input->post('email'),
+                'email_member' => trim($this->input->post('email')),
                 'reemail_member' => $this->input->post('reemail')
             );
             $this->session->set_flashdata($member_data);
@@ -493,11 +499,11 @@ class user_authorization extends CI_Controller {
         } else {
             log_message('info', 'before setting the member data.................');
             $member_data = array(
-                'firstname_member' => $this->input->post('fname'),
-                'surname_member' => $this->input->post('lname'),
+                'firstname_member' => trim($this->input->post('fname')),
+                'surname_member' => trim($this->input->post('lname')),
                 'gender_member' => $this->input->post('sex'),
                 'dateOfBirth_member' => $this->input->post('days') . '-' . $this->input->post('months') . '-' . $this->input->post('years'),
-                'emailaddress_member' => $this->input->post('email'),
+                'emailaddress_member' => trim($this->input->post('email')),
                 'membertypeid_membertype' => '1'
             );
             $data['membertypeimage'] = 'profilem';
@@ -508,14 +514,14 @@ class user_authorization extends CI_Controller {
             $encryptedPassword = $this->encrypt->encode($this->input->post('password'), $key);
 
             $logindetails_data = array(
-                'username' => $this->input->post('email'),
+                'username' => trim($this->input->post('email')),
                 'password' => $encryptedPassword,
                 'status' => 'active',
                 'datecreated' => $current_date,
                 'datemodified' => $current_date
             );
             $drug_id = $this->input->post('drugid');
-            $existing_member = $this->membermodel->verify_email_address($this->input->post('email'));
+            $existing_member = $this->membermodel->verify_email_address(trim($this->input->post('email')));
             if (!$existing_member) {
                 $member_id = $this->membermodel->create_new_user($member_data);
                 $data['memberid'] = $member_id;
@@ -546,14 +552,14 @@ class user_authorization extends CI_Controller {
                     $data['registerbutton_tooltip'] = $tooltip;
                     $this->session->set_flashdata($data);
                     $member_data = array(
-                        'fname_member' => $this->input->post('fname'),
-                        'lname_member' => $this->input->post('lname'),
+                        'fname_member' => trim($this->input->post('fname')),
+                        'lname_member' => trim($this->input->post('lname')),
                         'sex_member' => $this->input->post('sex'),
                         'days' => $this->input->post('days'),
                         'months' => $this->input->post('months'),
                         'years' => $this->input->post('years'),
-                        'email_member' => $this->input->post('email'),
-                        'reemail_member' => $this->input->post('reemail')
+                        'email_member' => trim($this->input->post('email')),
+                        'reemail_member' => trim($this->input->post('reemail'))
                     );
                     //      log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
                     $this->session->set_flashdata($member_data);
@@ -561,7 +567,7 @@ class user_authorization extends CI_Controller {
 //   $this->index('');
                 }
                 log_message('info', 'after setting member array and attempting to print array.................');
-                $username = $this->input->post('email');
+                $username = trim($this->input->post('email'));
                 log_message('info', 'after setting email to username variable.................');
                 $password = $this->input->post('password');
                 log_message('info', 'after setting password to password variable.................');
@@ -604,14 +610,14 @@ class user_authorization extends CI_Controller {
                     $data['dob_class'] = "success-validation";
                     $this->session->set_flashdata($data);
                     $member_data = array(
-                        'fname_member' => $this->input->post('fname'),
-                        'lname_member' => $this->input->post('lname'),
+                        'fname_member' => trim($this->input->post('fname')),
+                        'lname_member' => trim($this->input->post('lname')),
                         'sex_member' => $this->input->post('sex'),
                         'days' => $this->input->post('days'),
                         'months' => $this->input->post('months'),
                         'years' => $this->input->post('years'),
-                        'email_member' => $this->input->post('email'),
-                        'reemail_member' => $this->input->post('reemail')
+                        'email_member' => trim($this->input->post('email')),
+                        'reemail_member' => trim($this->input->post('reemail'))
                     );
                     //                log_message('info', 'the form message controller==------' . $data['email']);
                     $this->session->set_flashdata($member_data);
@@ -632,14 +638,14 @@ class user_authorization extends CI_Controller {
                 $data['email_tooltip'] = $tooltip;
                 $this->session->set_flashdata($data);
                 $member_data = array(
-                    'fname_member' => $this->input->post('fname'),
-                    'lname_member' => $this->input->post('lname'),
+                    'fname_member' => trim($this->input->post('fname')),
+                    'lname_member' => trim($this->input->post('lname')),
                     'sex_member' => $this->input->post('sex'),
                     'days' => $this->input->post('days'),
                     'months' => $this->input->post('months'),
                     'years' => $this->input->post('years'),
-                    'email_member' => $this->input->post('email'),
-                    'reemail_member' => $this->input->post('reemail')
+                    'email_member' => trim($this->input->post('email')),
+                    'reemail_member' => trim($this->input->post('reemail'))
                 );
                 //       log_message('info', 'the form message controller==>' . $data['reemail'] . '------' . $data['email']);
                 $this->session->set_flashdata($member_data);
@@ -659,9 +665,9 @@ class user_authorization extends CI_Controller {
     function createpharmacy() {
         extract($_POST);
         log_message('info', 'Inside create pharmacy');
-        $pharmacy_data = array('name' => $name,
-            'address' => $address,
-            'telephone' => $telephone,
+        $pharmacy_data = array('name' => trim($name),
+            'address' => trim($address),
+            'telephone' => trim($telephone),
             'locationid_location' => $location);
         $newsid = $this->membermodel->create_pharmacy($pharmacy_data);
         log_message('info', 'After creating pharmacy');
@@ -676,8 +682,8 @@ class user_authorization extends CI_Controller {
         if ($subforum == 0) {
             $newsubforum = null;
         }
-        $forum_data = array('name' => $title,
-            'description' => $description,
+        $forum_data = array('name' => trim($title),
+            'description' => trim($description),
             'timecreated' => date("Y-m-d H:i:s"),
             'forumid_forum' => $newsubforum);
         $forumid = $this->membermodel->create_forum($forum_data);
@@ -690,8 +696,8 @@ class user_authorization extends CI_Controller {
     function createdrugcategory() {
         extract($_POST);
         log_message('info', 'Inside create drug category');
-        $drugcategory_data = array('name' => $name,
-            'description' => $description,
+        $drugcategory_data = array('name' => trim($name),
+            'description' => trim($description),
         );
         $drugclassid = $this->membermodel->create_drugcategory($drugcategory_data);
         log_message('info', 'After creating drug category');
@@ -702,8 +708,8 @@ class user_authorization extends CI_Controller {
     function createbrandname() {
         extract($_POST);
         log_message('info', 'Inside create brand name');
-        $brandname_data = array('name' => $name,
-            'description' => $description,
+        $brandname_data = array('name' => trim($name),
+            'description' => trim($description),
         );
         $drugclassid = $this->membermodel->create_brandname($brandname_data);
         log_message('info', 'After creating brand name');
@@ -714,8 +720,8 @@ class user_authorization extends CI_Controller {
     function createdrugclass() {
         extract($_POST);
         log_message('info', 'Inside create drug class');
-        $drugclass_data = array('name' => $name,
-            'description' => $description,
+        $drugclass_data = array('name' => trim($name),
+            'description' => trim($description),
         );
         $drugclassid = $this->membermodel->create_drugclass($drugclass_data);
         log_message('info', 'After creating drug class');
@@ -726,8 +732,8 @@ class user_authorization extends CI_Controller {
     function createdrug() {
         extract($_POST);
         log_message('info', 'Inside create drug');
-        $drug_data = array('drug_name' => $title,
-            'drug_description' => $description,
+        $drug_data = array('drug_name' => trim($title),
+            'drug_description' => trim($description),
             'time_created' => date("Y-m-d H:i:s"),
             'brandnameid_brandname' => $drugbrandid,
             'drugcategoryid_drugcategory' => $drugcategory,);
@@ -750,8 +756,8 @@ class user_authorization extends CI_Controller {
     function createtopic() {
         extract($_POST);
         log_message('info', 'Inside create topic');
-        $topic_data = array('name' => $title,
-            'description' => $description,
+        $topic_data = array('name' => trim($title),
+            'description' => trim($description),
             'timecreated' => date("Y-m-d H:i:s"),
             'forumid_forum' => $forumid,
             'forum_categoryid_forum' => $categoryforumid,);
@@ -812,14 +818,14 @@ class user_authorization extends CI_Controller {
         }
 
         $article_data = array(
-            'title' => $title,
-            'description' => $description,
+            'title' => trim($title),
+            'description' => trim($description),
             'time_created' => date("Y-m-d H:i:s"),
             'guestonly' => $guestonly,
             'memberid_member' => $memberid,
             'newsid_news' => $newsid,
-            'author' => $author,
-            'defaultimage' => $imagename,
+            'author' => trim($author),
+            'defaultimage' => trim($imagename),
         );
         log_message('info', 'After setting data for article creation');
         $this->membermodel->create_article($article_data);
@@ -832,7 +838,7 @@ class user_authorization extends CI_Controller {
         extract($_POST);
         log_message('info', 'inside the create comment page.................');
         $comment_data = array(
-            'comment' => $comment,
+            'comment' => trim($comment),
             'memberid_member' => $memberid,
             'drugid_drug' => $drug_id,
             'time_created' => date("Y-m-d H:i:s"),
@@ -849,7 +855,7 @@ class user_authorization extends CI_Controller {
         extract($_POST);
         log_message('info', 'inside the create comment page.................');
         $comment_data = array(
-            'comment' => $comment,
+            'comment' => trim($comment),
             'memberid_member' => $memberid,
             'forum_topicid_topicforum' => $topic_id,
             'timecreated' => date("Y-m-d H:i:s"),

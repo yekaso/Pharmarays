@@ -23,7 +23,7 @@
     ?>
 
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.js"></script> 
-    <script type="text/javascript" src="<?php echo base_url() ?>js/adminpagebrandname.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/adminpagebrands.js"></script>
 
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -35,11 +35,7 @@
         <div id="globalheader_wrapper">
             <div id="globalheader"> 
                 <?php echo img('images/pharmarays.png'); ?><ul>
-                  <!--  <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/reloadwelcomepage"> Manage Articles </a></li>
-                    <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/articleslist"> Manage Drugs </a></li>
-                    <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/discussionforum"> Manage Forums </a></li>
-                    <li><a  target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/communitypharmacy"> Manage Pharmacy </a></li>
-                    --> <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
+               <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
                     </li></ul>
 
             </div>
@@ -65,16 +61,43 @@
                     <div class="row-fluid">
                         <form method="post" id="masterdata_form">
                             <div class="span12">
-                                <h3 class="heading">Pharmaceutical Company</h3>
+                                <h3 class="heading">Drug Brand</h3>
                                 <div class="formSep">
                                     <div class="row-fluid">
                                         <div class="span4">
                                             <div class="editor-label">
-                                                <label for="Name">Name of Pharmaceutical Company <span class="compulsory_field">*</span></label>
+                                                <label for="Name">Name of Drug Brand <span class="compulsory_field">*</span></label>
                                             </div>
                                             <div class="editor-field">
-                                                <input id="brandname_name" class="span12" type="text" value="" name="brandname_name" data-val-required="The Name field is required." data-val="true"/>
+                                                <input id="brands_name" class="span12" type="text" value="" name="brands_name" data-val-required="The Name field is required." data-val="true"/>
                                                 <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span2">
+                                            <div class="editor-label">
+                                                <label for="ChurchEmail">Pharmaceutical Company<span class="compulsory_field">*</span></label>
+                                            </div>
+                                            <div class="editor-field">
+                                                <select id="drugbrandid" class="span12" name="drugbrandid" data-val-required="The pharmaceutical company field is required." data-val="true">
+                                                    <option value="0">Choose...</option>
+                                                    <?php
+                                                    $errors = array_filter($drugbrand);
+
+                                                    if (!empty($errors)) {
+                                                        foreach ($drugbrand as $columnName => $columnData) {
+                                                            $name = $columnData['name'];
+                                                            $id = $columnData['id_brandname'];
+                                                            ?>
+                                                            <option value="<?php echo $id; ?>"><?php echo strtolower(word_trim($name, 30, true)) ?></option>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>                                                        
+                                                </select>
+                                                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CountryID"></span>
                                             </div>
                                         </div>
 
@@ -82,10 +105,10 @@
                                     <div class="row-fluid">
                                         <div class="span8">
                                             <div class="editor-label">
-                                                <label for="Address">Description of Pharmaceutical Company </label>
+                                                <label for="Address">Description of Brand  </label>
                                             </div>
                                             <div class="editor-field">
-                                                <textarea id="brandname_description" class="span12" type="text" value="" name="brandname_description"></textarea>
+                                                <textarea id="brands_description" class="span12" type="text" value="" name="brands_description"></textarea>
                                                 <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Address"></span>
                                             </div>
                                         </div>
@@ -99,10 +122,10 @@
                             </div>
                             <div class=" adminpage">
                                 <img src="<?php echo base_url() ?>images/tick.png" class="saved_icon">
-                                    <span class="saved_icon">Saved Company...</span>
+                                    <span class="saved_icon">Saved Brand Name...</span>
                                     <img src="<?php echo base_url() ?>images/loading2.gif" class="saving_icon"/>
-                                    <span class="saving_icon">Saving Company...</span>
-                                    <a class="register submit" href="#" name="createcomment"> Save Company </a> 
+                                    <span class="saving_icon">Saving Brand Name...</span>
+                                    <a class="register submit" href="#" name="createcomment"> Save Brand Name </a> 
                             </div>
                         </form>
 

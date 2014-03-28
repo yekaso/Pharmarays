@@ -25,33 +25,40 @@ class mobile_controller extends CI_Controller {
 
     function loginauthorization() {
         extract($_POST);
-        $authenticate = $this->membermodel->verify_user_login($username, $password);
-        $data = array();
-        if ($authenticate) {
-            log_message('info', 'before getting the relation of member............MOBILE' . $authenticate['memberid_member']);
-            $member_id = $authenticate['memberid_member'];
-            $data['memberid'] = $member_id;
+        $login_email = trim($username);
+        $logindetails_info = $this->membermodel->retrieve_logindetails($login_email);
+        $errors1 = array_filter($logindetails_info);
+        if (!empty($errors1)) {
+            $date_created = $logindetails_info['datecreated'];
+            $existingpassword = $logindetails_info['password'];
+            $key = $login_email . $date_created;
+            $decryptpassword = $this->encrypt->decode($existingpassword, $key);
+            $data = array();
+            if ($password === $decryptpassword) {
 
-            $auth_member = $this->membermodel->retrieve_member($authenticate['memberid_member']);
-            log_message('info', 'registration complete and username set on userpage.................MOBILE' . $auth_member['firstname_member']);
+                log_message('info', 'before getting the relation of member............MOBILE' . $logindetails_info['memberid_member']);
+                $member_id = $logindetails_info['memberid_member'];
+                $data['memberid'] = $member_id;
 
-            $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
-            $data['membertypeimage'] = $auth_member['membertypeimage'];
-            $data['membertypename'] = $auth_member['membertypename'];
-            $data['membertypeid'] = $auth_member['membertypeid'];
-            $logindetails = array(
-                'memberid' => $member_id,
-                'membertypeimage' => $data['membertypeimage'],
-                'logged_in_user' => $data['logged_in_user'],
-                'membertypeid' => $data['membertypeid']
-            );
-            $data['pharmacydata'] = $this->mobile_model->retrieve_pharmacy($member_id);
+                $auth_member = $this->membermodel->retrieve_member($logindetails_info['memberid_member']);
+                log_message('info', 'registration complete and username set on userpage.................MOBILE' . $auth_member['firstname_member']);
 
-            $data['loginuserroleid'] = $this->mobile_model->retrieve_loginuserroleid($member_id);
+                $data['logged_in_user'] = $auth_member['firstname_member'] . ' ' . $auth_member['surname_member'];
+                $data['membertypeimage'] = $auth_member['membertypeimage'];
+                $data['membertypename'] = $auth_member['membertypename'];
+                $data['membertypeid'] = $auth_member['membertypeid'];
+                $data['pharmacydata'] = $this->mobile_model->retrieve_pharmacy($member_id);
 
-            $data['is_adminuser'] = $this->mobile_model->verify_user_role($data['memberid']);
-            $data['status'] = 'success';
-            $data['message'] = 'User Exists';
+                $data['loginuserroleid'] = $this->mobile_model->retrieve_loginuserroleid($member_id);
+
+                $data['is_adminuser'] = $this->mobile_model->verify_user_role($data['memberid']);
+                $data['status'] = 'success';
+                $data['message'] = 'User Exists';
+            } else {
+                $data = array(
+                    'status' => 'error',
+                    'message' => 'Invalid login details');
+            }
         } else {
             $data = array(
                 'status' => 'error',
@@ -125,21 +132,25 @@ class mobile_controller extends CI_Controller {
 
     function updatepharm() {
         extract($_POST);
+        $trimed_pharmName = trim($pharmName);
+        $trimed_pharmAddress = trim($pharmAddress);
+        $trimed_pharmPhone = trim($pharmPhone);
+        $trimed_pharmEmail = trim($pharmEmail);
         if ($locationselected === 'true') {
             $pharmacy_data = array(
-                'name' => $pharmName,
-                'address' => $pharmAddress,
-                'telephone' => $pharmPhone,
-                'email' => $pharmEmail,
+                'name' => $trimed_pharmName,
+                'address' => $trimed_pharmAddress,
+                'telephone' => $trimed_pharmPhone,
+                'email' => $trimed_pharmEmail,
                 'longitude' => $pharmLongitude,
                 'latitude' => $pharmLatitude,
             );
         } else {
             $pharmacy_data = array(
-                'name' => $pharmName,
-                'address' => $pharmAddress,
-                'telephone' => $pharmPhone,
-                'email' => $pharmEmail,
+                'name' => $trimed_pharmName,
+                'address' => $trimed_pharmAddress,
+                'telephone' => $trimed_pharmPhone,
+                'email' => $trimed_pharmEmail,
             );
         }
         $reportRetrieved = $this->mobile_model->update_pharmacy($pharmacyid, $pharmacy_data);

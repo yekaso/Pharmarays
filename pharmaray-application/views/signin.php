@@ -172,7 +172,7 @@
             </div>
             <div class="signup_div">
                 <div class="register-field-validation wrapdivfull register-field-button <?php echo $this->session->flashdata('registerbutton_tooltip'); ?> <?php echo $this->session->flashdata('registration_class'); ?>">
-                    <input type="submit" id="reg_member" name="reg_member" class="register"  value="Register" />
+                    <input  type="submit" id="reg_member" name="reg_member" class="register"  value="Register" />
                     <span><?php echo $this->session->flashdata('registration_msg'); ?></span>
                 </div>
 
