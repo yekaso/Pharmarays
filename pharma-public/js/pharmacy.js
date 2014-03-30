@@ -206,7 +206,7 @@ $(function() {
         var vertical_pos = ((swatch_size - remainder) / 4) * 130;
         $("#vertical_pos").val(vertical_pos);
         var pharmacyid = $(".pharm-swatch:last").attr("id");
-        var limit = 20;
+        var limit = 100;
         $.ajax({/* post the values using AJAX */
             type: "POST",
             url: serverurl + "sys_admin/user_authorization/retrievepharmacy",

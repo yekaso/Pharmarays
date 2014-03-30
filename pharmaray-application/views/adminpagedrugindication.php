@@ -23,7 +23,7 @@
     ?>
 
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.js"></script> 
-    <script type="text/javascript" src="<?php echo base_url() ?>js/adminpagedrugcategory.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/adminpagedrugindication.js"></script>
 
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -57,7 +57,7 @@
         </div><?php echo form_close() ?>
         <div id="maincontainer">
             <input type="hidden" id="serverurl" name="serverurl" value="<?php echo base_url() ?>"/>
-         
+
 
             <div id="contentwrapper">
                 <?php include 'adminnavpane.php'; ?>
@@ -65,15 +65,15 @@
                     <div class="row-fluid">
                         <form method="post" id="masterdata_form">
                             <div class="span12">
-                                <h3 class="heading">Drug Generics</h3>
+                                <h3 class="heading">Drug Indication</h3>
                                 <div class="formSep">
                                     <div class="row-fluid">
                                         <div class="span4">
                                             <div class="editor-label">
-                                                <label for="Name">Name of Drug Generics <span class="compulsory_field">*</span></label>
+                                                <label for="Name">Name of Drug Indication <span class="compulsory_field">*</span></label>
                                             </div>
                                             <div class="editor-field">
-                                                <input id="drugcategory_name" class="span12" type="text" value="" name="drugcategory_name" data-val-required="The Name field is required." data-val="true"/>
+                                                <input id="drugindication_name" class="span12" type="text" value="" name="drugindication_name" data-val-required="The Name field is required." data-val="true"/>
                                                 <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
                                             </div>
                                         </div>
@@ -82,27 +82,27 @@
                                     <div class="row-fluid">
                                         <div class="span8">
                                             <div class="editor-label">
-                                                <label for="Address">Description of Drug Generics  </label>
+                                                <label for="Address">Description of Drug Indication  </label>
                                             </div>
                                             <div class="editor-field">
-                                                <textarea id="drugcategory_description" class="span12" type="text" value="" name="drugcategory_description"></textarea>
+                                                <textarea id="drugindication_description" class="span12" type="text" value="" name="drugindication_description"></textarea>
                                                 <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Address"></span>
                                             </div>
                                         </div>
 
                                     </div>
-                                    
-                                    
+
+
                                     <br/>
                                 </div>
 
                             </div>
-                            <div class=" adminpage">
+                            <div class="adminpage">
                                 <img src="<?php echo base_url() ?>images/tick.png" class="saved_icon">
-                                    <span class="saved_icon">Saved Drug Category...</span>
+                                    <span class="saved_icon">Saved Drug Indication...</span>
                                     <img src="<?php echo base_url() ?>images/loading2.gif" class="saving_icon"/>
-                                    <span class="saving_icon">Saving Drug Category...</span>
-                                    <a class="register submit" href="#" name="createcomment"> Save Drug Category </a> 
+                                    <span class="saving_icon">Saving Drug Indication...</span>
+                                    <a class="register submit" href="#" name="createcomment"> Save Drug Indication </a> 
                             </div>
                         </form>
 

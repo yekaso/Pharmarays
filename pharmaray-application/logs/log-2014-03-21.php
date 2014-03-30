@@ -1801,3 +1801,2150 @@ ORDER BY `p`.`id_pharmacy`, `p`.`name` desc
 LIMIT 20
 DEBUG - 2014-03-21 09:11:59 --> Final output sent to browser
 DEBUG - 2014-03-21 09:11:59 --> Total execution time: 0.0450
+DEBUG - 2014-03-21 09:24:46 --> Config Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Hooks Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 09:24:46 --> URI Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Router Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Output Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Security Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Input Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 09:24:46 --> Language Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Loader Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 09:24:46 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 09:24:46 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 09:24:46 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Session Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 09:24:46 --> A session cookie was not found.
+DEBUG - 2014-03-21 09:24:46 --> Session routines successfully run
+DEBUG - 2014-03-21 09:24:46 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Controller Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:46 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 09:24:46 --> after session initialization................
+INFO  - 2014-03-21 09:24:46 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 09:24:46 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 09:24:46 --> verify user roles ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 09:24:46 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 09:24:46 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 09:24:46 --> Final output sent to browser
+DEBUG - 2014-03-21 09:24:46 --> Total execution time: 0.0470
+DEBUG - 2014-03-21 09:24:58 --> Config Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Hooks Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 09:24:58 --> URI Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Router Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Output Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Security Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Input Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 09:24:58 --> Language Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Loader Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 09:24:58 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 09:24:58 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 09:24:58 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Session Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 09:24:58 --> A session cookie was not found.
+DEBUG - 2014-03-21 09:24:58 --> Session routines successfully run
+DEBUG - 2014-03-21 09:24:58 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Controller Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Model Class Initialized
+DEBUG - 2014-03-21 09:24:58 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 09:24:58 --> after session initialization................
+INFO  - 2014-03-21 09:24:58 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 09:24:58 --> verify user roles ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 09:24:58 --> Final output sent to browser
+DEBUG - 2014-03-21 09:24:58 --> Total execution time: 0.0680
+DEBUG - 2014-03-21 09:25:22 --> Config Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Hooks Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 09:25:22 --> URI Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Router Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Output Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Security Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Input Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 09:25:22 --> Language Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Loader Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 09:25:22 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 09:25:22 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 09:25:22 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Session Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 09:25:22 --> A session cookie was not found.
+DEBUG - 2014-03-21 09:25:22 --> Session routines successfully run
+DEBUG - 2014-03-21 09:25:22 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Controller Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Model Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Model Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Model Class Initialized
+DEBUG - 2014-03-21 09:25:22 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 09:25:22 --> after session initialization................
+INFO  - 2014-03-21 09:25:22 --> before deleting from drug availability.................
+INFO  - 2014-03-21 09:25:22 --> DELETE FROM `drugavailability`
+WHERE drugid_drug IN (1,489,491) and pharmacyid_pharmacy = 1
+DEBUG - 2014-03-21 09:25:22 --> Final output sent to browser
+DEBUG - 2014-03-21 09:25:22 --> Total execution time: 0.1390
+DEBUG - 2014-03-21 09:31:25 --> Config Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Hooks Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 09:31:25 --> URI Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Router Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Output Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Security Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Input Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 09:31:25 --> Language Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Loader Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 09:31:25 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 09:31:25 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 09:31:25 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Session Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 09:31:25 --> A session cookie was not found.
+DEBUG - 2014-03-21 09:31:25 --> Session routines successfully run
+DEBUG - 2014-03-21 09:31:25 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Controller Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:25 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 09:31:25 --> after session initialization................
+INFO  - 2014-03-21 09:31:25 --> verify user roles ::::::::::===>SELECT `mt`.`id_membertype`
+FROM (`membertype` mt)
+WHERE lower(mt.name) =  'pharmacy owner'
+INFO  - 2014-03-21 09:31:25 --> inside retrieving user by email addressozoro@gmail.com
+INFO  - 2014-03-21 09:31:25 --> SELECT `m`.*
+FROM (`member` m)
+WHERE `m`.`emailaddress_member` =  'ozoro@gmail.com'
+INFO  - 2014-03-21 09:31:25 --> before inserting into member.................
+INFO  - 2014-03-21 09:31:25 --> after inserting into member.................32
+INFO  - 2014-03-21 09:31:25 --> the status of the transaction is...........1 the insert id is ......32
+INFO  - 2014-03-21 09:31:25 --> the id of retrieved member is.................. 32
+INFO  - 2014-03-21 09:31:25 --> before inserting into login details.................
+INFO  - 2014-03-21 09:31:25 --> after inserting into login details.................
+INFO  - 2014-03-21 09:31:25 --> verify user roles ::::::::::===>SELECT `ur`.`id_userrole`
+FROM (`userrole` ur)
+WHERE lower(ur.name) =  'pharmacy owner'
+INFO  - 2014-03-21 09:31:25 --> before inserting into login details role.................
+INFO  - 2014-03-21 09:31:25 --> after inserting into login details role.................
+DEBUG - 2014-03-21 09:31:25 --> Final output sent to browser
+DEBUG - 2014-03-21 09:31:25 --> Total execution time: 0.1290
+DEBUG - 2014-03-21 09:31:26 --> Config Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Hooks Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 09:31:26 --> URI Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Router Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Output Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Security Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Input Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 09:31:26 --> Language Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Loader Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 09:31:26 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 09:31:26 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 09:31:26 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Session Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 09:31:26 --> A session cookie was not found.
+DEBUG - 2014-03-21 09:31:26 --> Session routines successfully run
+DEBUG - 2014-03-21 09:31:26 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Controller Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Model Class Initialized
+DEBUG - 2014-03-21 09:31:26 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 09:31:26 --> after session initialization................
+INFO  - 2014-03-21 09:31:26 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 09:31:26 --> verify user roles ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  ''
+ORDER BY `p`.`name`
+ERROR - 2014-03-21 09:31:26 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\Pharmarays\pharmaray-application\controllers\mobile\mobile_controller.php 140
+DEBUG - 2014-03-21 09:31:26 --> Final output sent to browser
+DEBUG - 2014-03-21 09:31:26 --> Total execution time: 0.0700
+DEBUG - 2014-03-21 10:26:20 --> Config Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Hooks Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 10:26:20 --> URI Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Router Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Output Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Security Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Input Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 10:26:20 --> Language Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Loader Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 10:26:20 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 10:26:20 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 10:26:20 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Session Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 10:26:20 --> A session cookie was not found.
+DEBUG - 2014-03-21 10:26:20 --> Session routines successfully run
+DEBUG - 2014-03-21 10:26:20 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Controller Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Model Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Model Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Model Class Initialized
+DEBUG - 2014-03-21 10:26:20 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 10:26:20 --> after session initialization................
+INFO  - 2014-03-21 10:26:20 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 10:26:20 --> verify user roles ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  ''
+ORDER BY `p`.`name`
+ERROR - 2014-03-21 10:26:20 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\Pharmarays\pharmaray-application\controllers\mobile\mobile_controller.php 140
+DEBUG - 2014-03-21 10:26:20 --> Final output sent to browser
+DEBUG - 2014-03-21 10:26:20 --> Total execution time: 0.0680
+DEBUG - 2014-03-21 15:13:01 --> Config Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:13:01 --> URI Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Router Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Output Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Security Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Input Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:13:01 --> Language Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:13:01 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Session Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:13:01 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:13:01 --> Session routines successfully run
+DEBUG - 2014-03-21 15:13:01 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:13:01 --> after session initialization................
+INFO  - 2014-03-21 15:13:01 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 15:13:01 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 15:13:01 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:13:01 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 15:13:01 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 15:13:01 --> Final output sent to browser
+DEBUG - 2014-03-21 15:13:01 --> Total execution time: 0.0450
+DEBUG - 2014-03-21 15:13:01 --> Config Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:13:01 --> URI Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Router Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Output Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Security Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Input Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:13:01 --> Language Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:13:01 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Session Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:13:01 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:13:01 --> Session routines successfully run
+DEBUG - 2014-03-21 15:13:01 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:13:01 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:13:01 --> after session initialization................
+INFO  - 2014-03-21 15:13:01 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 15:13:01 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `urp`.`loginuserrole_id`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 15:13:01 --> Final output sent to browser
+DEBUG - 2014-03-21 15:13:01 --> Total execution time: 0.0600
+DEBUG - 2014-03-21 15:49:31 --> Config Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:49:31 --> URI Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Router Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Output Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Security Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Input Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:49:31 --> Language Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:49:31 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:49:31 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:49:31 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:49:31 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Session Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:49:32 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:49:32 --> Session routines successfully run
+DEBUG - 2014-03-21 15:49:32 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:32 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:49:32 --> after session initialization................
+INFO  - 2014-03-21 15:49:32 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 15:49:32 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 15:49:32 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:49:32 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 15:49:32 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 15:49:32 --> Final output sent to browser
+DEBUG - 2014-03-21 15:49:32 --> Total execution time: 1.0561
+DEBUG - 2014-03-21 15:49:36 --> Config Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:49:36 --> URI Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Router Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Output Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Security Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Input Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:49:36 --> Language Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:49:36 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:49:36 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:49:36 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Session Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:49:36 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:49:36 --> Session routines successfully run
+DEBUG - 2014-03-21 15:49:36 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:36 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:49:36 --> after session initialization................
+INFO  - 2014-03-21 15:49:36 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 15:49:36 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 15:49:36 --> Final output sent to browser
+DEBUG - 2014-03-21 15:49:36 --> Total execution time: 0.1150
+DEBUG - 2014-03-21 15:49:52 --> Config Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:49:52 --> URI Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Router Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Output Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Security Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Input Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:49:52 --> Language Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:49:52 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:49:52 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:49:52 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Session Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:49:52 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:49:52 --> Session routines successfully run
+DEBUG - 2014-03-21 15:49:52 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Model Class Initialized
+DEBUG - 2014-03-21 15:49:52 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:49:52 --> after session initialization................
+INFO  - 2014-03-21 15:49:52 --> before inserting into drug availability.................
+INFO  - 2014-03-21 15:49:52 --> after inserting into drug availability.................
+INFO  - 2014-03-21 15:49:52 --> INSERT INTO `drugavailability` (`drugid_drug`, `pharmacyid_pharmacy`) VALUES ('1','1'), ('516','1'), ('517','1'), ('520','1')
+DEBUG - 2014-03-21 15:49:52 --> Final output sent to browser
+DEBUG - 2014-03-21 15:49:52 --> Total execution time: 0.1250
+DEBUG - 2014-03-21 15:50:20 --> Config Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:50:20 --> URI Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Router Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Output Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Security Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Input Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:50:20 --> Language Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:50:20 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:50:20 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:50:20 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Session Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:50:20 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:50:20 --> Session routines successfully run
+DEBUG - 2014-03-21 15:50:20 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:20 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:50:20 --> after session initialization................
+INFO  - 2014-03-21 15:50:20 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 15:50:20 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 15:50:20 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:50:20 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 15:50:20 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 15:50:20 --> Final output sent to browser
+DEBUG - 2014-03-21 15:50:20 --> Total execution time: 0.0440
+DEBUG - 2014-03-21 15:50:21 --> Config Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:50:21 --> URI Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Router Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Output Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Security Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Input Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:50:21 --> Language Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:50:21 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:50:21 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:50:21 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Session Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:50:21 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:50:21 --> Session routines successfully run
+DEBUG - 2014-03-21 15:50:21 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:21 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:50:21 --> after session initialization................
+INFO  - 2014-03-21 15:50:21 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 15:50:21 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 15:50:21 --> Final output sent to browser
+DEBUG - 2014-03-21 15:50:21 --> Total execution time: 0.1240
+DEBUG - 2014-03-21 15:50:49 --> Config Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:50:49 --> URI Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Router Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Output Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Security Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Input Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:50:49 --> Language Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:50:49 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:50:49 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:50:49 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Session Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:50:49 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:50:49 --> Session routines successfully run
+DEBUG - 2014-03-21 15:50:49 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Model Class Initialized
+DEBUG - 2014-03-21 15:50:49 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:50:49 --> after session initialization................
+INFO  - 2014-03-21 15:50:49 --> before inserting into drug availability.................
+INFO  - 2014-03-21 15:50:49 --> after inserting into drug availability.................
+INFO  - 2014-03-21 15:50:49 --> INSERT INTO `drugavailability` (`drugid_drug`, `pharmacyid_pharmacy`) VALUES ('518','1'), ('519','1')
+INFO  - 2014-03-21 15:50:49 --> before deleting from drug availability.................
+INFO  - 2014-03-21 15:50:49 --> DELETE FROM `drugavailability`
+WHERE drugid_drug IN (1,516,517,520) and pharmacyid_pharmacy = 1
+DEBUG - 2014-03-21 15:50:49 --> Final output sent to browser
+DEBUG - 2014-03-21 15:50:49 --> Total execution time: 0.0960
+DEBUG - 2014-03-21 15:51:26 --> Config Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:51:26 --> URI Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Router Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Output Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Security Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Input Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:51:26 --> Language Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:51:26 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:51:26 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:51:26 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Session Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:51:26 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:51:26 --> Session routines successfully run
+DEBUG - 2014-03-21 15:51:26 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:26 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:51:26 --> after session initialization................
+INFO  - 2014-03-21 15:51:26 --> before getting the relation of member............MOBILE31
+INFO  - 2014-03-21 15:51:26 --> registration complete and username set on userpage.................MOBILEonyekachi
+INFO  - 2014-03-21 15:51:26 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '31'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:51:26 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+INFO  - 2014-03-21 15:51:26 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+DEBUG - 2014-03-21 15:51:26 --> Final output sent to browser
+DEBUG - 2014-03-21 15:51:26 --> Total execution time: 0.0460
+DEBUG - 2014-03-21 15:51:45 --> Config Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:51:45 --> URI Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Router Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Output Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Security Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Input Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:51:45 --> Language Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:51:45 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:51:45 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:51:45 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Session Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:51:45 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:51:45 --> Session routines successfully run
+DEBUG - 2014-03-21 15:51:45 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:45 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:51:45 --> after session initialization................
+INFO  - 2014-03-21 15:51:45 --> before getting the relation of member............MOBILE30
+INFO  - 2014-03-21 15:51:45 --> registration complete and username set on userpage.................MOBILEonwuzu
+INFO  - 2014-03-21 15:51:45 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '30'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:51:45 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '30'
+INFO  - 2014-03-21 15:51:45 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '30'
+DEBUG - 2014-03-21 15:51:45 --> Final output sent to browser
+DEBUG - 2014-03-21 15:51:45 --> Total execution time: 0.0490
+DEBUG - 2014-03-21 15:51:48 --> Config Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:51:48 --> URI Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Router Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Output Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Security Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Input Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:51:48 --> Language Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:51:48 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:51:48 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:51:48 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Session Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:51:48 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:51:48 --> Session routines successfully run
+DEBUG - 2014-03-21 15:51:48 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Model Class Initialized
+DEBUG - 2014-03-21 15:51:48 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:51:48 --> after session initialization................
+INFO  - 2014-03-21 15:51:48 --> last pharmacy id is 0
+INFO  - 2014-03-21 15:51:48 --> Ajax retrieval ::::::::::===>SELECT p.id_pharmacy as id, p.name, p.telephone, p.address, l.name as location
+FROM (`pharmacy` p)
+JOIN `location` l ON `p`.`locationid_location` = `l`.`id_location`
+WHERE `p`.`id_pharmacy` > 0
+ORDER BY `p`.`id_pharmacy`, `p`.`name` desc
+LIMIT 20
+DEBUG - 2014-03-21 15:51:48 --> Final output sent to browser
+DEBUG - 2014-03-21 15:51:48 --> Total execution time: 0.0390
+DEBUG - 2014-03-21 15:52:00 --> Config Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:52:00 --> URI Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Router Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Output Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Security Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Input Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:52:00 --> Language Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:52:00 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:52:00 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:52:00 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Session Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:52:00 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:52:00 --> Session routines successfully run
+DEBUG - 2014-03-21 15:52:00 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:00 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:52:00 --> after session initialization................
+INFO  - 2014-03-21 15:52:00 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:52:00 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:52:00 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('','12','PENDING'), ('','13','PENDING')
+DEBUG - 2014-03-21 15:52:00 --> Final output sent to browser
+DEBUG - 2014-03-21 15:52:00 --> Total execution time: 0.1250
+DEBUG - 2014-03-21 15:52:32 --> Config Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:52:32 --> URI Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Router Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Output Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Security Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Input Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:52:32 --> Language Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:52:32 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:52:32 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:52:32 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Session Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:52:32 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:52:32 --> Session routines successfully run
+DEBUG - 2014-03-21 15:52:32 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Model Class Initialized
+DEBUG - 2014-03-21 15:52:32 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:52:32 --> after session initialization................
+INFO  - 2014-03-21 15:52:32 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:52:32 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:52:32 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('','1','PENDING')
+INFO  - 2014-03-21 15:52:32 --> before deleting from userrole pharmacy.................
+DEBUG - 2014-03-21 15:52:32 --> DB Transaction Failure
+ERROR - 2014-03-21 15:52:32 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+DEBUG - 2014-03-21 15:52:32 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2014-03-21 15:53:12 --> Config Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:53:12 --> URI Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Router Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Output Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Security Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Input Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:53:12 --> Language Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:53:12 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:53:12 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:53:12 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Session Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:53:12 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:53:12 --> Session routines successfully run
+DEBUG - 2014-03-21 15:53:12 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Model Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Model Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Model Class Initialized
+DEBUG - 2014-03-21 15:53:12 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:53:12 --> after session initialization................
+INFO  - 2014-03-21 15:53:12 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:53:12 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 15:53:12 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('','2','PENDING'), ('','3','PENDING'), ('','4','PENDING'), ('','5','PENDING'), ('','6','PENDING'), ('','7','PENDING'), ('','8','PENDING'), ('','9','PENDING'), ('','10','PENDING'), ('','11','PENDING'), ('','12','PENDING'), ('','13','PENDING'), ('','14','PENDING'), ('','15','PENDING'), ('','16','PENDING'), ('','17','PENDING'), ('','18','PENDING'), ('','19','PENDING'), ('','20','PENDING')
+DEBUG - 2014-03-21 15:53:12 --> Final output sent to browser
+DEBUG - 2014-03-21 15:53:12 --> Total execution time: 0.1590
+DEBUG - 2014-03-21 15:55:59 --> Config Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:55:59 --> URI Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Router Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Output Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Security Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Input Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:55:59 --> Language Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:55:59 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:55:59 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:55:59 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Session Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:55:59 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:55:59 --> Session routines successfully run
+DEBUG - 2014-03-21 15:55:59 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Model Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Model Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Model Class Initialized
+DEBUG - 2014-03-21 15:55:59 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:55:59 --> after session initialization................
+INFO  - 2014-03-21 15:55:59 --> before getting the relation of member............MOBILE30
+INFO  - 2014-03-21 15:55:59 --> registration complete and username set on userpage.................MOBILEonwuzu
+INFO  - 2014-03-21 15:55:59 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '30'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 15:55:59 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '30'
+INFO  - 2014-03-21 15:55:59 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '30'
+DEBUG - 2014-03-21 15:55:59 --> Final output sent to browser
+DEBUG - 2014-03-21 15:55:59 --> Total execution time: 0.0470
+DEBUG - 2014-03-21 15:56:01 --> Config Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Hooks Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 15:56:01 --> URI Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Router Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Output Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Security Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Input Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 15:56:01 --> Language Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Loader Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 15:56:01 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 15:56:01 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 15:56:01 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Session Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 15:56:01 --> A session cookie was not found.
+DEBUG - 2014-03-21 15:56:01 --> Session routines successfully run
+DEBUG - 2014-03-21 15:56:01 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Controller Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Model Class Initialized
+DEBUG - 2014-03-21 15:56:01 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 15:56:01 --> after session initialization................
+INFO  - 2014-03-21 15:56:01 --> last pharmacy id is 0
+INFO  - 2014-03-21 15:56:01 --> Ajax retrieval ::::::::::===>SELECT p.id_pharmacy as id, p.name, p.telephone, p.address, l.name as location
+FROM (`pharmacy` p)
+JOIN `location` l ON `p`.`locationid_location` = `l`.`id_location`
+WHERE `p`.`id_pharmacy` > 0
+ORDER BY `p`.`id_pharmacy`, `p`.`name` desc
+LIMIT 20
+DEBUG - 2014-03-21 15:56:01 --> Final output sent to browser
+DEBUG - 2014-03-21 15:56:01 --> Total execution time: 0.0600
+DEBUG - 2014-03-21 16:24:08 --> Config Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:24:08 --> URI Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Router Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Output Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Security Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Input Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:24:08 --> Language Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:24:08 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:24:08 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:24:08 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:24:08 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Session Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:24:09 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:24:09 --> Session routines successfully run
+DEBUG - 2014-03-21 16:24:09 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:09 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:24:09 --> after session initialization................
+INFO  - 2014-03-21 16:24:09 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 16:24:09 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 16:24:09 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:24:09 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 16:24:09 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 16:24:09 --> Final output sent to browser
+DEBUG - 2014-03-21 16:24:09 --> Total execution time: 1.0511
+DEBUG - 2014-03-21 16:24:10 --> Config Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:24:10 --> URI Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Router Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Output Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Security Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Input Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:24:10 --> Language Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:24:10 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:24:10 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:24:10 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Session Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:24:10 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:24:10 --> Session routines successfully run
+DEBUG - 2014-03-21 16:24:10 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:10 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:24:10 --> after session initialization................
+INFO  - 2014-03-21 16:24:10 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '1')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 16:24:10 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 16:24:10 --> Final output sent to browser
+DEBUG - 2014-03-21 16:24:10 --> Total execution time: 0.0660
+DEBUG - 2014-03-21 16:24:32 --> Config Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:24:32 --> URI Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Router Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Output Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Security Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Input Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:24:32 --> Language Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:24:32 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:24:32 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:24:32 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Session Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:24:32 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:24:32 --> Session routines successfully run
+DEBUG - 2014-03-21 16:24:32 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:32 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:24:32 --> after session initialization................
+INFO  - 2014-03-21 16:24:32 --> before getting the relation of member............MOBILE31
+INFO  - 2014-03-21 16:24:32 --> registration complete and username set on userpage.................MOBILEonyekachi
+INFO  - 2014-03-21 16:24:32 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '31'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:24:32 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+INFO  - 2014-03-21 16:24:32 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+DEBUG - 2014-03-21 16:24:32 --> Final output sent to browser
+DEBUG - 2014-03-21 16:24:32 --> Total execution time: 0.0460
+DEBUG - 2014-03-21 16:24:33 --> Config Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:24:33 --> URI Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Router Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Output Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Security Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Input Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:24:33 --> Language Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:24:33 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:24:33 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:24:33 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Session Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:24:33 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:24:33 --> Session routines successfully run
+DEBUG - 2014-03-21 16:24:33 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Model Class Initialized
+DEBUG - 2014-03-21 16:24:33 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:24:33 --> after session initialization................
+INFO  - 2014-03-21 16:24:33 --> last pharmacy id is 0
+INFO  - 2014-03-21 16:24:33 --> Ajax retrieval ::::::::::===>SELECT p.id_pharmacy as id, p.name, p.telephone, p.address, l.name as location
+FROM (`pharmacy` p)
+JOIN `location` l ON `p`.`locationid_location` = `l`.`id_location`
+WHERE `p`.`id_pharmacy` > 0
+ORDER BY `p`.`id_pharmacy`, `p`.`name` desc
+LIMIT 20
+DEBUG - 2014-03-21 16:24:33 --> Final output sent to browser
+DEBUG - 2014-03-21 16:24:33 --> Total execution time: 0.0400
+DEBUG - 2014-03-21 16:25:02 --> Config Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:25:02 --> URI Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Router Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Output Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Security Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Input Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:25:02 --> Language Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:25:02 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:25:02 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:25:02 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Session Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:25:02 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:25:02 --> Session routines successfully run
+DEBUG - 2014-03-21 16:25:02 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:02 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:25:02 --> after session initialization................
+INFO  - 2014-03-21 16:25:02 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:25:02 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:25:02 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('4','1','PENDING'), ('4','2','PENDING'), ('4','3','PENDING')
+DEBUG - 2014-03-21 16:25:02 --> Final output sent to browser
+DEBUG - 2014-03-21 16:25:02 --> Total execution time: 0.1200
+DEBUG - 2014-03-21 16:25:51 --> Config Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:25:51 --> URI Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Router Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Output Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Security Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Input Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:25:51 --> Language Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:25:51 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:25:51 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:25:51 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Session Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:25:51 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:25:51 --> Session routines successfully run
+DEBUG - 2014-03-21 16:25:51 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Model Class Initialized
+DEBUG - 2014-03-21 16:25:51 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:25:51 --> after session initialization................
+INFO  - 2014-03-21 16:25:51 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:25:51 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:25:51 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('4','4','PENDING')
+INFO  - 2014-03-21 16:25:51 --> before deleting from userrole pharmacy.................
+INFO  - 2014-03-21 16:25:51 --> DELETE FROM `userrole_pharmacy`
+WHERE pharmacy_id IN (1,2,3) and loginuserrole_id = 4
+DEBUG - 2014-03-21 16:25:51 --> Final output sent to browser
+DEBUG - 2014-03-21 16:25:51 --> Total execution time: 0.1420
+DEBUG - 2014-03-21 16:26:58 --> Config Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:26:58 --> URI Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Router Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Output Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Security Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Input Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:26:58 --> Language Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:26:58 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:26:58 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:26:58 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Session Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:26:58 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:26:58 --> Session routines successfully run
+DEBUG - 2014-03-21 16:26:58 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Model Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Model Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Model Class Initialized
+DEBUG - 2014-03-21 16:26:58 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:26:58 --> after session initialization................
+INFO  - 2014-03-21 16:26:58 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:26:58 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:26:58 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('4','1','PENDING'), ('4','2','PENDING'), ('4','3','PENDING'), ('4','5','PENDING'), ('4','6','PENDING'), ('4','7','PENDING'), ('4','8','PENDING'), ('4','9','PENDING'), ('4','10','PENDING'), ('4','11','PENDING'), ('4','12','PENDING'), ('4','13','PENDING'), ('4','14','PENDING'), ('4','15','PENDING'), ('4','16','PENDING'), ('4','17','PENDING'), ('4','18','PENDING'), ('4','19','PENDING'), ('4','20','PENDING')
+DEBUG - 2014-03-21 16:26:58 --> Final output sent to browser
+DEBUG - 2014-03-21 16:26:58 --> Total execution time: 0.1210
+DEBUG - 2014-03-21 16:28:07 --> Config Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:28:07 --> URI Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Router Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Output Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Security Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Input Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:28:07 --> Language Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:28:07 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:28:07 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:28:07 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Session Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:28:07 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:28:07 --> Session routines successfully run
+DEBUG - 2014-03-21 16:28:07 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:07 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:28:07 --> after session initialization................
+INFO  - 2014-03-21 16:28:07 --> before deleting from userrole pharmacy.................
+INFO  - 2014-03-21 16:28:07 --> DELETE FROM `userrole_pharmacy`
+WHERE pharmacy_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20) and loginuserrole_id = 4
+DEBUG - 2014-03-21 16:28:07 --> Final output sent to browser
+DEBUG - 2014-03-21 16:28:07 --> Total execution time: 0.1110
+DEBUG - 2014-03-21 16:28:36 --> Config Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:28:36 --> URI Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Router Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Output Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Security Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Input Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:28:36 --> Language Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:28:36 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:28:36 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:28:36 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Session Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:28:36 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:28:36 --> Session routines successfully run
+DEBUG - 2014-03-21 16:28:36 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:28:36 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:28:36 --> after session initialization................
+INFO  - 2014-03-21 16:28:36 --> before getting the relation of member............MOBILE31
+INFO  - 2014-03-21 16:28:36 --> registration complete and username set on userpage.................MOBILEonyekachi
+INFO  - 2014-03-21 16:28:36 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '31'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:28:36 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+INFO  - 2014-03-21 16:28:36 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+DEBUG - 2014-03-21 16:28:36 --> Final output sent to browser
+DEBUG - 2014-03-21 16:28:36 --> Total execution time: 0.0440
+DEBUG - 2014-03-21 16:29:26 --> Config Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:29:26 --> URI Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Router Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Output Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Security Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Input Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:29:26 --> Language Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:29:26 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:29:26 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:29:26 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Session Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:29:26 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:29:26 --> Session routines successfully run
+DEBUG - 2014-03-21 16:29:26 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:26 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:29:26 --> after session initialization................
+INFO  - 2014-03-21 16:29:26 --> before getting the relation of member............MOBILE31
+INFO  - 2014-03-21 16:29:26 --> registration complete and username set on userpage.................MOBILEonyekachi
+INFO  - 2014-03-21 16:29:26 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '31'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:29:26 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+INFO  - 2014-03-21 16:29:26 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '31'
+DEBUG - 2014-03-21 16:29:26 --> Final output sent to browser
+DEBUG - 2014-03-21 16:29:26 --> Total execution time: 0.0490
+DEBUG - 2014-03-21 16:29:37 --> Config Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:29:37 --> URI Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Router Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Output Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Security Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Input Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:29:37 --> Language Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:29:37 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:29:37 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:29:37 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Session Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:29:37 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:29:37 --> Session routines successfully run
+DEBUG - 2014-03-21 16:29:37 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Model Class Initialized
+DEBUG - 2014-03-21 16:29:37 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:29:37 --> after session initialization................
+INFO  - 2014-03-21 16:29:37 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '14')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '14')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 16:29:37 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '31'
+ORDER BY `p`.`name`
+DEBUG - 2014-03-21 16:29:37 --> Final output sent to browser
+DEBUG - 2014-03-21 16:29:37 --> Total execution time: 0.0630
+DEBUG - 2014-03-21 16:32:35 --> Config Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:32:35 --> URI Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Router Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Output Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Security Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Input Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:32:35 --> Language Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:32:35 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:32:35 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:32:35 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Session Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:32:35 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:32:35 --> Session routines successfully run
+DEBUG - 2014-03-21 16:32:35 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:35 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:32:35 --> after session initialization................
+INFO  - 2014-03-21 16:32:35 --> verify user roles ::::::::::===>SELECT `mt`.`id_membertype`
+FROM (`membertype` mt)
+WHERE lower(mt.name) =  'pharmacy owner'
+INFO  - 2014-03-21 16:32:35 --> inside retrieving user by email addresssokapi@gmail.com
+INFO  - 2014-03-21 16:32:35 --> SELECT `m`.*
+FROM (`member` m)
+WHERE `m`.`emailaddress_member` =  'sokapi@gmail.com'
+INFO  - 2014-03-21 16:32:35 --> before inserting into member.................
+INFO  - 2014-03-21 16:32:35 --> after inserting into member.................33
+INFO  - 2014-03-21 16:32:35 --> the status of the transaction is...........1 the insert id is ......33
+INFO  - 2014-03-21 16:32:35 --> the id of retrieved member is.................. 33
+INFO  - 2014-03-21 16:32:35 --> before inserting into login details.................
+INFO  - 2014-03-21 16:32:35 --> after inserting into login details.................
+INFO  - 2014-03-21 16:32:35 --> verify user roles ::::::::::===>SELECT `ur`.`id_userrole`
+FROM (`userrole` ur)
+WHERE lower(ur.name) =  'pharmacy owner'
+INFO  - 2014-03-21 16:32:35 --> before inserting into login details role.................
+INFO  - 2014-03-21 16:32:35 --> after inserting into login details role.................
+DEBUG - 2014-03-21 16:32:35 --> Final output sent to browser
+DEBUG - 2014-03-21 16:32:35 --> Total execution time: 0.4160
+DEBUG - 2014-03-21 16:32:36 --> Config Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:32:36 --> URI Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Router Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Output Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Security Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Input Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:32:36 --> Language Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:32:36 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:32:36 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:32:36 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Session Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:32:36 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:32:36 --> Session routines successfully run
+DEBUG - 2014-03-21 16:32:36 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Model Class Initialized
+DEBUG - 2014-03-21 16:32:36 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:32:36 --> after session initialization................
+INFO  - 2014-03-21 16:32:36 --> Ajax retrieval for articles ::::::::::===>(SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "true" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` not in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`) union (SELECT d.id_drug, d.drug_name, d.drug_description, group_concat(bn.name, ":", bn.id_brandname) as drug_company, group_concat(dcc.name) as drug_brandnames, dcc.id_drugcategory as category_id, "false" as notChecked
+FROM (`drug` d)
+JOIN `drugcategory_drug` dcg ON `dcg`.`drug_id` = `d`.`id_drug`
+JOIN `drugcategory` dcc ON `dcc`.`id_drugcategory` = `dcg`.`drugcategory_id`
+JOIN `brandname` bn ON `bn`.`id_brandname` = `dcc`.`brandname_id`
+WHERE `d`.`id_drug` in (SELECT DISTINCT `da`.`drugid_drug` as id
+FROM (`drugavailability` da)
+WHERE `da`.`pharmacyid_pharmacy` = '')
+GROUP BY `id_drug`
+ORDER BY `d`.`drug_name`, `bn`.`id_brandname`)
+INFO  - 2014-03-21 16:32:36 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  ''
+ORDER BY `p`.`name`
+ERROR - 2014-03-21 16:32:36 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\Pharmarays\pharmaray-application\controllers\mobile\mobile_controller.php 140
+DEBUG - 2014-03-21 16:32:36 --> Final output sent to browser
+DEBUG - 2014-03-21 16:32:36 --> Total execution time: 0.0680
+DEBUG - 2014-03-21 16:44:21 --> Config Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:44:21 --> URI Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Router Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Output Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Security Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Input Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:44:21 --> Language Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:44:21 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:44:21 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:44:21 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Session Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:44:21 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:44:21 --> Session routines successfully run
+DEBUG - 2014-03-21 16:44:21 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Model Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Model Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Model Class Initialized
+DEBUG - 2014-03-21 16:44:21 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:44:21 --> after session initialization................
+INFO  - 2014-03-21 16:44:21 --> verify user roles ::::::::::===>SELECT `mt`.`id_membertype`
+FROM (`membertype` mt)
+WHERE lower(mt.name) =  'ordinary user'
+ERROR - 2014-03-21 16:44:21 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\Pharmarays\pharmaray-application\models\mobile_model\mobile_model.php 69
+INFO  - 2014-03-21 16:44:21 --> inside retrieving user by email addressadetura@gmail.com
+INFO  - 2014-03-21 16:44:21 --> SELECT `m`.*
+FROM (`member` m)
+WHERE `m`.`emailaddress_member` =  'adetura@gmail.com'
+INFO  - 2014-03-21 16:44:21 --> before inserting into member.................
+DEBUG - 2014-03-21 16:44:21 --> DB Transaction Failure
+ERROR - 2014-03-21 16:44:21 --> Query error: Column 'membertypeid_membertype' cannot be null
+DEBUG - 2014-03-21 16:44:21 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2014-03-21 16:47:03 --> Config Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:47:03 --> URI Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Router Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Output Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Security Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Input Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:47:03 --> Language Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:47:03 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:47:03 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:47:03 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Session Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:47:03 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:47:03 --> Session routines successfully run
+DEBUG - 2014-03-21 16:47:03 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:03 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:47:03 --> after session initialization................
+DEBUG - 2014-03-21 16:47:03 --> Final output sent to browser
+DEBUG - 2014-03-21 16:47:03 --> Total execution time: 0.0390
+DEBUG - 2014-03-21 16:47:27 --> Config Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:47:27 --> URI Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Router Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Output Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Security Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Input Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:47:27 --> Language Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:47:27 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:47:27 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:47:27 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Session Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:47:27 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:47:27 --> Session routines successfully run
+DEBUG - 2014-03-21 16:47:27 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:27 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:47:27 --> after session initialization................
+INFO  - 2014-03-21 16:47:27 --> before getting the relation of member............MOBILE33
+INFO  - 2014-03-21 16:47:27 --> registration complete and username set on userpage.................MOBILEokapi
+INFO  - 2014-03-21 16:47:27 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '33'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:47:27 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '33'
+INFO  - 2014-03-21 16:47:27 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '33'
+DEBUG - 2014-03-21 16:47:27 --> Final output sent to browser
+DEBUG - 2014-03-21 16:47:27 --> Total execution time: 0.0450
+DEBUG - 2014-03-21 16:47:28 --> Config Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:47:28 --> URI Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Router Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Output Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Security Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Input Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:47:28 --> Language Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:47:28 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:47:28 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:47:28 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Session Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:47:28 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:47:28 --> Session routines successfully run
+DEBUG - 2014-03-21 16:47:28 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:28 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:47:28 --> after session initialization................
+INFO  - 2014-03-21 16:47:28 --> last pharmacy id is 0
+INFO  - 2014-03-21 16:47:28 --> Ajax retrieval ::::::::::===>SELECT p.id_pharmacy as id, p.name, p.telephone, p.address, l.name as location
+FROM (`pharmacy` p)
+JOIN `location` l ON `p`.`locationid_location` = `l`.`id_location`
+WHERE `p`.`id_pharmacy` > 0
+ORDER BY `p`.`id_pharmacy`, `p`.`name` desc
+LIMIT 20
+DEBUG - 2014-03-21 16:47:28 --> Final output sent to browser
+DEBUG - 2014-03-21 16:47:28 --> Total execution time: 0.0400
+DEBUG - 2014-03-21 16:47:35 --> Config Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:47:35 --> URI Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Router Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Output Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Security Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Input Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:47:35 --> Language Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:47:35 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:47:35 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:47:35 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Session Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:47:35 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:47:35 --> Session routines successfully run
+DEBUG - 2014-03-21 16:47:35 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:35 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:47:35 --> after session initialization................
+INFO  - 2014-03-21 16:47:35 --> before inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:47:36 --> after inserting into userrole pharmacy.................
+INFO  - 2014-03-21 16:47:36 --> INSERT INTO `userrole_pharmacy` (`loginuserrole_id`, `pharmacy_id`, `status`) VALUES ('6','20','PENDING')
+DEBUG - 2014-03-21 16:47:36 --> Final output sent to browser
+DEBUG - 2014-03-21 16:47:36 --> Total execution time: 0.1170
+DEBUG - 2014-03-21 16:47:47 --> Config Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:47:47 --> URI Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Router Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Output Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Security Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Input Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:47:47 --> Language Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:47:47 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:47:47 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:47:47 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Session Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:47:47 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:47:47 --> Session routines successfully run
+DEBUG - 2014-03-21 16:47:47 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Model Class Initialized
+DEBUG - 2014-03-21 16:47:47 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:47:47 --> after session initialization................
+INFO  - 2014-03-21 16:47:47 --> before getting the relation of member............MOBILE33
+INFO  - 2014-03-21 16:47:47 --> registration complete and username set on userpage.................MOBILEokapi
+INFO  - 2014-03-21 16:47:47 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '33'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 16:47:47 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '33'
+INFO  - 2014-03-21 16:47:47 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '33'
+DEBUG - 2014-03-21 16:47:47 --> Final output sent to browser
+DEBUG - 2014-03-21 16:47:47 --> Total execution time: 0.0450
+DEBUG - 2014-03-21 16:48:49 --> Config Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:48:49 --> URI Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Router Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Output Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Security Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Input Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:48:49 --> Language Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:48:49 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:48:49 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:48:49 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Session Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:48:49 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:48:49 --> Session routines successfully run
+DEBUG - 2014-03-21 16:48:49 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Model Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Model Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Model Class Initialized
+DEBUG - 2014-03-21 16:48:49 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:48:49 --> after session initialization................
+INFO  - 2014-03-21 16:48:49 --> verify user roles ::::::::::===>SELECT `mt`.`id_membertype`
+FROM (`membertype` mt)
+WHERE lower(mt.name) =  'user'
+ERROR - 2014-03-21 16:48:49 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\Pharmarays\pharmaray-application\models\mobile_model\mobile_model.php 69
+INFO  - 2014-03-21 16:48:49 --> inside retrieving user by email addressadetura@gmail.com
+INFO  - 2014-03-21 16:48:49 --> SELECT `m`.*
+FROM (`member` m)
+WHERE `m`.`emailaddress_member` =  'adetura@gmail.com'
+INFO  - 2014-03-21 16:48:49 --> before inserting into member.................
+DEBUG - 2014-03-21 16:48:49 --> DB Transaction Failure
+ERROR - 2014-03-21 16:48:49 --> Query error: Column 'membertypeid_membertype' cannot be null
+DEBUG - 2014-03-21 16:48:49 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2014-03-21 16:54:38 --> Config Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:54:38 --> URI Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Router Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Output Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Security Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Input Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:54:38 --> Language Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:54:38 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:54:38 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:54:38 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Session Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:54:38 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:54:38 --> Session routines successfully run
+DEBUG - 2014-03-21 16:54:38 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Model Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Model Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Model Class Initialized
+DEBUG - 2014-03-21 16:54:38 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:54:38 --> after session initialization................
+DEBUG - 2014-03-21 16:54:38 --> Final output sent to browser
+DEBUG - 2014-03-21 16:54:38 --> Total execution time: 0.0420
+DEBUG - 2014-03-21 16:55:22 --> Config Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Hooks Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 16:55:22 --> URI Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Router Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Output Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Security Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Input Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 16:55:22 --> Language Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Loader Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 16:55:22 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 16:55:22 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 16:55:22 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Session Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 16:55:22 --> A session cookie was not found.
+DEBUG - 2014-03-21 16:55:22 --> Session routines successfully run
+DEBUG - 2014-03-21 16:55:22 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Controller Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Model Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Model Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Model Class Initialized
+DEBUG - 2014-03-21 16:55:22 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 16:55:22 --> after session initialization................
+INFO  - 2014-03-21 16:55:22 --> verify user roles ::::::::::===>SELECT `mt`.`id_membertype`
+FROM (`membertype` mt)
+WHERE lower(mt.name) =  'ordinary user'
+INFO  - 2014-03-21 16:55:22 --> inside retrieving user by email addressadetura@gmail.com
+INFO  - 2014-03-21 16:55:22 --> SELECT `m`.*
+FROM (`member` m)
+WHERE `m`.`emailaddress_member` =  'adetura@gmail.com'
+INFO  - 2014-03-21 16:55:22 --> before inserting into member.................
+INFO  - 2014-03-21 16:55:22 --> after inserting into member.................34
+INFO  - 2014-03-21 16:55:22 --> the status of the transaction is...........1 the insert id is ......34
+INFO  - 2014-03-21 16:55:22 --> the id of retrieved member is.................. 34
+INFO  - 2014-03-21 16:55:22 --> before inserting into login details.................
+INFO  - 2014-03-21 16:55:22 --> after inserting into login details.................
+INFO  - 2014-03-21 16:55:22 --> verify user roles ::::::::::===>SELECT `ur`.`id_userrole`
+FROM (`userrole` ur)
+WHERE lower(ur.name) =  'ordinary user'
+INFO  - 2014-03-21 16:55:22 --> before inserting into login details role.................
+INFO  - 2014-03-21 16:55:22 --> after inserting into login details role.................
+DEBUG - 2014-03-21 16:55:22 --> Final output sent to browser
+DEBUG - 2014-03-21 16:55:22 --> Total execution time: 0.1270
+DEBUG - 2014-03-21 17:09:33 --> Config Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Hooks Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 17:09:33 --> URI Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Router Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Output Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Security Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Input Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 17:09:33 --> Language Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Loader Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 17:09:33 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 17:09:33 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 17:09:33 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Session Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 17:09:33 --> A session cookie was not found.
+DEBUG - 2014-03-21 17:09:33 --> Session routines successfully run
+DEBUG - 2014-03-21 17:09:33 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Controller Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:33 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 17:09:33 --> after session initialization................
+INFO  - 2014-03-21 17:09:33 --> before getting the relation of member............MOBILE34
+INFO  - 2014-03-21 17:09:33 --> registration complete and username set on userpage.................MOBILEadetura
+INFO  - 2014-03-21 17:09:33 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '34'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 17:09:33 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '34'
+INFO  - 2014-03-21 17:09:33 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '34'
+DEBUG - 2014-03-21 17:09:33 --> Final output sent to browser
+DEBUG - 2014-03-21 17:09:33 --> Total execution time: 0.0460
+DEBUG - 2014-03-21 17:09:44 --> Config Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Hooks Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 17:09:44 --> URI Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Router Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Output Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Security Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Input Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 17:09:44 --> Language Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Loader Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 17:09:44 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 17:09:44 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 17:09:44 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Session Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 17:09:44 --> A session cookie was not found.
+DEBUG - 2014-03-21 17:09:44 --> Session routines successfully run
+DEBUG - 2014-03-21 17:09:44 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Controller Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Model Class Initialized
+DEBUG - 2014-03-21 17:09:44 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 17:09:44 --> after session initialization................
+INFO  - 2014-03-21 17:09:44 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 17:09:44 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 17:09:44 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 17:09:44 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 17:09:44 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 17:09:44 --> Final output sent to browser
+DEBUG - 2014-03-21 17:09:44 --> Total execution time: 0.0450
+DEBUG - 2014-03-21 17:11:28 --> Config Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Hooks Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 17:11:28 --> URI Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Router Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Output Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Security Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Input Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 17:11:28 --> Language Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Loader Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 17:11:28 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 17:11:28 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 17:11:28 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Session Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 17:11:28 --> A session cookie was not found.
+DEBUG - 2014-03-21 17:11:28 --> Session routines successfully run
+DEBUG - 2014-03-21 17:11:28 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Controller Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:28 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 17:11:28 --> after session initialization................
+INFO  - 2014-03-21 17:11:28 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 17:11:28 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 17:11:28 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 17:11:28 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 17:11:28 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 17:11:28 --> Final output sent to browser
+DEBUG - 2014-03-21 17:11:28 --> Total execution time: 0.0470
+DEBUG - 2014-03-21 17:11:58 --> Config Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Hooks Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Utf8 Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> UTF-8 Support Enabled
+DEBUG - 2014-03-21 17:11:58 --> URI Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Router Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Output Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Security Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Input Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-03-21 17:11:58 --> Language Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Loader Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Helper loaded: form_helper
+DEBUG - 2014-03-21 17:11:58 --> Helper loaded: url_helper
+DEBUG - 2014-03-21 17:11:58 --> Helper loaded: html_helper
+DEBUG - 2014-03-21 17:11:58 --> Database Driver Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Session Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Helper loaded: string_helper
+DEBUG - 2014-03-21 17:11:58 --> A session cookie was not found.
+DEBUG - 2014-03-21 17:11:58 --> Session routines successfully run
+DEBUG - 2014-03-21 17:11:58 --> Form Validation Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Controller Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Model Class Initialized
+DEBUG - 2014-03-21 17:11:58 --> Session class already loaded. Second attempt ignored.
+INFO  - 2014-03-21 17:11:58 --> after session initialization................
+INFO  - 2014-03-21 17:11:58 --> before getting the relation of member............MOBILE6
+INFO  - 2014-03-21 17:11:58 --> registration complete and username set on userpage.................MOBILEElvis
+INFO  - 2014-03-21 17:11:58 --> RETRIEVE PHARMACY=========== ::::::::::===>SELECT p.name, p.id_pharmacy as id, urp.status
+FROM (`pharmacy` p)
+JOIN `userrole_pharmacy` urp ON `p`.`id_pharmacy` = `urp`.`pharmacy_id`
+JOIN `logindetails_userrole` lur ON `lur`.`id_logindetails_userrole` = `urp`.`loginuserrole_id`
+JOIN `userrole` ur ON `ur`.`id_userrole` = `lur`.`logindetailsuserrole_userroleid`
+JOIN `logindetails` ld ON `ld`.`id_logindetails` = `lur`.`logindetailsuserrole_logindetailsid`
+WHERE lower(ur.name) =  'pharmacy owner'
+AND `ld`.`memberid_member` =  '6'
+ORDER BY `p`.`name`
+INFO  - 2014-03-21 17:11:58 --> verify user roles ::::::::::===>SELECT `ldur`.`id_logindetails_userrole`
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+INFO  - 2014-03-21 17:11:58 --> verify user roles ::::::::::===>SELECT `ur`.*
+FROM (`userrole` ur)
+JOIN `logindetails_userrole` ldur ON `ldur`.`logindetailsuserrole_userroleid` = `ur`.`id_userrole`
+JOIN `logindetails` l ON `l`.`id_logindetails` = `ldur`.`logindetailsuserrole_logindetailsid`
+WHERE `l`.`memberid_member` =  '6'
+DEBUG - 2014-03-21 17:11:58 --> Final output sent to browser
+DEBUG - 2014-03-21 17:11:58 --> Total execution time: 0.0480

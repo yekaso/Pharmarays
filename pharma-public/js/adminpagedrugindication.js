@@ -14,13 +14,13 @@ $(function() {
 
     function computeFieldReadiness() {
         var titleCharLimit = 1000;
-        var titleRemaining = titleCharLimit - $("#drugcategory_name").val().length;
+        var titleRemaining = titleCharLimit - $("#drugindication_name").val().length;
 
-        if ( titleRemaining === titleCharLimit) {
+        if (titleRemaining === titleCharLimit) {
             // No characters entered so disable the button
             $(".submit").hide();
 
-        } else if (titleRemaining < 0 ) {
+        } else if (titleRemaining < 0) {
             // remaining = 0; // Prevents the counter going into negative numbers
             $(".submit").hide();
         } else {
@@ -28,24 +28,24 @@ $(function() {
         }
     }
 
-     $('#drugcategory_name').on("propertychange input textInput", function() {
+    $('#drugindication_name').on("propertychange input textInput", function() {
 
         computeFieldReadiness();
     });
-    
+
 
 
     $(".submit").on('click', function() {
         var serverurl = $("#serverurl").val();
-        var name = $("#drugcategory_name").val();
-        var description = $("#drugcategory_description").val();
-       
+        var name = $("#drugindication_name").val();
+        var description = $("#drugindication_description").val();
+
         $(".saving_icon").show();
         $(".saved_icon").hide();
         $(".submit").hide();
         $.ajax({
             type: "POST",
-            url: serverurl + "sys_admin/user_authorization/createdrugcategory",
+            url: serverurl + "sys_admin/user_authorization/createdrugindication",
             data: {"name": name, "description": description},
             cache: false,
             success: function(data) {

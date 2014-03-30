@@ -20,12 +20,13 @@ $(function() {
             // No characters entered so disable the button
             $(".submit").hide();
 
-        } else if (titleRemaining < 0) {
+        } else if (titleRemaining < 0 || $("#drugbrandid").val() < 1) {
             // remaining = 0; // Prevents the counter going into negative numbers
             $(".submit").hide();
         } else {
             $(".submit").show();
         }
+
     }
 
     $('#brands_name').on("propertychange input textInput", function() {
@@ -33,23 +34,25 @@ $(function() {
         computeFieldReadiness();
     });
 
-
+    $('#drugbrandid').change(function() {
+        computeFieldReadiness();
+    });
 
     $(".submit").on('click', function() {
         var serverurl = $("#serverurl").val();
         var name = $("#brands_name").val();
         var description = $("#brands_description").val();
+        var selectedbrand = $("#drugbrandid").val();
 
         $(".saving_icon").show();
         $(".saved_icon").hide();
         $(".submit").hide();
         $.ajax({
             type: "POST",
-            url: serverurl + "sys_admin/user_authorization/createbrands",
-            data: {"name": name, "description": description},
+            url: serverurl + "sys_admin/user_authorization/createdrugcategory",
+            data: {"name": name, "description": description,"selectedbrand":selectedbrand},
             cache: false,
             success: function(data) {
-
                 $(".saving_icon").hide();
                 $(".saved_icon").show();
                 resetForm($('#masterdata_form'));

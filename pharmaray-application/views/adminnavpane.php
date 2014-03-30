@@ -29,10 +29,10 @@
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrands">Create Brands</a></li>
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managebrands">Edit Brands</a></li>
                 </ul>
-            </li><li class="hasChildren"><span>Manage Drug Generics</span>
+            </li><li class="hasChildren"><span>Manage Drug Indication</span>
                 <ul>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Create Drug Generics</a></li>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Edit Drug Generics</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Create Drug Indication</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managedrugcategory">Edit Drug Indication</a></li>
                 </ul>
             </li><li class="hasChildren"><span>Manage Drug Class</span>
                 <ul>

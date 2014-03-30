@@ -683,6 +683,15 @@ class membermodel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function create_drugindication($drugindication_data) {
+        log_message('info', 'before inserting into drug indication.................');
+        $this->db->insert('drugindication', $drugindication_data);
+        log_message('info', 'after inserting into drug indication.................' . $this->db->insert_id());
+
+        log_message('info', $this->db->last_query());
+        return $this->db->insert_id();
+    }
+
     function create_drugclass($drugclass_data) {
         log_message('info', 'before inserting into drug class.................');
         $this->db->insert('drugclass', $drugclass_data);

@@ -231,13 +231,14 @@ class user_authorization extends CI_Controller {
         $data['internships'] = $this->membermodel->retrieve_internships($default_id, $limit);
         $this->load->view('internships', $data);
     }
-function redirect_to_managebrands(){
-    $data = '';
+
+    function redirect_to_managebrands() {
+        $data = '';
         log_message('info', 'after brands list has been clicked.................');
         $data['drugbrand'] = $this->membermodel->retrieve_brandnames();
         $this->load->view('adminpagebrands', $data);
-   
-}
+    }
+
     function redirect_to_managearticles($data = '') {
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after newsleters list has been clicked.................');
@@ -278,7 +279,7 @@ function redirect_to_managebrands(){
     function redirect_to_managedrugcategory() {
         $data = '';
         log_message('info', 'after drug category list has been clicked.................');
-        $this->load->view('adminpagedrugcategory', $data);
+        $this->load->view('adminpagedrugindication', $data);
     }
 
     function redirect_to_managedrugclass() {
@@ -484,7 +485,7 @@ function redirect_to_managebrands(){
             log_message('info', 'the form message controller==>' . $data['dob'] . '------' . form_error('days') . '--------' . form_error('months') . '---------' . form_error('years'));
             $this->session->set_flashdata($data);
             $member_data = array(
-                'fname_member' => trm($this->input->post('fname')),
+                'fname_member' => trim($this->input->post('fname')),
                 'lname_member' => trim($this->input->post('lname')),
                 'sex_member' => $this->input->post('sex'),
                 'days' => $this->input->post('days'),
@@ -696,10 +697,12 @@ function redirect_to_managebrands(){
     function createdrugcategory() {
         extract($_POST);
         log_message('info', 'Inside create drug category');
-        $drugcategory_data = array('name' => trim($name),
+        $drugcategory_data = array(
+            'name' => trim($name),
             'description' => trim($description),
+            'brandname_id' => $selectedbrand,
         );
-        $drugclassid = $this->membermodel->create_drugcategory($drugcategory_data);
+        $this->membermodel->create_drugcategory($drugcategory_data);
         log_message('info', 'After creating drug category');
         $result_forum['status'] = 'success';
         echo json_encode($result_forum);
@@ -725,6 +728,18 @@ function redirect_to_managebrands(){
         );
         $drugclassid = $this->membermodel->create_drugclass($drugclass_data);
         log_message('info', 'After creating drug class');
+        $result_forum['status'] = 'success';
+        echo json_encode($result_forum);
+    }
+
+    function createdrugindication() {
+        extract($_POST);
+        log_message('info', 'Inside create drug indication');
+        $drugindication_data = array('name' => trim($name),
+            'description' => trim($description),
+        );
+        $drugclassid = $this->membermodel->create_drugindication($drugindication_data);
+        log_message('info', 'After creating drug indication');
         $result_forum['status'] = 'success';
         echo json_encode($result_forum);
     }
