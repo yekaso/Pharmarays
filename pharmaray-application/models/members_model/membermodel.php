@@ -240,6 +240,7 @@ class membermodel extends CI_Model {
         $query->free_result();
         return $result;
     }
+
     function retrieve_druggenerics() {
         $this->db->select('d.id_drug, d.drug_name')
                 ->from('drug d')
@@ -251,6 +252,7 @@ class membermodel extends CI_Model {
         $query->free_result();
         return $result;
     }
+
     function retrieve_brandnames() {
         $this->db->select('bn.id_brandname, bn.name')
                 ->from('brandname bn')
@@ -773,8 +775,17 @@ class membermodel extends CI_Model {
 
     function create_batchdrugclass($drugclass_create_data) {
         log_message('info', 'before batch inserting into drug class.................');
-        $this->db->insert_batch('drugclass', $drugclass_create_data);
+        $this->db->insert_batch('drugclass_drug', $drugclass_create_data);
         log_message('info', 'after batch inserting into drug class.................');
+
+        log_message('info', $this->db->last_query());
+        return $this->db->insert_id();
+    }
+
+    function create_batchdrugcategory($druggenerics_create_data) {
+        log_message('info', 'before batch inserting into drug category.................');
+        $this->db->insert_batch('drugcategory_drug', $druggenerics_create_data);
+        log_message('info', 'after batch inserting into drug category.................');
 
         log_message('info', $this->db->last_query());
         return $this->db->insert_id();
@@ -782,7 +793,7 @@ class membermodel extends CI_Model {
 
     function create_batchdrugindication($drugindication_create_data) {
         log_message('info', 'before batch inserting into drug indication.................');
-        $this->db->insert_batch('drugindication', $drugindication_create_data);
+        $this->db->insert_batch('drugindication_drug', $drugindication_create_data);
         log_message('info', 'after batch inserting into drug class.................');
 
         log_message('info', $this->db->last_query());

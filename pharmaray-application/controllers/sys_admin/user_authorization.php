@@ -702,19 +702,19 @@ class user_authorization extends CI_Controller {
             'description' => trim($description),
             'brandname_id' => $selectedbrand,
         );
-        $this->membermodel->create_drugcategory($drugcategory_data);
+        $drugcategoryid = $this->membermodel->create_drugcategory($drugcategory_data);
         $errors2 = array_filter($druggenerics);
         if (!empty($errors2)) {
-            $$druggenerics_create_data = array();
-            foreach ($druggenerics as $drugindicationid) {
-                $drug_generics = array('id_drugindicationdrug' => $drugindicationid,
-                'drug_id' => $drugid,);
+            $druggenerics_create_data = array();
+            foreach ($druggenerics as $druggenericsid) {
+                $drug_generics = array('drugcategory_id' => $drugcategoryid,
+                'drug_id' => $druggenericsid,);
                 
-                $$druggenerics_create_data[] = $drug_generics;
+                $druggenerics_create_data[] = $drug_generics;
             }
             $errors = array_filter($druggenerics_create_data);
             if (!empty($errors)) {
-                $this->mobile_model->create_batchdrugindication($druggenerics_create_data);
+                $this->membermodel->create_batchdrugcategory($druggenerics_create_data);
             }
         }
         $this->membermodel->create_batch_drugcategorydrug($drugcategory_data);
@@ -765,8 +765,7 @@ class user_authorization extends CI_Controller {
         $drug_data = array('drug_name' => trim($title),
             'drug_description' => trim($description),
             'time_created' => date("Y-m-d H:i:s"),
-            'brandnameid_brandname' => $drugbrandid,
-            'drugcategoryid_drugcategory' => $drugcategory,);
+            );
 
         $drugid = $this->membermodel->create_drug($drug_data);
         $result_debug = '';
@@ -782,21 +781,21 @@ class user_authorization extends CI_Controller {
             }
             $errors = array_filter($drugclass_create_data);
             if (!empty($errors)) {
-                $this->mobile_model->create_batchdrugclass($drugclass_create_data);
+                $this->membermodel->create_batchdrugclass($drugclass_create_data);
             }
         }
         $errors2 = array_filter($drugindication);
         if (!empty($errors2)) {
             $drugindication_create_data = array();
             foreach ($drugindication as $drugindicationid) {
-                $drug_indication = array('id_drugindicationdrug' => $drugindicationid,
+                $drug_indication = array('drugindication_id' => $drugindicationid,
                 'drug_id' => $drugid,);
                 
                 $drugindication_create_data[] = $drug_indication;
             }
             $errors = array_filter($drugindication_create_data);
             if (!empty($errors)) {
-                $this->mobile_model->create_batchdrugindication($drugindication_create_data);
+                $this->membermodel->create_batchdrugindication($drugindication_create_data);
             }
         }
         ///
