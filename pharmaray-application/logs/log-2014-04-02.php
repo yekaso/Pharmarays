@@ -6158,3 +6158,10 @@ INFO  - 2014-04-02 16:02:53 --> 1 the guest only data>> AFTER >>>#4
 DEBUG - 2014-04-02 16:02:53 --> File loaded: ../pharmaray-application/views/homepage.php
 DEBUG - 2014-04-02 16:02:53 --> Final output sent to browser
 DEBUG - 2014-04-02 16:02:53 --> Total execution time: 0.0640
+DEBUG - 2014-04-02 17:55:15 --> Config Class Initialized
+DEBUG - 2014-04-02 17:55:15 --> Hooks Class Initialized
+DEBUG - 2014-04-02 17:55:15 --> Utf8 Class Initialized
+DEBUG - 2014-04-02 17:55:15 --> UTF-8 Support Enabled
+DEBUG - 2014-04-02 17:55:15 --> URI Class Initialized
+DEBUG - 2014-04-02 17:55:15 --> Router Class Initialized
+ERROR - 2014-04-02 17:55:15 --> 404 Page Not Found --> pharmarays
