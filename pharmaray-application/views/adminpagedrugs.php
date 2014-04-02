@@ -90,60 +90,43 @@
                                         </div>
 
                                     </div>
+                                    <br/>
                                     <div class="row-fluid">
-                                        <div class="span4">
+                                        <div>
                                             <div class="editor-label">
-                                                <label for="ChurchEmail">Drug Generics  <span class="compulsory_field">*</span></label>
+                                                <label for="Name">Drug Indication  <span class="compulsory_field">*</span></label>
                                             </div>
-                                            <div class="editor-field">
-                                                <select id="drugcategoryid" class="span12" name="drugcategoryid" data-val-required="The drug category field is required." data-val="true">
-                                                    <option value="0">Choose...</option>
-                                                    <?php
-                                                    $errors = array_filter($drugcategory);
+                                            <div class="div_drugindication">
+                                                <?php
+                                                $errors = array_filter($drugindication);
+                                                $drug_class_display = '';
+                                                if (!empty($errors)) {
+                                                    $count = 0;
 
-                                                    if (!empty($errors)) {
-                                                        foreach ($drugcategory as $columnName => $columnData) {
-                                                            $name = $columnData['name'];
-                                                            $id = $columnData['id_drugcategory'];
-                                                            ?>
-                                                            <option value="<?php echo $id; ?>"><?php echo strtolower(word_trim($name, 30, true)) ?></option>
-                                                            <?php
+                                                    foreach ($drugindication as $columnName => $columnData) {
+                                                        $count++;
+                                                        if ($count > 4) {
+                                                            $count = 1;
                                                         }
+                                                        if ($count == 1) {
+                                                            $drug_class_display .= '<div style="clear:both;">';
+                                                        } else if ($count == 4) {
+                                                            $drug_class_display .= '</div>';
+                                                        }
+                                                        $drug_class_display .= '<div class="drugindication span2" style="float:left;">'
+                                                                . $columnData['name'] . '<input id="guestonly" class="" type="checkbox" name="guestonly" value="' . $id = $columnData['id_drugindication'] . '" /></div>';
+                                                        $name = $columnData['name'];
+                                                        ;
                                                     }
-                                                    ?>                                                        
-                                                </select>
-                                                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CountryID"></span>
+                                                    echo $drug_class_display;
+                                                }
+                                                ?>  
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div class="row-fluid">
-                                        <div class="span2">
-                                            <div class="editor-label">
-                                                <label for="ChurchEmail">Drug Brand  <span class="compulsory_field">*</span></label>
-                                            </div>
-                                            <div class="editor-field">
-                                                <select id="drugbrandid" class="span12" name="drugbrandid" data-val-required="The drug category field is required." data-val="true">
-                                                    <option value="0">Choose...</option>
-                                                    <?php
-                                                    $errors = array_filter($drugbrand);
-
-                                                    if (!empty($errors)) {
-                                                        foreach ($drugbrand as $columnName => $columnData) {
-                                                            $name = $columnData['name'];
-                                                            $id = $columnData['id_brandname'];
-                                                            ?>
-                                                            <option value="<?php echo $id; ?>"><?php echo strtolower(word_trim($name, 30, true)) ?></option>
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>                                                        
-                                                </select>
-                                                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CountryID"></span>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <br/>
+                                <br/>
+                                
                                     <div class="row-fluid">
                                         <div>
                                             <div class="editor-label">

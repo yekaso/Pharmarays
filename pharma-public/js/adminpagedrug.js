@@ -22,7 +22,7 @@ $(function() {
             // No characters entered so disable the button
             $(".submit").hide();
 
-        } else if (descRemaining < 0 || titleRemaining < 0 || $("#drugcategoryid").val() < 1 || $("#drugbrandid").val() < 1 || $(".div_drugclass input:checkbox:checked").length < 1) {
+        } else if (descRemaining < 0 || titleRemaining < 0 || $(".div_drugindication input:checkbox:checked").length < 1 || $(".div_drugclass input:checkbox:checked").length < 1) {
             // remaining = 0; // Prevents the counter going into negative numbers
             $(".submit").hide();
         } else {
@@ -37,10 +37,7 @@ $(function() {
 
         computeFieldReadiness();
     });
-    $('#drugcategoryid').change(function() {
-        computeFieldReadiness();
-    });
-    $('#drugbrandid').change(function() {
+    $('.drugindication').change(function() {
         computeFieldReadiness();
     });
     $('.drugclass').change(function() {
@@ -53,13 +50,16 @@ $(function() {
         var title = $("#drug_title").val();
         var description = $("#drug_description").val();
         var chkArray = [];
+        var chkIndicationArray = [];
         $(".div_drugclass input:checkbox:checked").each(function() {
             chkArray.push($(this).val());
         });
+        $(".div_drugindication input:checkbox:checked").each(function() {
+            chkIndicationArray.push($(this).val());
+        });
         var drugclass = chkArray;
-        var drugcategory = $("#drugcategoryid").val();
-        var drugbrandid = $("#drugbrandid").val();
         var memberid = $("#memberid").val();
+        var drugindication = chkIndicationArray;
 
 
         $(".saving_icon").show();
@@ -68,7 +68,7 @@ $(function() {
         $.ajax({
             type: "POST",
             url: serverurl + "sys_admin/user_authorization/createdrug",
-            data: {"memberid": memberid, "title": title, "description": description, "drugclass": drugclass, "drugbrandid": drugbrandid, "drugcategory": drugcategory},
+            data: {"memberid": memberid, "title": title, "description": description, "drugclass": drugclass, "drugindication": drugindication},
             cache: false,
             success: function(data) {
                 //alert(data);

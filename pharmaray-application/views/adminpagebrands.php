@@ -35,7 +35,7 @@
         <div id="globalheader_wrapper">
             <div id="globalheader"> 
                 <?php echo img('images/pharmarays.png'); ?><ul>
-               <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
+                    <li><input type="submit" value="Logout" class="snazzy_button" id="loginUser" name="loginUser" />
                     </li></ul>
 
             </div>
@@ -102,6 +102,43 @@
                                         </div>
 
                                     </div>
+                                     <br/>
+                                    <br/>
+                                    <div class="row-fluid">
+                                        <div>
+                                            <div class="editor-label">
+                                                <label for="Name">Drug Generics  <span class="compulsory_field">*</span></label>
+                                            </div>
+                                            <div class="div_druggenerics">
+                                                <?php
+                                                $errors = array_filter($druggenerics);
+                                                $drug_generics_display = '';
+                                                if (!empty($errors)) {
+                                                    $count = 0;
+
+                                                    foreach ($druggenerics as $columnName => $columnData) {
+                                                        $count++;
+                                                        if ($count > 4) {
+                                                            $count = 1;
+                                                        }
+                                                        if ($count == 1) {
+                                                            $drug_generics_display .= '<div style="clear:both;">';
+                                                        } else if ($count == 4) {
+                                                            $drug_generics_display .= '</div>';
+                                                        }
+                                                        $drug_generics_display .= '<div class="druggenerics span2" style="float:left;">'
+                                                                . $columnData['drug_name'] . '<input id="guestonly" class="" type="checkbox" name="guestonly" value="' . $id = $columnData['id_drug'] . '" /></div>';
+                                                        $name = $columnData['drug_name'];
+                                                        ;
+                                                    }
+                                                    echo $drug_generics_display;
+                                                }
+                                                ?>  
+                                            </div>
+                                        </div>
+                                    </div>
+<br/>
+<br/>
                                     <div class="row-fluid">
                                         <div class="span8">
                                             <div class="editor-label">
@@ -114,8 +151,7 @@
                                         </div>
 
                                     </div>
-
-
+                                   
                                     <br/>
                                 </div>
 

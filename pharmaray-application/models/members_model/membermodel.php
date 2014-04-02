@@ -240,7 +240,17 @@ class membermodel extends CI_Model {
         $query->free_result();
         return $result;
     }
+    function retrieve_druggenerics() {
+        $this->db->select('d.id_drug, d.drug_name')
+                ->from('drug d')
+                ->order_by('d.drug_name');
 
+        $query = $this->db->get();
+        log_message('info', 'drug ::::::::::===>' . $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
     function retrieve_brandnames() {
         $this->db->select('bn.id_brandname, bn.name')
                 ->from('brandname bn')
@@ -248,6 +258,18 @@ class membermodel extends CI_Model {
 
         $query = $this->db->get();
         log_message('info', 'brand name ::::::::::===>' . $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_drugindication() {
+        $this->db->select('di.id_drugindication,di.name')
+                ->from('drugindication di')
+                ->order_by('di.name');
+
+        $query = $this->db->get();
+        log_message('info', 'drug indication ::::::::::===>' . $this->db->last_query());
         $result = $query->result_array();
         $query->free_result();
         return $result;
@@ -736,6 +758,34 @@ class membermodel extends CI_Model {
 
         log_message('info', $this->db->last_query());
 
+        return $this->db->insert_id();
+    }
+
+    function create_drugindicationdrug($drugindication_drug_data) {
+        log_message('info', 'before inserting into drug indication mapper.................');
+        $this->db->insert('drugindication_drug', $drugindication_drug_data);
+        log_message('info', 'after inserting into drug indication mapper.................' . $this->db->insert_id());
+
+        log_message('info', $this->db->last_query());
+
+        return $this->db->insert_id();
+    }
+
+    function create_batchdrugclass($drugclass_create_data) {
+        log_message('info', 'before batch inserting into drug class.................');
+        $this->db->insert_batch('drugclass', $drugclass_create_data);
+        log_message('info', 'after batch inserting into drug class.................');
+
+        log_message('info', $this->db->last_query());
+        return $this->db->insert_id();
+    }
+
+    function create_batchdrugindication($drugindication_create_data) {
+        log_message('info', 'before batch inserting into drug indication.................');
+        $this->db->insert_batch('drugindication', $drugindication_create_data);
+        log_message('info', 'after batch inserting into drug class.................');
+
+        log_message('info', $this->db->last_query());
         return $this->db->insert_id();
     }
 
