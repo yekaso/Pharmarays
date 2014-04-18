@@ -1,4 +1,150 @@
 $(function() {
+     $("#searchInternships").live("click", function() {
+        // alert("hello select location");
+        var serverurl = $("#serverurl").val();
+        var specialization_id = $("#specialization_select").val();
+        var duration_id = $("#duration_select").val();
+        var firm_id = $("#firm_select").val();
+        var location_id = $("#location_select").val();
+        alert(specialization_id + "...spec..."+duration_id+"...duration.."+firm_id+"...firm..."+location_id);
+            $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
+            $("#horizontal_pos").val('0');
+            $("#vertical_pos").val('0');
+            var limit = 10;
+            $.ajax({/* post the values using AJAX */
+                type: "POST",
+                url: serverurl + "sys_admin/user_authorization/retrieveinternship_byparams",
+                data: {"locationid": location_id, "limit": limit,"firmid": firm_id, "durationid": duration_id,"specializationid": specialization_id},
+                async: false,
+                cache: false,
+                success: function(data) {
+                    if (data.length > 0) {
+                        alert(data);
+                        data = $.parseJSON(data);
+                        alert(data);
+                        if (typeof data[0] !== 'undefined' && data.length > 0) {
+
+                            var posts = data;
+                            //      alert(posts);
+                            //     posts = $.parseJSON(posts);
+                            $(".internship_list").html('');
+                            //makes loading button appear
+                            $("#empty_data").val('false');
+                            display_internships(posts);
+                            //             alert(posts)
+                        } else {
+                            
+                            $(".internship_list").html('<div><img src="' + serverurl + 'images/nosearch1.jpg"/></div>');
+                        }
+
+                    }
+                }
+            });
+            setTimeout($.unblockUI, 0);
+        
+    });
+
+    $("#state_select").change(function() {
+        var locationid = $("select[id='state_select'] option:selected").val();
+        if (locationid !== '-1') {
+            var selected_select = "location_select";
+            // alert("State Clicked >>>>>" + locationid);
+            $("#location_select_loading").show();
+            $.ajax({/* post the values using AJAX */
+                type: "POST",
+                url: serverurl + "sys_admin/user_authorization/retrieve_location_ref",
+                data: {"locationid": locationid},
+                async: false,
+                cache: false,
+                success: function(data) {
+                    if (data.length > 0) {
+                        //   alert("success");
+                        if (typeof data[0] !== 'undefined' && data.length > 2) {
+                            var posts = data;
+                            posts = $.parseJSON(posts);
+                            //        alert(posts);
+                            display_location_select(posts, selected_select);
+                        } else {
+                            var posts = 'empty';
+                            display_location_select(posts, selected_select);
+                        }
+
+                    }
+                }
+
+
+            });
+            $("#location_select_loading").hide();
+        }
+    });
+    $("#country_select").change(function() {
+        var locationid = $("select[id='country_select'] option:selected").val();
+        var selected_select = "state_select";
+        $("#state_select_loading").show();
+        $.ajax({/* post the values using AJAX */
+            type: "POST",
+            url: serverurl + "sys_admin/user_authorization/retrieve_location_ref",
+            data: {"locationid": locationid},
+            async: false,
+            cache: false,
+            success: function(data) {
+                if (data.length > 0) {
+                    //   alert("success");
+                    if (typeof data[0] !== 'undefined' && data.length > 2) {
+                        var posts = data;
+                        posts = $.parseJSON(posts);
+                        //     alert(posts);
+                        display_location_select(posts, selected_select);
+                    } else {
+                        // alert('empty here...');
+                        var posts = 'empty';
+                        display_location_select(posts, selected_select);
+                    }
+
+                }
+            }
+
+
+        });
+        $("#state_select_loading").hide();
+    });
+    function display_location_select(posts, selected_select) {
+        var locationselecttemplate = '<option value=""></option>';
+        var select_value = '';
+
+        if (selected_select === 'state_select') {
+            select_value = "State";
+        } else if (selected_select === 'location_select') {
+            select_value = "Location"
+        }
+        $("#" + selected_select).html('<option value="-1">-Choose a ' + select_value + '-</option>');
+        //   alert(selected_select);
+        var post = 0;
+        if (posts === 'empty') {
+            $("#" + selected_select).append('<option value="-1">No data available</option>');
+        } else {
+            for (post in posts) {
+                //        alert(post + '----value.....'+posts[post]);
+                var $post = $(locationselecttemplate).clone();
+                var locationid = posts[post].id;
+                $post.attr('value', locationid);
+                $post.html(word_trim(posts[post].name, 20, true));
+                //       alert(posts[post].name);
+                $post.attr('id', locationid);
+                $("#" + selected_select).append($post);
+            }
+        }
+    }
+    function word_trim(str, maxlen, ellipsis) {
+//    alert("ellipsis is " + ellipsis);
+    if (str.length > maxlen) {
+        str = str.substring(0, str.substring(0, maxlen).lastIndexOf(' '));
+        if (ellipsis) {
+            str += '&hellip;';
+        }
+    }
+    return str;
+}
     $("#empty_data").val('false');
     var serverurl = $("#serverurl").val();
     var nextrequest = 'true';

@@ -228,8 +228,18 @@ class user_authorization extends CI_Controller {
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after internships list has been clicked.................');
         $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
+        $data['firms'] = $this->membermodel->retrieve_internshipfirms();
+        $data['durations'] = $this->membermodel->retrieve_internshipdurations();
+        $data['specializations'] = $this->membermodel->retrieve_internshipspecializations();
         $data['internships'] = $this->membermodel->retrieve_internships($default_id, $limit);
         $this->load->view('internships', $data);
+    }
+
+    function retrieveinternship_byparams() {
+        extract($_POST);
+        $result_pharm = $this->membermodel->retrieveinternship_byparams($locationid, $firmid, $durationid, $specializationid, $limit);
+//     log_message('info', println($result_article));
+        echo json_encode($result_pharm);
     }
 
     function redirect_to_managebrands() {
@@ -261,6 +271,13 @@ class user_authorization extends CI_Controller {
         $data['forumcategory'] = $this->membermodel->retrieve_forumcategories();
         log_message('info', 'after newsleters list has been clicked.................');
         $this->load->view('adminpageforum', $data);
+    }
+
+    function redirect_to_editpharmacy() {
+        $data = '';
+        log_message('info', 'after newsleters list has been clicked.................');
+        $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
+        $this->load->view('adminpageeditpharmacy', $data);
     }
 
     function redirect_to_managepharmacy() {
@@ -708,8 +725,8 @@ class user_authorization extends CI_Controller {
             $druggenerics_create_data = array();
             foreach ($druggenerics as $druggenericsid) {
                 $drug_generics = array('drugcategory_id' => $drugcategoryid,
-                'drug_id' => $druggenericsid,);
-                
+                    'drug_id' => $druggenericsid,);
+
                 $druggenerics_create_data[] = $drug_generics;
             }
             $errors = array_filter($druggenerics_create_data);
@@ -765,7 +782,7 @@ class user_authorization extends CI_Controller {
         $drug_data = array('drug_name' => trim($title),
             'drug_description' => trim($description),
             'time_created' => date("Y-m-d H:i:s"),
-            );
+        );
 
         $drugid = $this->membermodel->create_drug($drug_data);
         $result_debug = '';
@@ -775,8 +792,8 @@ class user_authorization extends CI_Controller {
             $drugclass_create_data = array();
             foreach ($drugclass as $drugclassid) {
                 $drug_class = array('drugclassid_drugclass' => $drugclassid,
-                'drugid_drug' => $drugid,);
-                
+                    'drugid_drug' => $drugid,);
+
                 $drugclass_create_data[] = $drug_class;
             }
             $errors = array_filter($drugclass_create_data);
@@ -789,8 +806,8 @@ class user_authorization extends CI_Controller {
             $drugindication_create_data = array();
             foreach ($drugindication as $drugindicationid) {
                 $drug_indication = array('drugindication_id' => $drugindicationid,
-                'drug_id' => $drugid,);
-                
+                    'drug_id' => $drugid,);
+
                 $drugindication_create_data[] = $drug_indication;
             }
             $errors = array_filter($drugindication_create_data);
@@ -799,21 +816,21 @@ class user_authorization extends CI_Controller {
             }
         }
         ///
-     /*   foreach ($drugclass as $columnName => $columnData) {
-            $drug_class = array('drugclassid_drugclass' => $columnData,
-                'drugid_drug' => $drugid,);
+        /*   foreach ($drugclass as $columnName => $columnData) {
+          $drug_class = array('drugclassid_drugclass' => $columnData,
+          'drugid_drug' => $drugid,);
 
-            $drugclassid = $this->membermodel->create_drugclassdrug($drug_class);
-            $result_debug .= $drugid . ' ---- ' . $columnData . ' ---- id is ----  :' . $drugclassid;
-        }
-        foreach ($drugindication as $columnName => $columnData) {
-            $drug_indication = array('drugclassid_drugclass' => $columnData,
-                'drugid_drug' => $drugid,);
+          $drugclassid = $this->membermodel->create_drugclassdrug($drug_class);
+          $result_debug .= $drugid . ' ---- ' . $columnData . ' ---- id is ----  :' . $drugclassid;
+          }
+          foreach ($drugindication as $columnName => $columnData) {
+          $drug_indication = array('drugclassid_drugclass' => $columnData,
+          'drugid_drug' => $drugid,);
 
-            $drugindicationid = $this->membermodel->create_drugindicationdrug($drug_indication);
-            $result_debug .= $drugid . ' ---- ' . $columnData . ' ---- id is ----  :' . $drugindicationid;
-        }
-*/
+          $drugindicationid = $this->membermodel->create_drugindicationdrug($drug_indication);
+          $result_debug .= $drugid . ' ---- ' . $columnData . ' ---- id is ----  :' . $drugindicationid;
+          }
+         */
         log_message('info', 'After creating drug');
         $result_topic['status'] = 'success' . '>>>>' . $result_debug;
         echo json_encode($result_topic);

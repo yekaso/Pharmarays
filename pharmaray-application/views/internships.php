@@ -34,7 +34,13 @@
                         <div id="location_name"><?php echo $columnData['location'] ?></div>
                         <div id="slots_available"><?php echo $columnData['slots'] . ' Slots available' ?> </div>
                         <div id="duration"><?php echo $columnData['duration'] ?> Months</div>
-                        <div id="specialization"><?php echo $columnData['specialization'] ?> </div>
+                        <div id="specialization"><?php
+                            $split_specialization = explode(",", $columnData['specialization']);
+                            $split_specialization = array_unique($split_specialization);
+                            foreach ($split_specialization as $split_spec) {
+                                echo $split_spec . '<br/>';
+                            }
+                            ?> </div>
                         <div><input type="submit" value=" Apply " class="snazzy_button" id="apply_intern" name="apply_intern" /></div>
 
                     </div>
@@ -56,9 +62,12 @@
     $css = '';
     $css .= link_tag(base_url() . "css/userpage.css");
     $autoSuggestCss = '';
+    $internship = '';
+    $internship .= link_tag(base_url() . "css/internship.css");
     $autoSuggestCss .= link_tag(base_url() . "css/autoSuggest.css");
     echo $css;
     echo $autoSuggestCss;
+    echo $internship;
     echo link_tag(base_url() . 'images/favicon.ico', 'shortcut icon', 'image/ico');
     ?>
     <link type="text/css" href="<?php echo base_url() ?>css/jquery-ui.css" rel="stylesheet">
@@ -81,60 +90,74 @@
         ?><?php include 'banner.php' ?>
         <div id="maincontainer" style="position: relative;">
             <div class="alert alert-info alert-login heading floating_banner">
-                <div>Internships... &emsp;&ensp;
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a firm-</option>
+                <div id="location_div" class="internship_top">
+                    <select id="country_select">
+                        <option value="0">-Choose a Country-</option>
                         <?php
                         foreach ($locations as $columnName => $columnData) {
                             ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <option value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
                             <?php
                         }
                         ?>
                     </select>
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a location-</option>
-                        <?php
-                        foreach ($locations as $columnName => $columnData) {
-                            ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a duration-</option>
-                        <?php
-                        foreach ($locations as $columnName => $columnData) {
-                            ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                    <select id="location_select">
-                        <option class="select_by_location" value="0">-Choose a specialization-</option>
-                        <?php
-                        foreach ($locations as $columnName => $columnData) {
-                            ?>
-                            <option class="select_by_location" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                    <input type="submit" value=" Search " class="snazzy_button" style='margin-left: 20px' id="loginUser" name="loginUser" />
+                    <img src="<?php echo base_url() ?>images/loading2.gif" id="state_select_loading" class="flash"/>
 
+                    <select id="state_select">
+                        <option value="0">-Choose a State-</option>
+                    </select>
+                    <img src="<?php echo base_url() ?>images/loading2.gif" id="location_select_loading" class="flash"/>
+                    <select id="location_select">
+                        <option value="-1">-Choose a Location-</option>
+                    </select>
                 </div>
+                <div class="internship_top">
+                    <select id="firm_select">
+                        <option class="select_by_firm" value="-1">-Choose a firm-</option>
+                        <?php
+                        foreach ($firms as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_firm" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+
+                    <select id="duration_select">
+                        <option class="select_by_duration" value="-1">-Choose a duration-</option>
+                        <?php
+                        foreach ($durations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_duration" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <select id="specialization_select">
+                        <option class="select_by_specialization" value="-1">-Choose a specialization-</option>
+                        <?php
+                        foreach ($specializations as $columnName => $columnData) {
+                            ?>
+                            <option class="select_by_specialization" value="<?php echo $columnData['id'] ?>"><?php echo $columnData['name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <input type="button" value=" Search " class="snazzy_button internship_top" style='margin-left: 20px' id="searchInternships" name="searchInternships" />
+
             </div>
-            <div class="newscategories" id="newsandevents">
-                <div class="commpharm row-fluid internship_list" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
-                    <?php
-                    display_internships($internships);
-                    ?>
-                </div>
+        </div>
+        <div class="newscategories" id="newsandevents">
+            <div class="commpharm row-fluid internship_list" style="position: relative; height: 100%; width: 100%;margin-bottom: 30px;">
+                <?php
+                display_internships($internships);
+                ?>
+            </div>
 
 
-            </div> 
+        </div> 
 
         </div>
         <div class="container footer hidden-phone smoke-white">
