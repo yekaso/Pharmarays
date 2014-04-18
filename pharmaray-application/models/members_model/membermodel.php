@@ -412,6 +412,47 @@ class membermodel extends CI_Model {
         return $result;
     }
 
+    function retrieveinternship_byparams($locationid, $firmid, $durationid, $specializationid, $limit) {
+        $where_sql = '';
+        if ($locationid != '-1') {
+            $where_sql .= "i.location_id  = " . $locationid;
+        }if ($firmid != '-1') {
+            if ($where_sql != '') {
+                $where_sql .= ' and';
+            }
+            $where_sql .= "i.internshipfirm_id  = " . $firmid;
+        }if ($durationid != '-1') {
+            if ($where_sql != '') {
+                $where_sql .= ' and';
+            }
+            $where_sql .= "i.duration_id  = " . $durationid;
+        }if ($specializationid != '-1') {
+            if ($where_sql != '') {
+                $where_sql .= ' and';
+            }
+            $where_sql .= "ins.id_internshipspecialization  = " . $specializationid;
+        }
+
+        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
+                ->from('internship_opening i')
+                ->join('location l', 'l.id_location = i.location_id')
+                ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
+                ->join('internshipspecialization_specialization inss', 'i.id_internshipopening = inss.internshipopening_id')
+                ->join('internship_specialization ins', 'ins.id_internshipspecialization = inss.specialization_id')
+                ->where($where_sql)
+                ->order_by('i.id_internshipopening', 'desc');
+/*
+        $this->db->group_by("id");
+        $this->db->limit($limit);
+        $query = $this->db->get();
+
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+ * 
+ */return $where_sql;
+    }
+
     function retrieve_internships($internshipid, $limit) {
         log_message('info', 'last intern id is ' . $internshipid);
         if ($internshipid == 0) {
@@ -420,12 +461,16 @@ class membermodel extends CI_Model {
             $where_sql = "i.id_internshipopening  < " . $internshipid;
         }
 
-        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,i.specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
+        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
                 ->from('internship_opening i')
                 ->join('location l', 'l.id_location = i.location_id')
                 ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
+                ->join('internshipspecialization_specialization inss', 'i.id_internshipopening = inss.internshipopening_id')
+                ->join('internship_specialization ins', 'ins.id_internshipspecialization = inss.specialization_id')
                 ->where($where_sql)
                 ->order_by('i.id_internshipopening', 'desc');
+
+        $this->db->group_by("id");
         $this->db->limit($limit);
         $query = $this->db->get();
 
@@ -1180,6 +1225,51 @@ class membermodel extends CI_Model {
                 ->order_by('comment_count', 'desc');
 
         $this->db->limit($maxtopiccomment);
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_internshipspecializations() {
+        log_message('info', 'inside retrieving internship specialization ');
+
+        $this->db->select('ints.id_internshipspecialization as id,ints.name as name')
+                ->from('internship_specialization ints')
+                ->order_by('ints.name'
+        );
+
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_internshipdurations() {
+        log_message('info', 'inside retrieving internship duration ');
+
+        $this->db->select('intd.id_internshipduration as id,intd.name as name')
+                ->from('internship_duration intd')
+                ->order_by('intd.id_internshipduration'
+        );
+
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->result_array();
+        $query->free_result();
+        return $result;
+    }
+
+    function retrieve_internshipfirms() {
+        log_message('info', 'inside retrieving internship firms ');
+
+        $this->db->select('intf.id_internshipfirm as id,intf.name as name')
+                ->from('internship_firm intf')
+                ->order_by('intf.name'
+        );
+
         $query = $this->db->get();
         log_message('info', $this->db->last_query());
         $result = $query->result_array();

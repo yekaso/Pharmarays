@@ -52,7 +52,7 @@
             </li><li class="hasChildren"><span>Manage Pharmacy</span>
                 <ul>
                     <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managepharmacy">Create Pharmacy</a></li>
-                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_managepharmacy">Edit Pharmacy</a></li>
+                    <li><a target="_top" href="<?php echo base_url() ?>sys_admin/user_authorization/redirect_to_editpharmacy">Edit Pharmacy</a></li>
                 </ul>
             </li>
 
