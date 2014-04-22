@@ -224,7 +224,7 @@ class user_authorization extends CI_Controller {
 
     function redirect_to_internship($data = '') {
         $default_id = 0;
-        $limit = 20;
+        $limit = 10;
         $data['memberid'] = $this->session->userdata('memberid');
         log_message('info', 'after internships list has been clicked.................');
         $data['locations'] = $this->membermodel->retrieve_pharmacylocations();
@@ -237,9 +237,35 @@ class user_authorization extends CI_Controller {
 
     function retrieveinternship_byparams() {
         extract($_POST);
-        $result_pharm = $this->membermodel->retrieveinternship_byparams($locationid, $firmid, $durationid, $specializationid, $limit);
+        $result_pharm = $this->membermodel->retrieveinternship_byparams($lastinternship_id, $locationid, $firmid, $durationid, $specializationid, $limit);
 //     log_message('info', println($result_article));
         echo json_encode($result_pharm);
+    }
+
+    function apply_internship() {
+        extract($_POST);
+        $isactive = 'false';
+        if ($status == 'active') {
+            $isactive = 'true';
+        }
+        log_message('info', 'Inside create internship applications');
+
+        if (isactive == 'true') {
+            $internshipapplication_data = array('internshipopening_id' => $internship_id,
+                'member_id' => $memberid,
+                'datecreated' => date("Y-m-d H:i:s"),
+                'isactive' => $isactive,
+                'lastmodified' => date("Y-m-d H:i:s"),);
+            $this->membermodel->create_internshipapplications($internshipapplication_data);
+        } else {
+            $internshipapplication_data = array(
+                'isactive' => $isactive,
+                'lastmodified' => date("Y-m-d H:i:s"),);
+            $this->membermodel->update_internshipapplications($internship_id, $memberid, $internshipapplication_data);
+        }
+        log_message('info', 'After creating internship');
+        $result_internship['status'] = 'success';
+        echo json_encode($result_internship);
     }
 
     function redirect_to_managebrands() {

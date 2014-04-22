@@ -412,45 +412,60 @@ class membermodel extends CI_Model {
         return $result;
     }
 
-    function retrieveinternship_byparams($locationid, $firmid, $durationid, $specializationid, $limit) {
-        $where_sql = '';
-        if ($locationid != '-1') {
-            $where_sql .= "i.location_id  = " . $locationid;
-        }if ($firmid != '-1') {
-            if ($where_sql != '') {
-                $where_sql .= ' and';
-            }
-            $where_sql .= "i.internshipfirm_id  = " . $firmid;
-        }if ($durationid != '-1') {
-            if ($where_sql != '') {
-                $where_sql .= ' and';
-            }
-            $where_sql .= "i.duration_id  = " . $durationid;
-        }if ($specializationid != '-1') {
-            if ($where_sql != '') {
-                $where_sql .= ' and';
-            }
-            $where_sql .= "ins.id_internshipspecialization  = " . $specializationid;
-        }
+    function create_internshipapplications($internship_data) {
+        log_message('info', 'before inserting into internship_application.................');
+        $this->db->insert('internship_application', $internship_data);
+        log_message('info', 'after inserting into internship_application.................' . $this->db->insert_id());
 
-        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
+        log_message('info', $this->db->last_query());
+
+        return $this->db->insert_id();
+    }
+
+    function update_internshipapplications($internship_id, $member_id, $internship_data) {
+        $this->db->where(array('internshipopening_id' => $internship_id, 'member_id' => $member_id,));
+        $this->db->update('internship_application', $internship_data);
+        log_message('info', $this->db->last_query());
+
+        $reportRetrieved = array();
+        $reportRetrieved['error'] = $this->db->_error_number();
+        $reportRetrieved['message'] = $this->db->_error_message();
+
+        return $reportRetrieved;
+    }
+
+    function retrieveinternship_byparams($lastinternship_id, $locationid, $firmid, $durationid, $specializationid, $limit) {
+        $where_sql = "i.id_internshipopening >" . $lastinternship_id;
+        if ($locationid != '-1') {
+            $where_sql .= " and i.location_id  = " . $locationid;
+        }if ($firmid != '-1') {
+            $where_sql .= " and i.internshipfirm_id  = " . $firmid;
+        }if ($durationid != '-1') {
+            $where_sql .= " and i.duration_id  = " . $durationid;
+        }if ($specializationid != '-1') {
+            $where_sql .= " and ins.id_internshipspecialization  = " . $specializationid;
+        }
+        log_message('info', 'The Where query :::::::>>>' . $where_sql);
+
+        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,ind.name as duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
                 ->from('internship_opening i')
                 ->join('location l', 'l.id_location = i.location_id')
                 ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
+                ->join('internship_duration ind', 'ind.id_internshipduration = i.duration_id')
                 ->join('internshipspecialization_specialization inss', 'i.id_internshipopening = inss.internshipopening_id')
                 ->join('internship_specialization ins', 'ins.id_internshipspecialization = inss.specialization_id')
                 ->where($where_sql)
-                ->order_by('i.id_internshipopening', 'desc');
-/*
+                ->order_by('i.id_internshipopening', 'asc');
+
         $this->db->group_by("id");
         $this->db->limit($limit);
         $query = $this->db->get();
+        log_message('info', 'Ajax retrieval ::::::::::===>' . $this->db->last_query());
 
         $result = $query->result_array();
+
         $query->free_result();
         return $result;
- * 
- */return $where_sql;
     }
 
     function retrieve_internships($internshipid, $limit) {
@@ -458,22 +473,23 @@ class membermodel extends CI_Model {
         if ($internshipid == 0) {
             $where_sql = "i.id_internshipopening  <> 0";
         } else {
-            $where_sql = "i.id_internshipopening  < " . $internshipid;
+            $where_sql = "i.id_internshipopening  > " . $internshipid;
         }
 
-        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,i.duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
+        $this->db->select("i.id_internshipopening as id, i.numberofapplicants as slots,ind.name as duration,group_concat(ins.name) as specialization,concat(l.name,' - ',i.location) as location,inf.name as firm", false)
                 ->from('internship_opening i')
                 ->join('location l', 'l.id_location = i.location_id')
                 ->join('internship_firm inf', 'inf.id_internshipfirm = i.internshipfirm_id')
+                ->join('internship_duration ind', 'ind.id_internshipduration = i.duration_id')
                 ->join('internshipspecialization_specialization inss', 'i.id_internshipopening = inss.internshipopening_id')
                 ->join('internship_specialization ins', 'ins.id_internshipspecialization = inss.specialization_id')
                 ->where($where_sql)
-                ->order_by('i.id_internshipopening', 'desc');
+                ->order_by('i.id_internshipopening', 'asc');
 
         $this->db->group_by("id");
         $this->db->limit($limit);
         $query = $this->db->get();
-
+        log_message('info', 'Ajax retrieval ::::::::::===>' . $this->db->last_query());
         $result = $query->result_array();
         $query->free_result();
         return $result;

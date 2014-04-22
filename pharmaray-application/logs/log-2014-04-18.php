@@ -3094,3 +3094,262 @@ DEBUG - 2014-04-18 10:04:07 --> Encrypt Class Initialized
 INFO  - 2014-04-18 10:04:07 --> after session initialization................
 DEBUG - 2014-04-18 10:04:07 --> Final output sent to browser
 DEBUG - 2014-04-18 10:04:07 --> Total execution time: 0.0312
+DEBUG - 2014-04-18 22:23:12 --> Config Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Hooks Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Utf8 Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> UTF-8 Support Enabled
+DEBUG - 2014-04-18 22:23:12 --> URI Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Router Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Output Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Security Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Input Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-18 22:23:12 --> Language Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Loader Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: form_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: url_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: html_helper
+DEBUG - 2014-04-18 22:23:12 --> Database Driver Class Initialized
+ERROR - 2014-04-18 22:23:12 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Applications/XAMPP/xamppfiles/htdocs/Pharmarays/pharmaray-system/database/drivers/mysql/mysql_driver.php 91
+DEBUG - 2014-04-18 22:23:12 --> Session Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: string_helper
+DEBUG - 2014-04-18 22:23:12 --> A session cookie was not found.
+DEBUG - 2014-04-18 22:23:12 --> Session routines successfully run
+DEBUG - 2014-04-18 22:23:12 --> Form Validation Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Controller Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2014-04-18 22:23:12 --> Encrypt Class Initialized
+INFO  - 2014-04-18 22:23:12 --> after session initialization................
+DEBUG - 2014-04-18 22:23:12 --> Config Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Hooks Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Utf8 Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> UTF-8 Support Enabled
+DEBUG - 2014-04-18 22:23:12 --> URI Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Router Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> No URI present. Default controller set.
+DEBUG - 2014-04-18 22:23:12 --> Output Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Security Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Input Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-18 22:23:12 --> Language Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Loader Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: form_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: url_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: html_helper
+DEBUG - 2014-04-18 22:23:12 --> Database Driver Class Initialized
+ERROR - 2014-04-18 22:23:12 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Applications/XAMPP/xamppfiles/htdocs/Pharmarays/pharmaray-system/database/drivers/mysql/mysql_driver.php 91
+DEBUG - 2014-04-18 22:23:12 --> Session Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: string_helper
+DEBUG - 2014-04-18 22:23:12 --> A session cookie was not found.
+DEBUG - 2014-04-18 22:23:12 --> Session routines successfully run
+DEBUG - 2014-04-18 22:23:12 --> Form Validation Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Controller Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> File loaded: ../pharmaray-application/views/index.php
+DEBUG - 2014-04-18 22:23:12 --> Final output sent to browser
+DEBUG - 2014-04-18 22:23:12 --> Total execution time: 0.0200
+DEBUG - 2014-04-18 22:23:12 --> Config Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Hooks Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Utf8 Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> UTF-8 Support Enabled
+DEBUG - 2014-04-18 22:23:12 --> URI Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Router Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Output Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Security Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Input Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-18 22:23:12 --> Language Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Loader Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: form_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: url_helper
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: html_helper
+DEBUG - 2014-04-18 22:23:12 --> Database Driver Class Initialized
+ERROR - 2014-04-18 22:23:12 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Applications/XAMPP/xamppfiles/htdocs/Pharmarays/pharmaray-system/database/drivers/mysql/mysql_driver.php 91
+DEBUG - 2014-04-18 22:23:12 --> Session Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Helper loaded: string_helper
+DEBUG - 2014-04-18 22:23:12 --> Session routines successfully run
+DEBUG - 2014-04-18 22:23:12 --> Form Validation Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Controller Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2014-04-18 22:23:12 --> Encrypt Class Initialized
+INFO  - 2014-04-18 22:23:12 --> after session initialization................
+INFO  - 2014-04-18 22:23:12 --> after rays has been clicked.................
+INFO  - 2014-04-18 22:23:12 --> last article id is 0
+INFO  - 2014-04-18 22:23:12 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+INFO  - 2014-04-18 22:23:12 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#31
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#31
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#16
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#16
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#16
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#16
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#14
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#14
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#14
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#14
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#12
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#12
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#12
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#12
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#10
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#10
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#9
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#9
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#9
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#9
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#7
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#7
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#7
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#7
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#5
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>>>>>#5
+INFO  - 2014-04-18 22:23:12 --> 0 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:12 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:12 --> 1 the guest only data>> AFTER >>>#4
+DEBUG - 2014-04-18 22:23:12 --> File loaded: ../pharmaray-application/views/homepage.php
+DEBUG - 2014-04-18 22:23:12 --> Final output sent to browser
+DEBUG - 2014-04-18 22:23:12 --> Total execution time: 0.0807
+DEBUG - 2014-04-18 22:23:15 --> Config Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Hooks Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Utf8 Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> UTF-8 Support Enabled
+DEBUG - 2014-04-18 22:23:15 --> URI Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Router Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Output Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Security Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Input Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-18 22:23:15 --> Language Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Loader Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Helper loaded: form_helper
+DEBUG - 2014-04-18 22:23:15 --> Helper loaded: url_helper
+DEBUG - 2014-04-18 22:23:15 --> Helper loaded: html_helper
+DEBUG - 2014-04-18 22:23:15 --> Database Driver Class Initialized
+ERROR - 2014-04-18 22:23:15 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Applications/XAMPP/xamppfiles/htdocs/Pharmarays/pharmaray-system/database/drivers/mysql/mysql_driver.php 91
+DEBUG - 2014-04-18 22:23:15 --> Session Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Helper loaded: string_helper
+DEBUG - 2014-04-18 22:23:15 --> Session routines successfully run
+DEBUG - 2014-04-18 22:23:15 --> Form Validation Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Controller Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2014-04-18 22:23:15 --> Encrypt Class Initialized
+INFO  - 2014-04-18 22:23:15 --> after session initialization................
+INFO  - 2014-04-18 22:23:15 --> the form message==>
+INFO  - 2014-04-18 22:23:15 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+INFO  - 2014-04-18 22:23:15 --> after the retrieving session list.................//////////
+INFO  - 2014-04-18 22:23:15 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+DEBUG - 2014-04-18 22:23:15 --> File loaded: ../pharmaray-application/views/signin.php
+DEBUG - 2014-04-18 22:23:15 --> Final output sent to browser
+DEBUG - 2014-04-18 22:23:15 --> Total execution time: 0.0384
+DEBUG - 2014-04-18 22:23:18 --> Config Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Hooks Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Utf8 Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> UTF-8 Support Enabled
+DEBUG - 2014-04-18 22:23:18 --> URI Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Router Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Output Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Security Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Input Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-18 22:23:18 --> Language Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Loader Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Helper loaded: form_helper
+DEBUG - 2014-04-18 22:23:18 --> Helper loaded: url_helper
+DEBUG - 2014-04-18 22:23:18 --> Helper loaded: html_helper
+DEBUG - 2014-04-18 22:23:18 --> Database Driver Class Initialized
+ERROR - 2014-04-18 22:23:18 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Applications/XAMPP/xamppfiles/htdocs/Pharmarays/pharmaray-system/database/drivers/mysql/mysql_driver.php 91
+DEBUG - 2014-04-18 22:23:18 --> Session Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Helper loaded: string_helper
+DEBUG - 2014-04-18 22:23:18 --> Session routines successfully run
+DEBUG - 2014-04-18 22:23:18 --> Form Validation Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Controller Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Model Class Initialized
+DEBUG - 2014-04-18 22:23:18 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2014-04-18 22:23:18 --> Encrypt Class Initialized
+INFO  - 2014-04-18 22:23:18 --> after session initialization................
+INFO  - 2014-04-18 22:23:18 --> after rays has been clicked.................
+INFO  - 2014-04-18 22:23:18 --> last article id is 0
+INFO  - 2014-04-18 22:23:18 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+INFO  - 2014-04-18 22:23:18 --> The session id is ========>39c97d0b0cc826dd8b2639b5e5bbe60d and the member id is =======>
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#31
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#31
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#16
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#16
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#16
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#16
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#14
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#14
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#14
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#14
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#12
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#12
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#12
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#12
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#10
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#10
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#9
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#9
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#9
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#9
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#7
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#7
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#7
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#7
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#5
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>>>>>#5
+INFO  - 2014-04-18 22:23:18 --> 0 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#4
+INFO  - 2014-04-18 22:23:18 --> The key doesnt exist <<<<<<<<<<<<<<>>>>>>>>>>>>>
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>>>>>#4
+INFO  - 2014-04-18 22:23:18 --> 1 the guest only data>> AFTER >>>#4
+DEBUG - 2014-04-18 22:23:18 --> File loaded: ../pharmaray-application/views/homepage.php
+DEBUG - 2014-04-18 22:23:18 --> Final output sent to browser
+DEBUG - 2014-04-18 22:23:18 --> Total execution time: 0.0406

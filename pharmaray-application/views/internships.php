@@ -41,7 +41,9 @@
                                 echo $split_spec . '<br/>';
                             }
                             ?> </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button" id="apply_intern" name="apply_intern" /></div>
+                        <div><input type="submit" value=" Apply " class="snazzy_button apply_intern" id="applyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" />
+                        <img src="<?php echo base_url() ?>images/loading2.gif" id="apply_loading<?php echo $columnData['id'] ?>" class="flash"/>
+<input type="submit" value=" Undo Apply " class="snazzy_button unapply_intern" id="unapplyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" /></div>
 
                     </div>
                     <div style="border-top: 1px solid #2F96B4; clear:both"></div>
@@ -65,9 +67,9 @@
     $internship = '';
     $internship .= link_tag(base_url() . "css/internship.css");
     $autoSuggestCss .= link_tag(base_url() . "css/autoSuggest.css");
+    echo $internship;
     echo $css;
     echo $autoSuggestCss;
-    echo $internship;
     echo link_tag(base_url() . 'images/favicon.ico', 'shortcut icon', 'image/ico');
     ?>
     <link type="text/css" href="<?php echo base_url() ?>css/jquery-ui.css" rel="stylesheet">

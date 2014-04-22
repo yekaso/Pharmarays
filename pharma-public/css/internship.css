@@ -12,4 +12,12 @@ root {
 .internship_top{
    
 }
+.unapply_intern{
+    display:none;
+    
+}
+.unapply_intern:hover{
+   background-color:tomato !important;
+    color:white;
 
+}
