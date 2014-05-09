@@ -231,35 +231,50 @@ class user_authorization extends CI_Controller {
         $data['firms'] = $this->membermodel->retrieve_internshipfirms();
         $data['durations'] = $this->membermodel->retrieve_internshipdurations();
         $data['specializations'] = $this->membermodel->retrieve_internshipspecializations();
-        $data['internships'] = $this->membermodel->retrieve_internships($default_id, $limit);
+        log_message('info', 'INTERNSHIP LISTS =========::::::::::::::============= internships list has been clicked.................');
+        $data['internships'] = $this->membermodel->retrieve_internships($data['memberid'], $default_id, $limit);
         $this->load->view('internships', $data);
     }
 
     function retrieveinternship_byparams() {
         extract($_POST);
-        $result_pharm = $this->membermodel->retrieveinternship_byparams($lastinternship_id, $locationid, $firmid, $durationid, $specializationid, $limit);
+        $memberid = $this->session->userdata('memberid');
+        log_message('info', $memberid.' THE MEMBER ID ===========------------===============');
+        $result_pharm = $this->membermodel->retrieveinternship_byparams($memberid, $lastinternship_id, $locationid, $firmid, $durationid, $specializationid, $limit);
 //     log_message('info', println($result_article));
         echo json_encode($result_pharm);
     }
 
     function apply_internship() {
         extract($_POST);
+        sleep(5);
+
         $isactive = 'false';
         if ($status == 'active') {
             $isactive = 'true';
         }
         log_message('info', 'Inside create internship applications');
+        $verify_application = $this->membermodel->verify_internshipapplication($memberid, $internship_id);
 
-        if (isactive == 'true') {
+
+        if ($isactive == 'true') {
             $internshipapplication_data = array('internshipopening_id' => $internship_id,
                 'member_id' => $memberid,
                 'datecreated' => date("Y-m-d H:i:s"),
-                'isactive' => $isactive,
+                'isactive' => true,
                 'lastmodified' => date("Y-m-d H:i:s"),);
-            $this->membermodel->create_internshipapplications($internshipapplication_data);
+            $errors1 = array_filter($verify_application);
+            if (!empty($errors1)) {
+                $internshipapplication_data = array(
+                    'isactive' => true,
+                    'lastmodified' => date("Y-m-d H:i:s"),);
+                $this->membermodel->update_internshipapplications($internship_id, $memberid, $internshipapplication_data);
+            }
+            else
+                $this->membermodel->create_internshipapplications($internshipapplication_data);
         } else {
             $internshipapplication_data = array(
-                'isactive' => $isactive,
+                'isactive' => false,
                 'lastmodified' => date("Y-m-d H:i:s"),);
             $this->membermodel->update_internshipapplications($internship_id, $memberid, $internshipapplication_data);
         }

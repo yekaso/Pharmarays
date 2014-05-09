@@ -26,6 +26,12 @@
     function display_internships($internships) {
 
         foreach ($internships as $columnName => $columnData) {
+            $apply_status = "show_button";
+            $unapply_status = "hide_button";
+            if ($columnData['intappexist'] == 'true') {
+                $apply_status = "hide_button";
+                $unapply_status = "show_button";
+            }
             ?>
             <div class="row-fluid internship_title" id="<?php echo $columnData['id'] ?>">
                 <div class="span12">
@@ -41,10 +47,11 @@
                                 echo $split_spec . '<br/>';
                             }
                             ?> </div>
-                        <div><input type="submit" value=" Apply " class="snazzy_button apply_intern" id="applyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" />
-                        <img src="<?php echo base_url() ?>images/loading2.gif" id="apply_loading<?php echo $columnData['id'] ?>" class="flash"/>
-<input type="submit" value=" Undo Apply " class="snazzy_button unapply_intern" id="unapplyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" /></div>
-
+                        <div>
+                            <input type="submit" value=" Apply " class="snazzy_button apply_intern <?php echo $apply_status ?>" id="applyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" />
+                            <img src="<?php echo base_url() ?>images/loading2.gif" id="apply_loading<?php echo $columnData['id'] ?>" class="flash"/>
+                            <input type="submit" value=" Undo Apply " class="snazzy_button unapply_intern <?php echo $unapply_status ?>" id="unapplyintern_<?php echo $columnData['id'] ?>" name="<?php echo $columnData['id'] ?>" />
+                        </div>
                     </div>
                     <div style="border-top: 1px solid #2F96B4; clear:both"></div>
                 </div>
@@ -83,6 +90,7 @@
             <title>Pharmaray User</title>
     </head> 
     <body>
+        <input type="hidden" id="memberid" name="memberid" value="<?php echo $memberid; ?>"/>
         <input type="hidden" id="serverurl" name="serverurl" value="<?php echo base_url() ?>"/>
         <input type="hidden" id="empty_data" name="servempty_dataerurl" value="false"/>
         <?php

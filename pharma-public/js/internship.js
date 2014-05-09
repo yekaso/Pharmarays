@@ -1,28 +1,31 @@
 $(function() {
     $(".apply_intern").live("click", function() {
         //  alert("Apply >>>" +"#applyintern_" + $(this).attr('name'));
-        $("#applyintern_" + internshipId).hide();
-        $("#apply_loading" + internshipId).show();
+
         var internshipId = $(this).attr('name');
         var memberid = $("#memberid").val();
         var status = "active";
+        $("#applyintern_" + internshipId).hide();
+        $("#apply_loading" + internshipId).show();
         $.ajax({/* post the values using AJAX */
             type: "POST",
             url: serverurl + "sys_admin/user_authorization/apply_internship",
             data: {"internship_id": internshipId, "memberid": memberid, "status": status},
-            async: false,
             cache: false,
             success: function(data) {
                 if (data.length > 0) {
-//    alert(data);
-                    data = $.parseJSON(data);
-                    //  alert(data);
+                    alert(data);
                     if (typeof data[0] !== 'undefined' && data.length > 0) {
+                        data = $.parseJSON(data);
+                        //  alert(data); 
+                        $("#apply_loading" + internshipId).hide();
 
-                        $("#apply_loading" + $(this).attr('name')).hide();
-                        $("#unapplyintern_" + $(this).attr('name')).show();
+
+
+                        $("#unapplyintern_" + internshipId).show();
                         //             alert(posts)
                     }
+
                 }
             }
         });
@@ -31,26 +34,26 @@ $(function() {
     });
     $(".unapply_intern").live("click", function() {
         //   alert("Unapply");
-        $("#applyintern_" + $(this).attr('name')).show();
-        $("#apply_loading" + $(this).attr('name')).show();
         var internshipId = $(this).attr('name');
         var memberid = $("#memberid").val();
         var status = "inactive";
+        $("#unapplyintern_" + internshipId).hide();
+        $("#apply_loading" + internshipId).show();
+
         $.ajax({/* post the values using AJAX */
             type: "POST",
             url: serverurl + "sys_admin/user_authorization/apply_internship",
             data: {"internship_id": internshipId, "memberid": memberid, "status": status},
-            async: false,
             cache: false,
             success: function(data) {
                 if (data.length > 0) {
-//    alert(data);
-                    data = $.parseJSON(data);
-                    //  alert(data);
+                    alert(data);
                     if (typeof data[0] !== 'undefined' && data.length > 0) {
+                        data = $.parseJSON(data);
+                        //  alert(data); 
+                        $("#apply_loading" + internshipId).hide();
 
-                        $("#apply_loading" + $(this).attr('name')).hide();
-                        $("#unapplyintern_" + $(this).attr('name')).hide();
+                        $("#applyintern_" + internshipId).show();
                         //             alert(posts)
                     }
                 }
@@ -72,7 +75,7 @@ $(function() {
         $.blockUI({message: '<h5><img src="' + $("#serverurl").val() + 'images/loading_icon.gif" /> Please wait...</h5>'});
         $("#horizontal_pos").val('0');
         $("#vertical_pos").val('0');
-        var limit = 5;
+        var limit = 10;
         $.ajax({/* post the values using AJAX */
             type: "POST",
             url: serverurl + "sys_admin/user_authorization/retrieveinternship_byparams",
@@ -207,19 +210,7 @@ $(function() {
     $("#empty_data").val('false');
     var serverurl = $("#serverurl").val();
     var nextrequest = 'true';
-    var internship_template = '<div class="row-fluid internship_title" id="">' +
-            '<div class="span12">' +
-            '<div class="internship-row">' +
-            '<div id="firm_name"></div>' +
-            '<div id="location_name"></div>' +
-            '<div id="slots_available"></div>' +
-            '<div id="duration"></div>' +
-            '<div id="specialization"></div>' +
-            '<div><input type="submit" value=" Apply " class="snazzy_button" id="apply_intern" name="apply_intern" /></div>' +
-            '</div>' +
-            '<div style="border-top: 1px solid #2F96B4; clear:both"></div>' +
-            '</div>' +
-            '</div>';
+
     function formatSpecialization(specializationList) {
         var specialization = '';
 
@@ -241,7 +232,31 @@ $(function() {
         var internship_id = '';
         var specializtionList = '';
         // alert("inside display internship centers"+posts);
+        var apply_status = "show_button";
+        var unapply_status = "hide_button";
         for (post in posts) {
+
+            if (posts[post].intappexist === 'true') {
+                apply_status = "hide_button";
+                unapply_status = "show_button";
+            }
+            var internship_template = '<div class="row-fluid internship_title" id="">' +
+                    '<div class="span12">' +
+                    '<div class="internship-row">' +
+                    '<div id="firm_name"></div>' +
+                    '<div id="location_name"></div>' +
+                    '<div id="slots_available"></div>' +
+                    '<div id="duration"></div>' +
+                    '<div id="specialization"></div>' +
+                    '<div><input type="submit" value=" Apply " class="snazzy_button apply_intern ' + apply_status + '" id="" name="" />' +
+                    '<img src="' + serverurl + 'images/loading2.gif" id="" class="flash"/>' +
+                    '<input type="submit" value=" Undo Apply " class="snazzy_button unapply_intern ' + unapply_status + '" id="" name="" />' +
+                    ' </div>' +
+                    '</div>' +
+                    '<div style="border-top: 1px solid #2F96B4; clear:both"></div>' +
+                    '</div>' +
+                    '</div>';
+
             var $post = $(internship_template).clone();
             internship_id = posts[post].id;
             $post.attr('id', internship_id);
@@ -250,6 +265,11 @@ $(function() {
             $post.find('#slots_available').html(posts[post].slots + ' Slots Available');
             $post.find('#duration').html(posts[post].duration + ' Months'); //  
             $post.find('#specialization').html(formatSpecialization(posts[post].specialization));
+            $post.find('.apply_intern').attr('id', 'applyintern_' + internship_id);
+            $post.find('.unapply_intern').attr('id', 'unapplyintern_' + internship_id);
+            $post.find('.flash').attr('id', 'apply_loading' + internship_id);
+            $post.find('.apply_intern').attr('name', internship_id);
+            $post.find('.unapply_intern').attr('name', internship_id);
             $(".internship_list:last").append($post);
             //    alert($(".internship_list:last").val());
         }
@@ -266,7 +286,7 @@ $(function() {
             var duration_id = $("#duration_select").val();
             var firm_id = $("#firm_select").val();
             var location_id = $("#location_select").val();
-            // alert("apex!!!");
+             // alert("apex!!!");
             if (empty_data == 'false') {
                 $("#loader").html("<img src='" + serverurl + "images/loading_icon.gif' alt='loading'/>"); /* displa the loading content */
                 $("#loader").attr('style', 'display:block'); // var LastDiv = $(".title_body:last"); /* get the last div of the dynamic content using ":last" */

@@ -6,15 +6,15 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
 .internship_top{
    
 }
-.unapply_intern{
+.hide_button{
     display:none;
     
+}
+.show_button{
+    display:block;
 }
 .unapply_intern:hover{
    background-color:tomato !important;
