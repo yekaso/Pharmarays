@@ -11,6 +11,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.reveal.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/rays.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/util.js"></script>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pharmaray</title>
