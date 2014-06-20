@@ -1,0 +1,55 @@
+/* ===============================================================
+ *    Begin styles for ajax notifications
+ * ================================================================ */
+
+.message {
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+    padding: 15px;
+    top:-30px;
+    position: fixed;
+    width: 40%;
+    margin: 0 30%;
+    _position: absolute; /* IE6 only */
+    z-index: 55;
+}
+
+.info {
+    background-color: #4ea5cd;
+    border-color: #3b8eb5;
+    height: auto;
+}
+
+.error {
+    background-color: #de4343;
+    border-color: #c43d3d;
+    height: auto;
+}
+
+.warn {
+    background-color: #eaaf51;
+    border-color: #d99a36;
+    height: auto;
+}
+
+.success {
+    background-color: #61b832;
+    border-color: #55a12c;
+    height: auto;
+}
+
+.message h3 {
+    margin: 0 0 5px 0;
+}
+
+.message p {
+    margin: 0;
+}
+button{
+    margin-bottom: 20px;
+}
+
+/* ======================================
+ *    End styles for ajax notifications
+ * ====================================== */

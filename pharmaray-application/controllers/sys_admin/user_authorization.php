@@ -372,7 +372,7 @@ class user_authorization extends CI_Controller {
 
     public function redirecttorays($message = '') {
         $default_id = 0;
-        $limit = 20;
+        $limit = 7;
         $data = '';
         log_message('info', 'after rays has been clicked.................');
         $data['news'] = $this->membermodel->retrieve_articles_bylimit($default_id, $limit);
