@@ -42,6 +42,18 @@ function createArticleSearchResult(articleid, user_id, serverurl) {
     });
 
 }
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField) == false) 
+        {
+         //   alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
 function do_modal(serverurl, article_id) {
     $("#dialog-modal").dialog({
         /* create: function(event, ui) {

@@ -297,7 +297,6 @@ a:hover {
 	margin-top:24px;
 }
 
-
 .healthtip_container h3{ font-size:22px; color:#336699; text-align:left; float:left; border-bottom:1px solid #eeeeee; padding:10px; width:97%; text-transform:uppercase; margin-top:0px;}
 .healthtip{width:700px; height:750px; padding:0px; font-size:12px; color:#666; text-align:left; float:left; margin-bottom:10px; border-bottom:2px dotted #eeeded; overflow: auto;  }
 .categories{width:700px; height:370px; padding:0px; font-size:12px; color:#666; text-align:left; float:left;  }
@@ -1273,15 +1272,3 @@ a:hover {
 
 
 
-.register_topslide{width:570px; height:590px; padding:0px; font-size:20px; color:#fff; text-align:left; float:left; background:#fff; margin-right:52px; }
-.register_topright_form{
-	margin-top:25px;
-	width:400px;
-	height:590px;
-	padding:0px;
-	font-size:20px;
-	color:#fff;
-	text-align:left;
-	float:left;
-	background:#58b058;
-}

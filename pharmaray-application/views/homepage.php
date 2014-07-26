@@ -255,6 +255,7 @@
             <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.reveal.js"></script>
             <script type="text/javascript" src="<?php echo base_url() ?>js/rays.js"></script>
             <script type="text/javascript" src="<?php echo base_url() ?>js/util.js"></script>
+            <script type="text/javascript" src="<?php echo base_url() ?>js/guestpage.js"></script>
             <script type="text/javascript" src="<?php echo base_url() ?>js/coin-slider.js"></script>
             <script src="<?php echo base_url() ?>SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
             <link rel="stylesheet" href="<?php echo base_url() ?>css/coin-slider-styles.css" type="text/css" />
@@ -367,10 +368,10 @@
 
                     <div  id="nav">
                         <ul>
-                            <li><a href="#" class="block_content">News & Articles</a></li>
-                            <li><a href="#">Internships</a></li>
-                            <li><a href="#"> Community Pharmacy</a></li>
-                            <li><a href="#">Drug Reference</a></li>
+                            <li><a href="#" class="block_content guest_button">News & Articles</a></li>
+                            <li><a href="#" class="guest_button" name="communitypharmacy">Internships</a></li>
+                            <li><a href="#" class="guest_button" name="communitypharmacy"> Community Pharmacy</a></li>
+                            <li><a href="#" class="guest_button" name="onlinepharmacy">Drug Reference</a></li>
 
                         </ul>
                     </div>
@@ -381,10 +382,10 @@
 
                     <div class="header-right">
                         <div class="header-register">
-                            <div class="header-check-btn"><a class="checkout_button" href="#">Log in</a></div>
+                            <div class="header-check-btn guest_button" name="login"><a class="checkout_button" href="#">Log in</a></div>
                         </div>
                         <div class="header-checkout">
-                            <div class="header-check-btn"><a class="checkout_button" href="#">Register</a></div></div>
+                            <div class="header-check-btn guest_button" name="register"><a class="checkout_button" href="#">Register</a></div></div>
                     </div>
 
 
@@ -405,7 +406,7 @@
 
                     <div class="topsearch">
                         <form id="form1" name="form1" method="post" action="">
-                            <input name="search" type="text" id="search" value="search Pharmarays" />
+                            <input name="search" type="text" id="search" placeholder="search Pharmarays" />
                             <input type="submit" name="topsubmit" id="topsubmit" value="Go" />
                         </form>
                     </div>
@@ -573,8 +574,8 @@
 
                         </div>
 
-
-
+                        <p><div id='articles_loading' style="display:none; float:right"><img src='<?php echo base_url() ?>images/loading_icon.gif' alt='loading'/> Loading</div></p>
+                        
 
 
                         <div class="categories">
@@ -624,12 +625,12 @@
                             <div class="newsletter_inner">
                                 <p>Get your monthly health <br />
                                     tips and news updates </p>
-                                <form id="form2" name="form2" method="post" action="">
+                                
+                                    <input name="newsubscriber" type="email" id="newsubscriber" placeholder="Enter your e-mail" size="27" />
+                                    <input type="button" class="buynowButton newsletter_signup" name="submit" id="submit" value="SIGN UP" />
 
-                                    <input name="Search2" type="text" id="Search2" value="Enter your e-mail" size="27" />
-                                    <input type="submit" class="buynowButton" name="submit" id="submit" value="SIGN UP" />
-
-                                </form>
+                                <p><div id='newsletter_loading' style="display:none"><img src='<?php echo base_url() ?>images/loading_icon.gif' alt='loading'/> Signing up</div></p>
+                                <p><div id='newslettersub_msg'></div></p>
                             </div>
                         </div>
                         <a href="www.jobberman.com"><img src="<?php echo base_url() ?>images/images/career_23.jpg" alt="career" width="300" height="85" align="texttop" /></a>

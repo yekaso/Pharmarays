@@ -13,6 +13,10 @@ $(".guest_button").live("click", function() {
         pageurl = "reloadwelcomepage";
     } else if (clickedItem == 'communitypharmacy') {
         pageurl = "communitypharmacy";
+    } else if (clickedItem == 'login') {
+        pageurl = "redirecttologin";
+    } else if (clickedItem == 'register') {
+        pageurl = "redirecttoregister";
     }
     window.location.assign(serverurl + "sys_admin/user_authorization/" + pageurl);
 });

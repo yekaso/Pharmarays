@@ -239,7 +239,7 @@ class user_authorization extends CI_Controller {
     function retrieveinternship_byparams() {
         extract($_POST);
         $memberid = $this->session->userdata('memberid');
-        log_message('info', $memberid.' THE MEMBER ID ===========------------===============');
+        log_message('info', $memberid . ' THE MEMBER ID ===========------------===============');
         $result_pharm = $this->membermodel->retrieveinternship_byparams($memberid, $lastinternship_id, $locationid, $firmid, $durationid, $specializationid, $limit);
 //     log_message('info', println($result_article));
         echo json_encode($result_pharm);
@@ -364,10 +364,36 @@ class user_authorization extends CI_Controller {
         $this->load->view('signin');
     }
 
+    public function redirecttologin() {
+        $this->load->view('login');
+    }
+
+    public function redirecttoregister() {
+        $this->load->view('signin');
+    }
+
     public function index($message) {
 //     $data['message'] = $message;
         redirect($message);
 //$this->load->view('index', $data);
+    }
+
+    public function newsletter_subscription() {
+        extract($_POST);
+        log_message('info', 'Inside newsletter subscription==========' . $emailaddress);
+        if (!$this->membermodel->retrievenewslettersubscription_byemail($emailaddress)) {
+            $newsletter_data = array('emailaddress' => trim($emailaddress),
+                'timecreated' => date("Y-m-d H:i:s"),
+                'timechanged' => '',
+                'status' => 1);
+            $newsid = $this->membermodel->create_newsletter($newsletter_data);
+            log_message('info', 'After creating newsletter subscription>>>>>>>' . $newsid);
+
+            $result_article['status'] = 'success';
+        } else {
+            $result_article['status'] = 'failure';
+        }
+        echo json_encode($result_article);
     }
 
     public function redirecttorays($message = '') {

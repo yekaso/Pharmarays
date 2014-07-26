@@ -20,7 +20,7 @@ $(function() {
             + '<div class="productboxcat_inner_author"></div>'
             + '<div class="productboxcat_inner_date"></div></div>';
     $('.private-product').live('click', function(e) {
-        $('#modal #content .red').attr("href", "#" + $(this).attr("id"));// Button which will activate our modal
+        $('#modal #content .red').attr("href", "#" + $(this).attr("id")); // Button which will activate our modal
         $('#modal').reveal({// The item which will be opened with reveal
             animation: 'fade', // fade, fadeAndPop, none
             animationspeed: 600, // how fast animtions are
@@ -32,6 +32,56 @@ $(function() {
     $(".article_title").live("click", function(e) {
         var article_id = $(this).attr("id");
         do_modal(serverurl, article_id);
+    });
+    $(".newsletter_signup").live("click", function(e) {
+        var newsubscriber = $("#newsubscriber").val();
+        $("#newslettersub_msg").html('');
+        var button_clicked = $(this);
+        if (validateEmail(newsubscriber)) {
+            button_clicked.hide();
+            $("#newsletter_loading").show();
+            $.ajax({
+                type: "POST",
+                url: serverurl + "sys_admin/user_authorization/newsletter_subscription",
+                data: {"emailaddress": newsubscriber},
+                async: false,
+                cache: false,
+                success: function(data) {
+                    var status_msg = '';
+                    //   alert(data);
+                    if (data.length > 0) {
+                        data = $.parseJSON(data);
+                        //   alert("formatted data >>>>" + data);
+                        if (typeof data.status !== 'undefined') {
+                            if (data.status == 'success') {
+                                status_msg = 'Subscribed successfully. Will recieve subsequent newsletters'
+                                //       alert(status_msg);
+                            } else {
+                                status_msg = newsubscriber + ' has already subscribed to newsletters';
+                            }
+                        } else {
+                            status_msg = 'Unknown error occured';
+                            //     alert(status_msg);
+                        }
+                    } else {
+                        status_msg = 'This is currently unavailable.';
+                        //     alert(status_msg);
+                    }
+//     window.setTimeout(function() {
+//   $("#loader").html("");
+//  $("#loader").attr('style', 'display:none');
+                    $("#newsletter_loading").hide();
+                    button_clicked.show();
+                    $("#newslettersub_msg").html(status_msg);
+                    $("#newsubscriber").val('');
+                    //       }, 4000);
+                }
+
+            });
+        } else {
+            var status_msg = 'Enter a valid email address';
+            $("#newslettersub_msg").html(status_msg);
+        }
     });
     function display_rays(posts) {
         var count = $("#count").val();
@@ -47,19 +97,16 @@ $(function() {
                 count = 1;
             }
             var data_type = '';
-
             var $post = $(newlettertemplate).clone();
             newsletter_id = posts[post].id;
             // if (data_type == 'news_title') {
             //      alert("before typeof");
-          //    alert("this...." + posts[post].newsletter_description);
+            //    alert("this...." + posts[post].newsletter_description);
             $post.find('.productboxcat_inner_text h3').html(word_trim(posts[post].newsletter_title, 42, true));
             $post.find('.productboxcat_inner_text p').html(word_trim(posts[post].newsletter_description, 347, true));
             data_type = 'newsletter_title';
-             //     alert('after type of');
+            //     alert('after type of');
             full_class_name = data_type;
-
-
             //  news_reference = serverurl + 'sys_admin/user_authorization/newslist?news_id=' + newsletter_id + '&article_type=' + data_type;
 
             if (posts[post].guestonly == 0) {
@@ -76,7 +123,7 @@ $(function() {
             //  $post.attr('style', "position: absolute;" + " top: " + vertical_pos + "px; left: " + horizontal_pos + "px;");
 
             $post.find('.productboxcat_inner_author').html(word_trim(posts[post].author_name, 30));
-            $post.find('.productboxcat_inner_date').html(posts[post].time_created);//  
+            $post.find('.productboxcat_inner_date').html(posts[post].time_created); //  
             $(".title_body:last").append($post);
             /*  if (horizontal_pos >= 904) {
              vertical_pos += 430;
@@ -97,28 +144,29 @@ $(function() {
         //   if ($(".healthtip").scrollTop() + 1 >= $(".healthtip_wrapper").height() - WindowHeight) {
         var scrollHeight = document.getElementById("healthtip_wrapper").scrollHeight
         if ($(".healthtip").scrollTop() + 1 >= (scrollHeight - WindowHeight)) {
-            //     alert("Hello");
-          //  alert($(".healthtip").scrollTop() + " Scroll top and " + document.getElementById("healthtip_wrapper").scrollHeight + " and document height >>" + $(document).height() + " window height>>" + $(window).height());
+//     alert("Hello");
+//  alert($(".healthtip").scrollTop() + " Scroll top and " + document.getElementById("healthtip_wrapper").scrollHeight + " and document height >>" + $(document).height() + " window height>>" + $(window).height());
 
-            //   var swatch_size = $('.product').size();
-            //   var remainder = swatch_size % 5;
-            //   var horizontal_pos = remainder * 230;
-            //  $("#horizontal_pos").val(horizontal_pos);
-            // var vertical_pos = ((swatch_size - remainder) / 5) * 430;
-            //  $("#vertical_pos").val(vertical_pos);
-            //        alert('scroll vertical '+vertical_pos+'>>>horizontal '+horizontal_pos);/* check is that user scrolls down to the bottom of the page */
+//   var swatch_size = $('.product').size();
+//   var remainder = swatch_size % 5;
+//   var horizontal_pos = remainder * 230;
+//  $("#horizontal_pos").val(horizontal_pos);
+// var vertical_pos = ((swatch_size - remainder) / 5) * 430;
+//  $("#vertical_pos").val(vertical_pos);
+//        alert('scroll vertical '+vertical_pos+'>>>horizontal '+horizontal_pos);/* check is that user scrolls down to the bottom of the page */
             var empty_data = $("#empty_data").val();
             if (empty_data == 'false') {
+                $("#articles_loading").show();
                 $("#loader").html("<img src='" + serverurl + "images/loading_icon.gif' alt='loading'/>"); /* displa the loading content */
-                $("#loader").attr('style', 'display:block');// var LastDiv = $(".title_body:last"); /* get the last div of the dynamic content using ":last" */
+                $("#loader").attr('style', 'display:block'); // var LastDiv = $(".title_body:last"); /* get the last div of the dynamic content using ":last" */
                 var lastnews_id = $(".news_title:last").attr("id");
                 var lastnewsletter_id = $(".newsletter_title:last").attr("id");
-              //  alert(lastnews_id + ' <<<<<>>>>>> ' + lastnewsletter_id);
+                //  alert(lastnews_id + ' <<<<<>>>>>> ' + lastnewsletter_id);
                 /* get the id of the last div */
                 // var ValueToPass = "lastid=" + LastId; /* create a variable that containing the url parameters which want to post to getdata.php file */
                 var limit = 3;
                 //limit of the number of news/news letter retrieved.
-               // alert(nextrequest);
+                // alert(nextrequest);
                 if (nextrequest == 'true') {
                     nextrequest = 'false';
                     var lastnews_id = 0;
@@ -129,8 +177,8 @@ $(function() {
                     if (typeof $(".newsletter_title:last").attr("id") !== 'undefined') {
                         lastnewsletter_id = $(".newsletter_title:last").attr("id");
                     }
-                 //   alert(lastnews_id + ' and ' + lastnewsletter_id);
-                  //  alert('free to execute');
+//   alert(lastnews_id + ' and ' + lastnewsletter_id);
+//  alert('free to execute');
                     $.ajax({/* post the values using AJAX */
                         type: "POST",
                         url: serverurl + "sys_admin/user_authorization/retrieve_rays",
@@ -138,18 +186,18 @@ $(function() {
                         async: false,
                         cache: false,
                         success: function(data) {
-                            //    window.setTimeout(function() {
-                            //    $("#loader").html("");
-                            //    }, 4000);
-                            // alert(data);
+//    window.setTimeout(function() {
+//    $("#loader").html("");
+//    }, 4000);
+// alert(data);
                             if (data.length > 0) {
                                 data = $.parseJSON(data);
                                 if (typeof data.news[0] !== 'undefined' && data.news.length > 2) {
-                                    //   LastDiv.after(html); /* get the out put of the getdata.php file and append it after the last div using after(), for each scroll this function will execute and display the results */
-                                    //$("#loader").html("");
+//   LastDiv.after(html); /* get the out put of the getdata.php file and append it after the last div using after(), for each scroll this function will execute and display the results */
+//$("#loader").html("");
 
                                     var posts = data.news;
-                             //       alert(posts);
+                                    //       alert(posts);
                                     posts = $.parseJSON(posts);
                                     //  var data_type = 'news_title';
                                     display_rays(posts);
@@ -167,9 +215,10 @@ $(function() {
                                     $("#empty_data").val('true');
                                 }
                             }
-                            //     window.setTimeout(function() {
-                            //   $("#loader").html("");
-                            $("#loader").attr('style', 'display:none');
+//   window.setTimeout(function() {
+//   $("#loader").html("");
+//  $("#loader").attr('style', 'display:none');
+                            $("#articles_loading").hide();
                             //       }, 4000);
 
                         }

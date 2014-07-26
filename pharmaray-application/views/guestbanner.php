@@ -19,8 +19,8 @@
             </li>
         </ul></div>
     <div id="otherpages">
-        <input class="bordered guest_button" name="signin"type="button" value=" Sign In "/>
-        <input class="bordered guest_button" name="rays" type="button" value=" Rays "/>
+        <input class="bordered guest_button" name="rays" type="button" value=" Home "/>
+        <input class="bordered guest_button" name="signin"type="button" value=" Register "/>
         <input class="bordered guest_button" name="onlinepharmacy" type="button" value=" Online Pharmacy "/>
         <input class="bordered guest_button" name="communitypharmacy" type="button" value=" Community Pharmacy "/>
     </div>

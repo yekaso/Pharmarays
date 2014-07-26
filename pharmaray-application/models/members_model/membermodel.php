@@ -991,6 +991,15 @@ class membermodel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function create_newsletter($newsletter_data) {
+        log_message('info', 'before inserting into newsletter.................');
+        $this->db->insert('newsletter_subscription', $newsletter_data);
+        log_message('info', 'after inserting into newsletter.................' . $this->db->insert_id());
+
+        log_message('info', $this->db->last_query());
+        return $this->db->insert_id();
+    }
+
     function create_logindetailrole($logindetailrole_data) {
         log_message('info', 'before inserting into login details role.................');
         $result = $this->db->insert('logindetails_userrole', $logindetailrole_data);
@@ -1151,6 +1160,21 @@ class membermodel extends CI_Model {
                 ->join('location l', 'p.locationid_location = l.id_location')
                 ->where(array(
                     'p.id_pharmacy' => "$pharmacyid"
+                        )
+        );
+        $query = $this->db->get();
+        log_message('info', $this->db->last_query());
+        $result = $query->first_row('array');
+        $query->free_result();
+        return $result;
+    }
+    function retrievenewslettersubscription_byemail($emailaddress) {
+        log_message('info', 'email address retrieve is >>>>>>>>>>>>>>>>>>>>' . $emailaddress);
+
+        $this->db->select("nsl.status", false)
+                ->from('newsletter_subscription nsl')
+                 ->where(array(
+                    'nsl.emailaddress' => "$emailaddress"
                         )
         );
         $query = $this->db->get();
